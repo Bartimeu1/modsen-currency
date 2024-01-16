@@ -28,11 +28,6 @@ const commonConfig: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: 'ts-loader',
-      },
-      {
         test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],

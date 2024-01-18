@@ -2,7 +2,7 @@ import bannerBg from '@assets/images/bannerBg.png';
 import styled from 'styled-components';
 
 interface IStyledBanner {
-  isDarkTheme: boolean;
+  $isDarkTheme: boolean;
 }
 
 export const StyledBanner = styled.section<IStyledBanner>`
@@ -16,8 +16,10 @@ export const StyledBanner = styled.section<IStyledBanner>`
   &::before {
     position: absolute;
     content: '';
-    background: ${({ isDarkTheme }) =>
-      isDarkTheme ? `url(${bannerBg})` : 'none'};
+    background: ${({ $isDarkTheme }) =>
+      $isDarkTheme
+        ? `url(${bannerBg})`
+        : `radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)`};
     background-repeat: no-repeat;
     background-size: cover;
     left: 50%;

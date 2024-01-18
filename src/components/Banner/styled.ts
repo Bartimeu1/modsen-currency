@@ -8,7 +8,9 @@ interface IStyledBanner {
 export const StyledBanner = styled.section<IStyledBanner>`
   padding: 45px 0 60px 0;
   margin-top: 31px;
+  width: 100%;
   display: flex;
+  justify-content: start;
   position: relative;
 
   &::before {
@@ -31,6 +33,7 @@ export const BannerContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+  max-width: 750px;
 `;
 
 export const BannerTitle = styled.h1`

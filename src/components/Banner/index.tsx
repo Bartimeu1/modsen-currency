@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logoIcon from '@assets/images/bannerLogo.png';
-import { bannerSubtitleText } from '@root/constants/text';
+import { appTitleText,bannerSubtitleText } from '@constants/text';
 import { useAppSelector } from '@root/utils/hooks';
 
 import {
@@ -18,10 +18,7 @@ function Banner() {
   return (
     <StyledBanner isDarkTheme={currentTheme === 'dark'}>
       <BannerContent>
-        <BannerTitle>
-          Modsen Currency <br />
-          Tracker
-        </BannerTitle>
+        <BannerTitle>{appTitleText}</BannerTitle>
         <BannerSubtitle>{bannerSubtitleText}</BannerSubtitle>
       </BannerContent>
       <BannerImage src={logoIcon} alt="bannerLogo" />

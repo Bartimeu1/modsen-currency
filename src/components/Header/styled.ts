@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.nav`
+export const StyledHeader = styled.header`
   padding-top: ${({ theme }) => theme.spaces.md};
   display: flex;
   align-items: center;

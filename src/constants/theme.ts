@@ -1,19 +1,19 @@
 const lightTheme = {
-  background: '#030304',
-  border: '#474747',
-  text: '#fff',
-  toggleButton: '#fff',
-  inputBg: '#1B2028',
-  target: '#00CE2C',
-  title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
-} as const;
-
-const darkTheme = {
   background: '#f5f5f5',
   border: '#030304',
   text: '#000',
   toggleButton: '#000',
   inputBg: '#fff',
+  target: '#00CE2C',
+  title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
+} as const;
+
+const darkTheme = {
+  background: '#030304',
+  border: '#474747',
+  text: '#fff',
+  toggleButton: '#fff',
+  inputBg: '#1B2028',
   target: '#00CE2C',
   title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
 } as const;

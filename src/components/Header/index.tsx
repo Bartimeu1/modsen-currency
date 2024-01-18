@@ -1,11 +1,11 @@
 import React from 'react';
+
+import logoIcon from '@assets/images/navLogo.png';
+import Navbar from '@components/Navbar';
 import { useAppDispatch } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
 
-import { StyledHeader, LogoImage, ToggleButton } from './styled';
-import Navbar from '@components/Navbar';
-
-import logoIcon from '@assets/images/navLogo.png';
+import { LogoImage, StyledHeader, ToggleButton } from './styled';
 
 function Header() {
   const dispatch = useAppDispatch();

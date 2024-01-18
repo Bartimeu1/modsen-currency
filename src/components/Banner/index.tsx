@@ -1,15 +1,15 @@
 import React from 'react';
-import { useAppSelector } from '@root/utils/hooks';
 
 import logoIcon from '@assets/images/bannerLogo.png';
 import { bannerSubtitleText } from '@root/constants/text';
+import { useAppSelector } from '@root/utils/hooks';
 
 import {
-  StyledBanner,
-  BannerImage,
   BannerContent,
-  BannerTitle,
+  BannerImage,
   BannerSubtitle,
+  BannerTitle,
+  StyledBanner,
 } from './styled';
 
 function Banner() {

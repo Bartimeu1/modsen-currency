@@ -1,7 +1,7 @@
-import { Configuration } from 'webpack';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import { Configuration } from 'webpack';
 
 const commonConfig: Configuration = {
   entry: './src/index.tsx',

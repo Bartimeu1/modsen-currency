@@ -2,7 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 
 import { navbarLinks } from '@root/constants/common';
-import { StyledNavbar, NavbarLink } from './styled';
+
+import { NavbarLink,StyledNavbar } from './styled';
 
 function Navbar() {
   const [currentPageId, setCurrentPageId] = useState(1);

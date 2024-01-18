@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Container } from '@root/GlobalStyle';
-import Header from '@components/Header';
 import Banner from '@components/Banner';
+import Header from '@components/Header';
+import { Container } from '@root/GlobalStyle';
 
 function Layout() {
   return (

@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import bannerBg from '@assets/images/bannerBg.png';
+import styled from 'styled-components';
 
 interface IStyledBanner {
   isDarkTheme: boolean;

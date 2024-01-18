@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     height: 100%;
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   *, *:before, *:after {

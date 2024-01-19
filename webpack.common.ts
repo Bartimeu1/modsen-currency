@@ -10,7 +10,7 @@ const commonConfig: Configuration = {
       template: './public/index.html',
     }),
     new Dotenv({
-      path: './.env',
+      path: path.resolve(process.cwd(), '.env'),
       systemvars: true,
     }),
   ],

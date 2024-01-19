@@ -1,13 +1,13 @@
 import React from 'react';
 
 import logoImage from '@assets/images/navLogo.png';
+import FooterNavigation from '@components/FooterNavigation';
 import {
   appTitleText,
   footerInfoText,
   footerLabelText,
 } from '@root/constants/text';
 
-import FooterNavigation from '@components/FooterNavigation';
 import {
   Content,
   ContentText,

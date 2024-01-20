@@ -2,7 +2,7 @@ import React from 'react';
 
 import ConverterList from '@components/ConverterList';
 import UpdateInfo from '@components/UpdateInfo';
-import { requestedCurrencies } from '@constants/currency';
+import { requestedCurrencies, baseCurrency } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 
 import { StyledConverter } from './styled';
@@ -10,6 +10,7 @@ import { StyledConverter } from './styled';
 function Converter() {
   const { data: currencyResponse } = useGetCurrencyRatesQuery({
     currencies: requestedCurrencies,
+    base_currency: baseCurrency,
   });
 
   return (

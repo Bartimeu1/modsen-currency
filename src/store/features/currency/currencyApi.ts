@@ -11,7 +11,10 @@ export const currencyApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getCurrencyRates: builder.query<ICurrencyResponse, { currencies: string }>({
+    getCurrencyRates: builder.query<
+      ICurrencyResponse,
+      { currencies: string; base_currency: string }
+    >({
       query: (credentials) => ({
         url: '/latest',
         method: 'GET',

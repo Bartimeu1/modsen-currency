@@ -8,7 +8,7 @@ interface IStyledBanner {
 export const StyledBanner = styled.section<IStyledBanner>`
   padding: 45px 0 60px 0;
   margin-top: 31px;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: start;
   position: relative;

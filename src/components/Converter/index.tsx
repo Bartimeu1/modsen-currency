@@ -2,7 +2,7 @@ import React from 'react';
 
 import ConverterList from '@components/ConverterList';
 import UpdateInfo from '@components/UpdateInfo';
-import { requestedCurrencies, baseCurrency } from '@constants/currency';
+import { baseCurrency,requestedCurrencies } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 
 import { StyledConverter } from './styled';

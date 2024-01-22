@@ -3,9 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
-    height: 100%;
+    width: 100%;
     font-size: 16px;
-    overflow-x: hidden;
   }
 
   *, *:before, *:after {
@@ -16,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-weight: normal;
-    position: relative;
   }
 
   ol, ul {
@@ -32,7 +30,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.text};
     font-family: 'Poppins', sans-serif;
-    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
   }
 
   #root {

@@ -45,7 +45,8 @@ const layoutValues = {
   },
   borderRadius: {
     small: '8px',
-    medium: '30px',
+    medium: '15px',
+    large: '30px',
     circle: '50%',
   },
   spaces: {

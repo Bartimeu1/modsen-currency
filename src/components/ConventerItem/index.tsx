@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { StyledConverterItem, IconImage, Content, Title, Rate } from './styled';
-
 import { convertAndFormatCurrencyData } from '@utils/helpers';
+
+import { Content, IconImage, Rate, StyledConverterItem, Title } from './styled';
 
 interface IConverterItemProps {
   title: string;
-  code: string;
   image: string;
   rate: number;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function ConverterItem({ title, code, image, rate }: IConverterItemProps) {
+function ConverterItem({ title, image, rate, onClick }: IConverterItemProps) {
   return (
-    <StyledConverterItem>
+    <StyledConverterItem onClick={onClick}>
       <IconImage src={image} />
       <Content>
         <Title>{title}</Title>

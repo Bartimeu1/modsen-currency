@@ -1,3 +1,5 @@
+import { ICurrenciesList } from '@root/types/api';
+
 export const convertDateFormat = (dateString: string) => {
   const date = new Date(dateString);
   const hours = date.getUTCHours().toString();
@@ -21,4 +23,21 @@ export const convertAndFormatCurrencyData = (rate: number) => {
   }
 
   return convertedValue.toString().replace('.', ',');
+};
+
+export const removeCurrencyFromList = (
+  currenciesList: ICurrenciesList,
+  selectedCurrency: string,
+) => {
+  const editedObject = { ...currenciesList };
+  delete editedObject[selectedCurrency];
+
+  return editedObject;
+};
+
+export const calculateConverterResult = (
+  currancyRate: number,
+  amout: number,
+) => {
+  return convertAndFormatCurrencyData(currancyRate * amout);
 };

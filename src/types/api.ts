@@ -11,3 +11,7 @@ export interface ICurrencyResponse {
     [currencyCode: string]: ICurrencyItem;
   };
 }
+
+export interface ICurrenciesList {
+  [key: string]: { title: string; image: string };
+}

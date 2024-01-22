@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import ConverterSelect from '@components/ConverterSelect';
 import { currenciesList } from '@constants/currency';
+import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 import {
   calculateConverterResult,
   removeCurrencyFromList,
 } from '@utils/helpers';
-import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 
-import ConverterSelect from '@components/ConverterSelect';
 import {
   AmountInput,
   Block,

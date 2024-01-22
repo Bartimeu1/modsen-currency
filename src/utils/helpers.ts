@@ -39,5 +39,5 @@ export const calculateConverterResult = (
   currancyRate: number,
   amout: number,
 ) => {
-  return convertAndFormatCurrencyData(currancyRate * amout);
+  return currancyRate * amout;
 };

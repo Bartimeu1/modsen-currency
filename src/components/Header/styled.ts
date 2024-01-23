@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface IToggleButton {
+  $isLightTheme: boolean;
+}
+
 export const StyledHeader = styled.header`
   padding-top: ${({ theme }) => theme.spaces.md};
   display: flex;
@@ -9,7 +13,7 @@ export const StyledHeader = styled.header`
 
 export const LogoImage = styled.img``;
 
-export const ToggleButton = styled.input`
+export const ToggleButton = styled.input<IToggleButton>`
   border: 2px solid ${({ theme }) => theme.color.toggleButton};
   background: ${({ theme }) => theme.color.background};
   appearance: none;
@@ -36,14 +40,7 @@ export const ToggleButton = styled.input`
     border-radius: 50%;
     transform: translateX(0);
     transition: 0.3s;
-  }
-  &:checked::after {
-    background: ${({ theme }) => theme.color.background};
-    transform: translateX(calc(100% - 4px));
-    transition: 0.3s;
-  }
-  &:checked {
-    background: ${({ theme }) => theme.color.toggleButton};
-    transition: 0.3s;
+    ${({ $isLightTheme }) =>
+      $isLightTheme && `transform: translateX(calc(100% - 4px));`}
   }
 `;

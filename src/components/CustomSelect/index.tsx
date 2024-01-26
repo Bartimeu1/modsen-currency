@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 import { ICurrenciesList } from '@root/types/api';
-import { removeCurrencyFromList } from '@root/utils/helpers';
+import { removeCurrencyFromList } from '@utils/helpers';
 
 import {
   Dropdown,
@@ -13,13 +13,13 @@ import {
 } from './styled';
 
 interface IConvertetSelectProps {
-  selectedCurrency: string;
+  selectedCurrency?: string;
   targetCurrencyCode: string;
   currenciesList: ICurrenciesList;
   setTargetCurrencyCode: (code: string) => void;
 }
 
-function ConverterSelect(props: IConvertetSelectProps) {
+function CustomSelect(props: IConvertetSelectProps) {
   const { targetCurrencyCode, currenciesList, setTargetCurrencyCode } = props;
 
   const [isSelectOpened, setIsSelectOpened] = useState(false);
@@ -53,4 +53,4 @@ function ConverterSelect(props: IConvertetSelectProps) {
   );
 }
 
-export default ConverterSelect;
+export default CustomSelect;

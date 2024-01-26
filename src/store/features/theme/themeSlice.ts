@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IThemeSliceState } from '@root/types/theme';
 
-interface ThemeSliceState {
-  currentTheme: 'dark' | 'light';
-}
-
-const initialState: ThemeSliceState = {
+const initialState: IThemeSliceState = {
   currentTheme: 'dark',
 };
 

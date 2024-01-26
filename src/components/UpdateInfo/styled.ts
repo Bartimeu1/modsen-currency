@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledUpdateInfo = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 57px auto 0 auto;
   align-items: center;
 `;
 

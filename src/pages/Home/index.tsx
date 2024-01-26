@@ -1,14 +1,23 @@
 import React from 'react';
 
-import Converter from '@root/components/Converter';
-
-import { StyledHomePage } from './styled';
+import ConverterList from '@components/ConverterList';
+import UpdateInfo from '@components/UpdateInfo';
+import { baseCurrency, requestedCurrencies } from '@constants/currency';
+import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 
 function HomePage() {
+  const { data: currencyResponse } = useGetCurrencyRatesQuery({
+    currencies: requestedCurrencies,
+    base_currency: baseCurrency,
+  });
+
   return (
-    <StyledHomePage>
-      <Converter />
-    </StyledHomePage>
+    currencyResponse && (
+      <>
+        <UpdateInfo time={currencyResponse.meta.last_updated_at} />
+        <ConverterList currencies={currencyResponse.data} />
+      </>
+    )
   );
 }
 

@@ -1,7 +1,9 @@
 import { ICurrenciesList } from '@root/types/api';
+import { IChartData } from '@root/types/chart';
 
-export const convertDateFormat = (dateString: string) => {
+export const convertDateFormat = (dateString: string | number) => {
   const date = new Date(dateString);
+  date.setHours(date.getHours() + 3);
   const hours = date.getUTCHours().toString();
   const minutes = date.getUTCMinutes().toString();
 
@@ -40,4 +42,28 @@ export const calculateConverterResult = (
   amout: number,
 ) => {
   return currancyRate * amout;
+};
+
+export const generateChartDataObjects = (): IChartData => {
+  const objects = [];
+  for (let i = 1; i <= 30; i++) {
+    const obj = {
+      x: i,
+      y: generateRandomChartDataArray(),
+    };
+    objects.push(obj);
+  }
+
+  return objects;
+};
+
+const generateRandomChartDataArray = () => {
+  const array = [];
+  let currentValue = 5000;
+  for (let i = 0; i < 4; i++) {
+    const change = (Math.random() - 0.5) * 5;
+    currentValue += change;
+    array.push(currentValue.toFixed(2));
+  }
+  return array;
 };

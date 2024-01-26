@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 
-import ConverterSelect from '@components/ConverterSelect';
+import CustomSelect from '@components/CustomSelect';
 import { currenciesList } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 import {
@@ -9,26 +8,14 @@ import {
   removeCurrencyFromList,
 } from '@utils/helpers';
 
-import {
-  AmountInput,
-  Block,
-  BlockText,
-  BlockTitle,
-  CloseButton,
-  Content,
-  StyledConverterModal,
-  Title,
-} from './styled';
+import { AmountInput, Block, BlockText, BlockTitle, Title } from './styled';
 
 interface IConverItemProps {
   selectedCurrency: string;
-  handleCloseModalClick: React.MouseEventHandler<
-    HTMLDivElement | HTMLButtonElement
-  >;
 }
 
 function ConverterModal(props: IConverItemProps) {
-  const { selectedCurrency, handleCloseModalClick } = props;
+  const { selectedCurrency } = props;
 
   const [targetCurrencyCode, setTargetCurrencyCode] = useState('USD');
   const [amountInputValue, setAmountInputValue] = useState('1');
@@ -41,18 +28,6 @@ function ConverterModal(props: IConverItemProps) {
   useEffect(() => {
     refetch();
   }, [selectedCurrency, targetCurrencyCode, amountInputValue, refetch]);
-
-  useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-
-    return () => {
-      document.body.style.overflowY = 'visible';
-    };
-  }, []);
-
-  const onModalContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  };
 
   const onAmountInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmountInputValue(e.target.value);
@@ -67,42 +42,38 @@ function ConverterModal(props: IConverItemProps) {
       +amountInputValue,
     );
 
-  return createPortal(
-    <StyledConverterModal onClick={handleCloseModalClick}>
-      <Content onClick={(e) => onModalContentClick(e)}>
-        <Title>Currency converter</Title>
-        <Block>
-          <BlockTitle>Base currency:</BlockTitle>
-          <BlockText>{currenciesList[selectedCurrency].title}</BlockText>
-        </Block>
-        <Block>
-          <BlockTitle>Convert to:</BlockTitle>
-          <ConverterSelect
-            selectedCurrency={selectedCurrency}
-            targetCurrencyCode={targetCurrencyCode}
-            setTargetCurrencyCode={setTargetCurrencyCode}
-            currenciesList={removeCurrencyFromList(
-              currenciesList,
-              selectedCurrency,
-            )}
-          />
-        </Block>
-        <Block>
-          <BlockTitle>Amount:</BlockTitle>
-          <AmountInput
-            type="number"
-            value={amountInputValue}
-            onChange={(e) => onAmountInputChange(e)}
-          />
-        </Block>
-        <Block>
-          <BlockTitle>Result:</BlockTitle>
-          <BlockText>{resultValue}</BlockText>
-        </Block>
-        <CloseButton onClick={handleCloseModalClick} />
-      </Content>
-    </StyledConverterModal>,
-    document.body,
+  return (
+    <>
+      <Title>Currency converter</Title>
+      <Block>
+        <BlockTitle>Base currency:</BlockTitle>
+        <BlockText>{currenciesList[selectedCurrency].title}</BlockText>
+      </Block>
+      <Block>
+        <BlockTitle>Convert to:</BlockTitle>
+        <CustomSelect
+          selectedCurrency={selectedCurrency}
+          targetCurrencyCode={targetCurrencyCode}
+          setTargetCurrencyCode={setTargetCurrencyCode}
+          currenciesList={removeCurrencyFromList(
+            currenciesList,
+            selectedCurrency,
+          )}
+        />
+      </Block>
+      <Block>
+        <BlockTitle>Amount:</BlockTitle>
+        <AmountInput
+          type="number"
+          value={amountInputValue}
+          onChange={(e) => onAmountInputChange(e)}
+        />
+      </Block>
+      <Block>
+        <BlockTitle>Result:</BlockTitle>
+        <BlockText>{resultValue}</BlockText>
+      </Block>
+    </>
   );
 }
 

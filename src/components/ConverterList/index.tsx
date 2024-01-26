@@ -5,6 +5,7 @@ import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
 import ConverterModal from '../ConverterModal';
+import ModalPortal from '../ModalPortal';
 import { StyledConverterList } from './styled';
 
 interface IConverterListProps {
@@ -34,12 +35,13 @@ function ConverterList({ currencies }: IConverterListProps) {
         />
       ))}
 
-      {selectedCurrency && (
-        <ConverterModal
-          selectedCurrency={selectedCurrency}
-          handleCloseModalClick={handleCloseModalClick}
-        />
-      )}
+      <ModalPortal
+        closeModalClick={handleCloseModalClick}
+        isModalVisible={!!selectedCurrency}>
+        {selectedCurrency && (
+          <ConverterModal selectedCurrency={selectedCurrency} />
+        )}
+      </ModalPortal>
     </StyledConverterList>
   );
 }

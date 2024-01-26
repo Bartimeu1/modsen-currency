@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-export const Content = styled.div`
-  border: 1px solid ${({ theme }) => theme.color.border};
-  background: ${({ theme }) => theme.color.background};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  width: 500px;
-  height: 600px;
-  z-index: 5;
-  padding: 30px 40px 0 40px;
-  position: relative;
-`;
-
 export const Title = styled.h5`
   color: ${({ theme }) => theme.color.text};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
@@ -36,22 +25,41 @@ export const BlockTitle = styled.p`
   margin-bottom: 20px;
 `;
 
-export const BlockText = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-size: 18px;
-`;
-
-export const AmountInput = styled.input`
+export const BlockInput = styled.input`
   background: ${({ theme }) => theme.color.inputBg};
   color: ${({ theme }) => theme.color.text};
   border: 0;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   width: 300px;
-  padding: 19px 20px;
+  padding: 15px 19px;
   font-family: 'Poppins', sans-serif;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const SubmitButton = styled.button`
+  border: 1px solid ${({ theme }) => theme.color.border};
+  background: ${({ theme }) => theme.color.background};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  color: ${({ theme }) => theme.color.text};
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
+  transition: 0.3s;
+
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.color.text};
+    background: ${({ theme }) => theme.color.text};
+    color: ${({ theme }) => theme.color.background};
+    transition: 0.3s;
   }
 `;

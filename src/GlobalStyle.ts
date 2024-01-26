@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    transition: background 0.1s ease;
   }
 
   #root {

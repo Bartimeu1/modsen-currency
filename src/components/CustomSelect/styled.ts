@@ -10,6 +10,7 @@ export const StyledConverterSelect = styled.div`
   padding: 19px 20px;
   position: relative;
   width: 300px;
+  z-index: 10;
 `;
 
 export const InputWrapper = styled.div<IInputWrapper>`

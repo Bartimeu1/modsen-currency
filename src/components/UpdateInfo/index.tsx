@@ -6,7 +6,7 @@ import { convertDateFormat } from '@root/utils/helpers';
 import { StyledUpdateInfo, UpdateImage, UpdateText } from './styled';
 
 interface IUpdateInfoProps {
-  time: string;
+  time: string | number;
 }
 function UpdateInfo({ time }: IUpdateInfoProps) {
   return (

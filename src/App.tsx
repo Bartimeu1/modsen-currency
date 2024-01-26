@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route,Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import theme from '@constants/theme';
 import GlobalStyle from '@root/GlobalStyle';
@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Layout from './components/Layout';
 import HomePage from './pages/Home';
+import TimelinePage from './pages/Timeline';
 
 function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
@@ -15,13 +16,14 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/timeline" element={<TimelinePage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }

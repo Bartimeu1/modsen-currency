@@ -7,9 +7,11 @@ import { removeCurrencyFromList } from '@utils/helpers';
 import {
   Dropdown,
   DropdownItem,
-  InputWrapper,
+  SelectLabel,
   StyledConverterSelect,
-  TargetValue,
+  LabelValue,
+  ItemText,
+  ItemImage,
 } from './styled';
 
 interface IConvertetSelectProps {
@@ -30,10 +32,13 @@ function CustomSelect(props: IConvertetSelectProps) {
 
   return (
     <StyledConverterSelect onClick={handleSelectInputClick}>
-      <InputWrapper $isSelectOpened={isSelectOpened}>
-        <TargetValue>{currenciesList[targetCurrencyCode].title}</TargetValue>
+      <SelectLabel $isSelectOpened={isSelectOpened}>
+        <LabelValue>
+          <ItemText>{currenciesList[targetCurrencyCode].title}</ItemText>
+          <ItemImage src={currenciesList[targetCurrencyCode].image} />
+        </LabelValue>
         <ChevronIcon />
-      </InputWrapper>
+      </SelectLabel>
       {isSelectOpened && (
         <Dropdown>
           {Object.keys(
@@ -44,7 +49,10 @@ function CustomSelect(props: IConvertetSelectProps) {
               onClick={() => {
                 setTargetCurrencyCode(code);
               }}>
-              {currenciesList[code].title}
+              <DropdownItem>
+                <ItemText>{currenciesList[code].title}</ItemText>
+                <ItemImage src={currenciesList[code].image} />
+              </DropdownItem>
             </DropdownItem>
           ))}
         </Dropdown>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface IInputWrapper {
+interface ISelectLabel {
   $isSelectOpened: boolean;
 }
 
@@ -13,7 +13,7 @@ export const StyledConverterSelect = styled.div`
   z-index: 10;
 `;
 
-export const InputWrapper = styled.div<IInputWrapper>`
+export const SelectLabel = styled.div<ISelectLabel>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,7 +34,18 @@ export const InputWrapper = styled.div<IInputWrapper>`
   `}
 `;
 
-export const TargetValue = styled.p``;
+export const LabelValue = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ItemText = styled.p`
+  margin-right: 10px;
+`;
+
+export const ItemImage = styled.img`
+  width: 20px;
+`;
 
 export const Dropdown = styled.div`
   background: ${({ theme }) => theme.color.inputBg};
@@ -53,6 +64,8 @@ export const DropdownItem = styled.div`
   margin-bottom: 10px;
   width: 100%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   &:last-child {
     margin-bottom: 0;
   }

@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import Layout from './components/Layout';
 import HomePage from './pages/Home';
 import TimelinePage from './pages/Timeline';
+import BankCardPage from './pages/BankCard';
 
 function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/timeline" element={<TimelinePage />} />
+            <Route path="/bank-card" element={<BankCardPage />} />
           </Route>
         </Routes>
       </HashRouter>

@@ -30,11 +30,13 @@ import {
   InfoWindowTitle,
   InfoWindowWrapper,
 } from './styled';
+import Loader from '@components/Loader';
 
 import { mapTitleText } from '@constants/text';
 
 interface IMapState {
   selectedPlace: IMapsItem | null;
+  mapLoaded: boolean;
 }
 
 class Map extends Component<MapProps, IMapState> {
@@ -43,6 +45,7 @@ class Map extends Component<MapProps, IMapState> {
 
     this.state = {
       selectedPlace: null,
+      mapLoaded: false,
     };
   }
 
@@ -59,9 +62,12 @@ class Map extends Component<MapProps, IMapState> {
     this.unsubscribe?.();
   }
 
+  onMapLoad = () => {
+    this.setState({ mapLoaded: true });
+  };
+
   onMarkerClick = (place: IMapsItem) => {
     this.setState({ selectedPlace: place });
-    console.log(this.state.selectedPlace);
   };
 
   onInfoWindowClose = () => {
@@ -69,12 +75,13 @@ class Map extends Component<MapProps, IMapState> {
   };
 
   render() {
-    const { selectedPlace } = this.state;
+    const { selectedPlace, mapLoaded } = this.state;
     const { setCurrentCurrency, currentCurrency } = this.props;
     const { data: placesData } = this.props.places;
 
     return (
       <StyledMap>
+        {!mapLoaded && <Loader />}
         <MapTitle>{mapTitleText}</MapTitle>
         <CustomSelect
           currenciesList={currenciesList}
@@ -86,7 +93,8 @@ class Map extends Component<MapProps, IMapState> {
             <GoogleMap
               center={defaultMapCenter}
               zoom={defaultMapZoom}
-              mapContainerStyle={mapContainerStyle}>
+              mapContainerStyle={mapContainerStyle}
+              onLoad={this.onMapLoad}>
               {filterPlacesByCurrency(placesData, currentCurrency)?.map(
                 (place) => (
                   <Marker

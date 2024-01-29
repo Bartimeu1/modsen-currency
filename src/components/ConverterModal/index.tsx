@@ -35,10 +35,8 @@ function ConverterModal(props: IConverItemProps) {
 
   const resultValue =
     currencyResponse &&
-    currencyResponse.data[targetCurrencyCode] &&
-    currencyResponse.data[targetCurrencyCode].value &&
     calculateConverterResult(
-      currencyResponse.data[targetCurrencyCode].value,
+      currencyResponse?.data[targetCurrencyCode]?.value,
       +amountInputValue,
     );
 
@@ -71,7 +69,7 @@ function ConverterModal(props: IConverItemProps) {
       </Block>
       <Block>
         <BlockTitle>Result:</BlockTitle>
-        <BlockText>{resultValue}</BlockText>
+        <BlockText>{resultValue || 'loading...'}</BlockText>
       </Block>
     </>
   );

@@ -13,9 +13,17 @@ import {
   setCurrentCurrency,
 } from '@store/features/chart/chartSlice';
 import { RootState } from '@store/store';
+import noResultsImage from '@assets/images/noResults.png';
 
 import ChartModal from '../ChartModal';
-import { Controller, ControllerButton, StyledChart } from './styled';
+import {
+  Controller,
+  ControllerButton,
+  StyledChart,
+  NoResults,
+  NoResultsImage,
+  NoResultsText,
+} from './styled';
 
 interface IChartProps {
   chartData: IChartDataList;
@@ -82,16 +90,23 @@ class Chart extends Component<IChartProps, IChartState> {
             Change value
           </ControllerButton>
         </Controller>
-        <ApexChart
-          type="candlestick"
-          options={chartOptions}
-          series={[
-            {
-              data: chartData[currentCurrency].data,
-            },
-          ]}
-          height={500}
-        />
+        {chartData[currentCurrency].data.length > 0 ? (
+          <ApexChart
+            type="candlestick"
+            options={chartOptions}
+            series={[
+              {
+                data: chartData[currentCurrency].data,
+              },
+            ]}
+            height={500}
+          />
+        ) : (
+          <NoResults>
+            <NoResultsText>Chart is empty</NoResultsText>
+            <NoResultsImage src={noResultsImage} alt="noResults" />
+          </NoResults>
+        )}
         <ModalPortal
           isModalVisible={isModalVisible}
           closeModalClick={this.handleCloseModalClick}>

@@ -3,17 +3,11 @@ import { connect, ConnectedProps } from 'react-redux';
 
 import CustomSelect from '@components/CustomSelect';
 import { currenciesList } from '@constants/currency';
-import {
-  GoogleMap,
-  InfoWindow,
-  LoadScript,
-  Marker,
-} from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import config from '@root/config';
 import {
   defaultMapCenter,
   defaultMapZoom,
-  InfoWindowStyle,
   mapContainerStyle,
 } from '@root/constants/maps';
 import { IMapsItem } from '@root/types/maps';
@@ -22,14 +16,9 @@ import { setCurrentCurrency } from '@store/features/maps/mapsSlice';
 import { RootState } from '@store/store';
 import { filterPlacesByCurrency } from '@utils/helpers';
 
-import {
-  StyledMap,
-  MapTitle,
-  InfoWindowImage,
-  InfoWindowText,
-  InfoWindowTitle,
-  InfoWindowWrapper,
-} from './styled';
+import MapInfoWindow from '@components/MapInfoWindow';
+
+import { StyledMap, MapTitle } from './styled';
 import Loader from '@components/Loader';
 
 import { mapTitleText } from '@constants/text';
@@ -105,21 +94,14 @@ class Map extends Component<MapProps, IMapState> {
                 ),
               )}
               {selectedPlace && (
-                <InfoWindow
-                  options={InfoWindowStyle}
+                <MapInfoWindow
+                  title={selectedPlace.name}
+                  address={selectedPlace.formatted_address}
+                  rating={selectedPlace.rating}
+                  photoSrc={selectedPlace.photo}
                   position={selectedPlace.geometry.location}
-                  onCloseClick={this.onInfoWindowClose}>
-                  <InfoWindowWrapper>
-                    <InfoWindowTitle>{selectedPlace.name}</InfoWindowTitle>
-                    <InfoWindowImage src={selectedPlace.photo} alt="place" />
-                    <InfoWindowText>
-                      Адрес: {selectedPlace.formatted_address}
-                    </InfoWindowText>
-                    <InfoWindowText>
-                      Рейтинг: {selectedPlace.rating}
-                    </InfoWindowText>
-                  </InfoWindowWrapper>
-                </InfoWindow>
+                  onCloseClick={this.onInfoWindowClose}
+                />
               )}
             </GoogleMap>
           </LoadScript>

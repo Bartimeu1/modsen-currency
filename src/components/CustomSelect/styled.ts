@@ -4,7 +4,7 @@ interface ISelectLabel {
   $isSelectOpened: boolean;
 }
 
-export const StyledConverterSelect = styled.div`
+export const StyledSelect = styled.div`
   background: ${({ theme }) => theme.color.inputBg};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   padding: 19px 20px;

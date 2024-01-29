@@ -7,9 +7,9 @@ import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
 import Layout from './components/Layout';
+import BankCardPage from './pages/BankCard';
 import HomePage from './pages/Home';
 import TimelinePage from './pages/Timeline';
-import BankCardPage from './pages/BankCard';
 
 function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);

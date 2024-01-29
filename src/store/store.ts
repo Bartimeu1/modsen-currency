@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { currencyApi } from '@store/features/currency/currencyApi';
+import { mapsApi } from '@store/features/maps/mapsApi';
+import rootReducer from '@store/reducer';
 import {
   FLUSH,
   PAUSE,
@@ -11,9 +14,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { currencyApi } from './features/currency/currencyApi';
-import rootReducer from './reducer';
-
 const persistConfig = {
   key: 'root',
   storage,
@@ -24,7 +24,7 @@ const persistedRootReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedRootReducer,
   middleware: (getDefaultMiddleware) => {
-    const allMiddlewares = [currencyApi.middleware];
+    const allMiddlewares = [currencyApi.middleware, mapsApi.middleware];
 
     return getDefaultMiddleware({
       serializableCheck: {

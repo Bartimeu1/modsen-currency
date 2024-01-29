@@ -1,5 +1,6 @@
 import { ICurrenciesList } from '@root/types/api';
 import { IChartData } from '@root/types/chart';
+import { IMapsItem } from '@root/types/maps';
 
 export const convertDateFormat = (dateString: string | number) => {
   const date = new Date(dateString);
@@ -66,4 +67,11 @@ const generateRandomChartDataArray = () => {
     array.push(currentValue.toFixed(2));
   }
   return array;
+};
+
+export const filterPlacesByCurrency = (
+  placesList: IMapsItem[],
+  currency: string,
+) => {
+  return placesList.filter((place) => place.currencies.includes(currency));
 };

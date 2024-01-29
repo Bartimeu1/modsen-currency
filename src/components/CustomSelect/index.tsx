@@ -7,11 +7,11 @@ import { removeCurrencyFromList } from '@utils/helpers';
 import {
   Dropdown,
   DropdownItem,
-  SelectLabel,
-  StyledConverterSelect,
-  LabelValue,
-  ItemText,
   ItemImage,
+  ItemText,
+  LabelValue,
+  SelectLabel,
+  StyledSelect,
 } from './styled';
 
 interface IConvertetSelectProps {
@@ -31,7 +31,7 @@ function CustomSelect(props: IConvertetSelectProps) {
   };
 
   return (
-    <StyledConverterSelect onClick={handleSelectInputClick}>
+    <StyledSelect onClick={handleSelectInputClick}>
       <SelectLabel $isSelectOpened={isSelectOpened}>
         <LabelValue>
           <ItemText>{currenciesList[targetCurrencyCode].title}</ItemText>
@@ -57,7 +57,7 @@ function CustomSelect(props: IConvertetSelectProps) {
           ))}
         </Dropdown>
       )}
-    </StyledConverterSelect>
+    </StyledSelect>
   );
 }
 

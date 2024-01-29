@@ -9,3 +9,5 @@ export const footerInfoText = `Since then, the company has grown organically to.
   with $12 billion worth of currency trading and 500,000 tickets sold daily to tens of thousands of traders worldwide.`;
 
 export const mapTitleText = 'Search currency in the bank';
+
+export const chartBuildText = 'chart successfully built';

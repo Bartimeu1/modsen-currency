@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Chart from '@components/Chart';
-import ModalPortal from '@components/ModalPortal';
 import Observable from '@components/Observable';
 import UpdateInfo from '@components/UpdateInfo';
 import { IChartDataList } from '@root/types/chart';
 import { RootState } from '@store/store';
+import Toast from '@components/Toast';
+import { chartBuildText } from '@constants/text';
 
 interface ITimelinePageProps {
   chartData: IChartDataList;
@@ -16,8 +17,6 @@ interface ITimelinePageProps {
 interface ITimelinePageState {
   isChartFilled: boolean;
 }
-
-import { ModalTitle } from './styled';
 
 class TimelinePage extends Component<ITimelinePageProps, ITimelinePageState> {
   constructor(props: ITimelinePageProps) {
@@ -43,7 +42,7 @@ class TimelinePage extends Component<ITimelinePageProps, ITimelinePageState> {
     });
   };
 
-  onCloseModalClick = () => {
+  closeToast = () => {
     this.setState({
       isChartFilled: false,
     });
@@ -57,11 +56,11 @@ class TimelinePage extends Component<ITimelinePageProps, ITimelinePageState> {
       <>
         <UpdateInfo time={chartData[currentCurrency].lastUpdateAt} />
         <Chart />
-        <ModalPortal
-          isModalVisible={isChartFilled}
-          closeModalClick={this.onCloseModalClick}>
-          <ModalTitle>График успешно построен ✅</ModalTitle>
-        </ModalPortal>
+        <Toast
+          message={chartBuildText}
+          isVisible={isChartFilled}
+          closeToast={this.closeToast}
+        />
       </>
     );
   }

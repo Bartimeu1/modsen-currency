@@ -1,4 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const blinkAnimation = keyframes`
+  25% { 
+    opacity: 1;
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity 1;
+  }
+`;
 
 export const StyledUpdateInfo = styled.div`
   display: flex;
@@ -8,6 +20,7 @@ export const StyledUpdateInfo = styled.div`
 
 export const UpdateImage = styled.img`
   margin-right: 18px;
+  animation: ${blinkAnimation} 2s linear infinite;
 `;
 
 export const UpdateText = styled.p`

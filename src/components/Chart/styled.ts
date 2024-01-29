@@ -19,3 +19,20 @@ export const ControllerButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.xs2};
   padding: 15px 14px;
 `;
+
+export const NoResults = styled.div`
+  margin: 60px auto 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const NoResultsImage = styled.img`
+  width: 250px;
+`;
+
+export const NoResultsText = styled.p`
+  color: ${({ theme }) => theme.color.text};
+  font-size: ${({ theme }) => theme.fontSize.md};
+  margin-bottom: 30px;
+`;

@@ -11,3 +11,5 @@ export const footerInfoText = `Since then, the company has grown organically to.
 export const mapTitleText = 'Search currency in the bank';
 
 export const chartBuildText = 'chart successfully built';
+
+export const errorBoundaryText = 'Something went wrong!';

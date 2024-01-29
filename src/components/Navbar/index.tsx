@@ -1,16 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import { useLocation } from 'react-router';
 
 import { navbarLinks } from '@root/constants/common';
 
-import { NavbarLink,StyledNavbar } from './styled';
+import { NavbarLink, StyledNavbar } from './styled';
 
 function Navbar() {
-  const [currentPageId, setCurrentPageId] = useState(1);
-
-  const linkClickHandler = (id: number) => {
-    setCurrentPageId(id);
-  };
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <StyledNavbar>
@@ -18,8 +15,7 @@ function Navbar() {
         <NavbarLink
           key={link.id}
           to={link.href}
-          state={{ isCurrent: currentPageId === link.id }}
-          onClick={() => linkClickHandler(link.id)}>
+          state={{ isCurrent: pathname === link.href }}>
           {link.title}
         </NavbarLink>
       ))}

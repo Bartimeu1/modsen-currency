@@ -6,6 +6,19 @@ export const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   margin: 0 -56px;
+
+  @media (max-width: 900px) {
+    margin: 0 -25px;
+  }
+
+  @media (max-width: 640px) {
+    margin: 0 -11px;
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    margin: -10px 0;
+  }
 `;
 
 export const NavbarLink = styled(Link)`
@@ -35,5 +48,19 @@ export const NavbarLink = styled(Link)`
       transition: 0.5s;
       bottom: 0;
     }
+  }
+
+  @media (max-width: 900px) {
+    margin: 0 25px;
+  }
+
+  @media (max-width: 640px) {
+    margin: 0 11px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 23px;
+    margin: 10px 0;
   }
 `;

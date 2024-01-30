@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApexChart from 'react-apexcharts';
 import { connect } from 'react-redux';
 
+import noResultsImage from '@assets/images/noResults.png';
 import CustomSelect from '@components/CustomSelect';
 import ModalPortal from '@components/ModalPortal';
 import { chartOptions } from '@constants/chart';
@@ -13,16 +14,15 @@ import {
   setCurrentCurrency,
 } from '@store/features/chart/chartSlice';
 import { RootState } from '@store/store';
-import noResultsImage from '@assets/images/noResults.png';
 
 import ChartModal from '../ChartModal';
 import {
   Controller,
   ControllerButton,
-  StyledChart,
   NoResults,
   NoResultsImage,
   NoResultsText,
+  StyledChart,
 } from './styled';
 
 interface IChartProps {

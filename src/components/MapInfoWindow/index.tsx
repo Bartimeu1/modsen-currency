@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Location } from '@root/types/maps';
-import { InfoWindow } from '@react-google-maps/api';
 
 import { InfoWindowStyle } from '@constants/maps';
+import { InfoWindow } from '@react-google-maps/api';
+import { Location } from '@root/types/maps';
 
 interface IMapInfoWindowProps {
   position: Location;
@@ -13,7 +13,7 @@ interface IMapInfoWindowProps {
   onCloseClick: () => void;
 }
 
-import { Wrapper, Image, Title, Text } from './styled';
+import { Image, Text,Title, Wrapper } from './styled';
 
 class MapInfoWindow extends Component<IMapInfoWindowProps> {
   constructor(props: IMapInfoWindowProps) {

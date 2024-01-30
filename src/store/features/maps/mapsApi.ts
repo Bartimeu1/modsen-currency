@@ -8,7 +8,7 @@ export const mapsApi = createApi({
     baseUrl: config.mapsUrl,
   }),
   endpoints: (builder) => ({
-    getBanksLocation: builder.query<IMapsItem[], {}>({
+    getBanksLocation: builder.query<IMapsItem[], object>({
       query: () => ({
         url: '/places',
         method: 'GET',

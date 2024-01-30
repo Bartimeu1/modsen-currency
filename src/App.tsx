@@ -1,16 +1,16 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+import ErrorBoundary from '@components/ErrorBoundary';
+import Layout from '@components/Layout';
 import theme from '@constants/theme';
 import GlobalStyle from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import Layout from '@components/Layout';
 import BankCardPage from './pages/BankCard';
 import HomePage from './pages/Home';
 import TimelinePage from './pages/Timeline';
-import ErrorBoundary from '@components/ErrorBoundary';
 
 function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);

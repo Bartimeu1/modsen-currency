@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 import boundaryImage from '@assets/images/boundary.png';
+import { errorBoundaryText } from '@constants/text';
 
 import { Boundary, BoundaryImage, BoundaryText } from './styled';
-
-import { errorBoundaryText } from '@constants/text';
 
 interface IErrorBoundaryProps {
   children: React.ReactNode;

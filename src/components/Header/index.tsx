@@ -6,12 +6,12 @@ import { useAppDispatch, useAppSelector } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
 
 import {
-  LogoImage,
-  StyledHeader,
-  ToggleButton,
   BurgerMenu,
   BurgerRow,
   Content,
+  LogoImage,
+  StyledHeader,
+  ToggleButton,
 } from './styled';
 
 function Header() {

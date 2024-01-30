@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
+import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 import { footerNavBlocks } from '@constants/common';
 
 import {
   Block,
+  BlockContent,
+  BlockLabel,
   LabelTitle,
   NavigationLink,
   StyledFooterNavigation,
-  BlockContent,
-  BlockLabel,
 } from './styled';
-
-import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 
 function FooterNavigation() {
   const [visibleDropdowns, setVisibleDropdowns] = useState<{

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { StyledLoader, LoaderImage } from './styled';
 import loaderIcon from '@assets/images/loader.png';
+
+import { LoaderImage,StyledLoader } from './styled';
 
 function Loader() {
   useEffect(() => {

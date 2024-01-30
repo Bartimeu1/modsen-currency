@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { RootState } from '@store/store';
 
 import Map from '@components/Map';
 import UpdateInfo from '@components/UpdateInfo';
+import { RootState } from '@store/store';
 
 interface ITimelinePageProps {
   lastUpdateAt: number;

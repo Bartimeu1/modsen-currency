@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import CustomSelect from '@components/CustomSelect';
+import Loader from '@components/Loader';
+import MapInfoWindow from '@components/MapInfoWindow';
 import { currenciesList } from '@constants/currency';
+import { mapTitleText } from '@constants/text';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import config from '@root/config';
 import {
@@ -16,12 +19,7 @@ import { setCurrentCurrency } from '@store/features/maps/mapsSlice';
 import { RootState } from '@store/store';
 import { filterPlacesByCurrency } from '@utils/helpers';
 
-import MapInfoWindow from '@components/MapInfoWindow';
-
-import { StyledMap, MapTitle, MapWrapper } from './styled';
-import Loader from '@components/Loader';
-
-import { mapTitleText } from '@constants/text';
+import { MapTitle, MapWrapper,StyledMap } from './styled';
 
 interface IMapState {
   selectedPlace: IMapsItem | null;

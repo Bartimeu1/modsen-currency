@@ -18,7 +18,7 @@ import { filterPlacesByCurrency } from '@utils/helpers';
 
 import MapInfoWindow from '@components/MapInfoWindow';
 
-import { StyledMap, MapTitle } from './styled';
+import { StyledMap, MapTitle, MapWrapper } from './styled';
 import Loader from '@components/Loader';
 
 import { mapTitleText } from '@constants/text';
@@ -78,33 +78,35 @@ class Map extends Component<MapProps, IMapState> {
           targetCurrencyCode={currentCurrency}
         />
         {placesData && (
-          <LoadScript googleMapsApiKey={config.mapsApiKey}>
-            <GoogleMap
-              center={defaultMapCenter}
-              zoom={defaultMapZoom}
-              mapContainerStyle={mapContainerStyle}
-              onLoad={this.onMapLoad}>
-              {filterPlacesByCurrency(placesData, currentCurrency)?.map(
-                (place) => (
-                  <Marker
-                    key={place.place_id}
-                    position={place.geometry.location}
-                    onClick={() => this.onMarkerClick(place)}
+          <MapWrapper>
+            <LoadScript googleMapsApiKey={config.mapsApiKey}>
+              <GoogleMap
+                center={defaultMapCenter}
+                zoom={defaultMapZoom}
+                mapContainerStyle={mapContainerStyle}
+                onLoad={this.onMapLoad}>
+                {filterPlacesByCurrency(placesData, currentCurrency)?.map(
+                  (place) => (
+                    <Marker
+                      key={place.place_id}
+                      position={place.geometry.location}
+                      onClick={() => this.onMarkerClick(place)}
+                    />
+                  ),
+                )}
+                {selectedPlace && (
+                  <MapInfoWindow
+                    title={selectedPlace.name}
+                    address={selectedPlace.formatted_address}
+                    rating={selectedPlace.rating}
+                    photoSrc={selectedPlace.photo}
+                    position={selectedPlace.geometry.location}
+                    onCloseClick={this.onInfoWindowClose}
                   />
-                ),
-              )}
-              {selectedPlace && (
-                <MapInfoWindow
-                  title={selectedPlace.name}
-                  address={selectedPlace.formatted_address}
-                  rating={selectedPlace.rating}
-                  photoSrc={selectedPlace.photo}
-                  position={selectedPlace.geometry.location}
-                  onCloseClick={this.onInfoWindowClose}
-                />
-              )}
-            </GoogleMap>
-          </LoadScript>
+                )}
+              </GoogleMap>
+            </LoadScript>
+          </MapWrapper>
         )}
       </StyledMap>
     );

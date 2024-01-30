@@ -29,6 +29,14 @@ export const StyledBanner = styled.section<IStyledBanner>`
     width: 100vw;
     z-index: -1;
   }
+
+  @media (max-width: 1100px) {
+    display: block;
+  }
+
+  @media (max-width: 740px) {
+    padding: 26px 0 20px 0;
+  }
 `;
 
 export const BannerContent = styled.div`
@@ -36,6 +44,12 @@ export const BannerContent = styled.div`
   flex-direction: column;
   align-items: end;
   max-width: 750px;
+  z-index: 2;
+
+  @media (max-width: 1100px) {
+    align-items: center;
+    margin: 0 auto;
+  }
 `;
 
 export const BannerTitle = styled.h1`
@@ -46,6 +60,18 @@ export const BannerTitle = styled.h1`
   text-align: right;
   font-size: 76px;
   padding-right: 60px;
+
+  @media (max-width: 1100px) {
+    padding-right: 0;
+    text-align: center;
+  }
+  @media (max-width: 740px) {
+    font-size: 43px;
+    max-width: 400px;
+  }
+  @media (max-width: 420px) {
+    font-size: 31px;
+  }
 `;
 
 export const BannerSubtitle = styled.p`
@@ -56,6 +82,22 @@ export const BannerSubtitle = styled.p`
   max-width: 397px;
   line-height: 46.772px;
   text-align: center;
+
+  @media (max-width: 1100px) {
+    font-size: 20px;
+  }
+  @media (max-width: 740px) {
+    line-height: 27px;
+    font-size: 15px;
+    max-width: 250px;
+  }
+  @media (max-width: 420px) {
+    font-size: 12px;
+  }
 `;
 
-export const BannerImage = styled.img``;
+export const BannerImage = styled.img`
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;

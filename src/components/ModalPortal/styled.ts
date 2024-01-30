@@ -27,6 +27,11 @@ export const ModalContent = styled.div`
   &::-webkit-scrollbar-track {
     display: none;
   }
+
+  @media (max-width: 670px) {
+    padding: 20px 40px;
+    max-width: 90%;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -51,5 +56,9 @@ export const CloseButton = styled.button`
   }
   &::after {
     transform: rotate(-45deg);
+  }
+  
+  @media (max-width: 670px) {
+    right: 10px;
   }
 `;

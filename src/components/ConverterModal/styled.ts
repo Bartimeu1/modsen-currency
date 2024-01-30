@@ -17,6 +17,11 @@ export const Title = styled.h5`
   font-size: ${({ theme }) => theme.fontSize.xs1};
   text-align: center;
   margin-bottom: 30px;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Block = styled.div`
@@ -27,6 +32,15 @@ export const Block = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media (max-width: 500px) {
+    margin-bottom: 20px;
+
+    div,
+    input {
+      width: 100%;
+    }
+  }
 `;
 
 export const BlockTitle = styled.p`
@@ -34,11 +48,20 @@ export const BlockTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs2};
   align-self: flex-start;
   margin-bottom: 20px;
+
+  @media (max-width: 500px) {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
 `;
 
 export const BlockText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: 18px;
+
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 export const AmountInput = styled.input`
@@ -53,5 +76,9 @@ export const AmountInput = styled.input`
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  @media (max-width: 500px) {
+    padding: 15px 16px;
   }
 `;

@@ -11,6 +11,10 @@ export const StyledSelect = styled.div`
   position: relative;
   width: 300px;
   z-index: 10;
+
+  @media (max-width: 500px) {
+    padding: 19px 15px;
+  }
 `;
 
 export const SelectLabel = styled.div<ISelectLabel>`
@@ -41,6 +45,11 @@ export const LabelValue = styled.div`
 
 export const ItemText = styled.p`
   margin-right: 10px;
+
+  @media (max-width: 500px) {
+    font-size: 13px;
+    margin-right: 5px;
+  }
 `;
 
 export const ItemImage = styled.img`

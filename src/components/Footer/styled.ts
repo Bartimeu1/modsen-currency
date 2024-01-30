@@ -13,6 +13,7 @@ export const StyledFooter = styled.footer`
 
   @media (max-width: 920px) {
     padding-bottom: 15px;
+    margin-top: 50px;
   }
 `;
 

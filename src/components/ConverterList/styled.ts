@@ -5,4 +5,9 @@ export const StyledConverterList = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 63px;
+  @media (max-width: 840px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
 `;

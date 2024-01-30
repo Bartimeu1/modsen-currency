@@ -39,20 +39,21 @@ export const Content = styled.div<IContent>`
   @media (max-width: 450px) {
     display: none;
     animation: ${fadeIn} 0.5s ease;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${({ theme }) => theme.color.background};
+    z-index: 11;
 
-    ${({ $isBurgerActive, theme }) =>
+    ${({ $isBurgerActive }) =>
       $isBurgerActive &&
       `
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: ${theme.color.background};
   `}
   }
 `;
@@ -122,7 +123,7 @@ export const ToggleButton = styled.input<IToggleButton>`
 `;
 
 export const BurgerMenu = styled.div<IBurgerMenu>`
-  z-index: 6;
+  z-index: 12;
   border: none;
   position: relative;
   display: none;

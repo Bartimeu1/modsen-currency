@@ -31,7 +31,7 @@ function Header() {
       </BurgerMenu>
       <Content $isBurgerActive={isBurgerActive}>
         <LogoImage src={logoIcon} alt="logo" />
-        <Navbar />
+        <Navbar onClick={() => setIsBurgerActive(false)} />
         <ToggleButton
           type="checkbox"
           $isLightTheme={currentTheme === 'light'}

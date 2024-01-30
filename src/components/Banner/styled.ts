@@ -36,6 +36,7 @@ export const StyledBanner = styled.section<IStyledBanner>`
 
   @media (max-width: 740px) {
     padding: 26px 0 20px 0;
+    margin-top: 20px;
   }
 `;
 

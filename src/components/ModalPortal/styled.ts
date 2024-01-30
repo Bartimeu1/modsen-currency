@@ -3,14 +3,13 @@ import styled from 'styled-components';
 export const StyledModal = styled.div`
   backdrop-filter: blur(10px);
   position: fixed;
-  z-index: 4;
+  z-index: 13;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
-  z-index: 10;
   justify-content: center;
   transition: 0.5s all;
 `;

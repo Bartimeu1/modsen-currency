@@ -5,7 +5,11 @@ import { navbarLinks } from '@root/constants/common';
 
 import { NavbarLink, StyledNavbar } from './styled';
 
-function Navbar() {
+interface INavbarProps {
+  onClick: () => void;
+}
+
+function Navbar({ onClick }: INavbarProps) {
   const location = useLocation();
   const { pathname } = location;
 
@@ -15,6 +19,7 @@ function Navbar() {
         <NavbarLink
           key={link.id}
           to={link.href}
+          onClick={onClick}
           state={{ isCurrent: pathname === link.href }}>
           {link.title}
         </NavbarLink>

@@ -17,7 +17,9 @@ interface IConverItemProps {
 function ConverterModal(props: IConverItemProps) {
   const { selectedCurrency } = props;
 
-  const [targetCurrencyCode, setTargetCurrencyCode] = useState('USD');
+  const [targetCurrencyCode, setTargetCurrencyCode] = useState(
+    selectedCurrency === 'USD' ? 'EUR' : 'USD',
+  );
   const [amountInputValue, setAmountInputValue] = useState('1');
 
   const { data: currencyResponse, refetch } = useGetCurrencyRatesQuery({

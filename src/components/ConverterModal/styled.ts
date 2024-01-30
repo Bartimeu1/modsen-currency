@@ -78,7 +78,8 @@ export const AmountInput = styled.input`
     margin: 0;
   }
 
-  @media (max-width: 500px) {
-    padding: 15px 16px;
+  @media (max-width: 900px) {
+    padding: 19px 15px;
+    width: 250px;
   }
 `;

@@ -9,6 +9,29 @@ export interface IChartState {
   currentCurrency: string;
 }
 
+interface IChartResponsive {
+  breakpoint: number;
+  options: {
+    chart?: {
+      height: number;
+    };
+    xaxis: {
+      labels: {
+        style: {
+          fontSize: number;
+        };
+      };
+    };
+    yaxis?: {
+      labels: {
+        style: {
+          fontSize: number;
+        };
+      };
+    };
+  };
+}
+
 export interface IChartOptions {
   chart: {
     id: string;
@@ -19,4 +42,5 @@ export interface IChartOptions {
       enabled: boolean;
     };
   };
+  responsive: IChartResponsive[];
 }

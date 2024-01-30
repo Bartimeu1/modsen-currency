@@ -10,6 +10,30 @@ export const chartOptions: IChartOptions = {
       enabled: true,
     },
   },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        chart: {
+          height: 300,
+        },
+        xaxis: {
+          labels: {
+            style: {
+              fontSize: 10,
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              fontSize: 10,
+            },
+          },
+        },
+      },
+    },
+  ],
 };
 
 export const chartDataCurrenciesList: IChartDataList = {

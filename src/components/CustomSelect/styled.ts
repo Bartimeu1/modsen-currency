@@ -12,8 +12,10 @@ export const StyledSelect = styled.div`
   width: 300px;
   z-index: 10;
 
-  @media (max-width: 500px) {
+
+  @media (max-width: 900px) {
     padding: 19px 15px;
+    width: 250px;
   }
 `;
 

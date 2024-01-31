@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { CloseButton,ModalContent, StyledModal } from './styled';
+import { CloseButton, ModalContent, StyledModal } from './styled';
 
 interface IModalPortalProps {
   isModalVisible: boolean;
@@ -30,10 +30,13 @@ function ModalPortal({ children, ...props }: IModalPortalProps) {
 
   return createPortal(
     isModalVisible && (
-      <StyledModal onClick={closeModalClick}>
+      <StyledModal onClick={closeModalClick} data-testid="modal">
         <ModalContent onClick={onModalContentClick}>
           {children}
-          <CloseButton onClick={closeModalClick} />
+          <CloseButton
+            onClick={closeModalClick}
+            data-testid="modal-close-button"
+          />
         </ModalContent>
       </StyledModal>
     ),

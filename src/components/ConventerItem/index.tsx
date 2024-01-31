@@ -13,7 +13,7 @@ interface IConverterItemProps {
 
 function ConverterItem({ title, image, rate, onClick }: IConverterItemProps) {
   return (
-    <StyledConverterItem onClick={onClick}>
+    <StyledConverterItem onClick={onClick} data-testid="converter-item">
       <IconImage src={image} />
       <Content>
         <Title>{title}</Title>

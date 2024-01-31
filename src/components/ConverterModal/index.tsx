@@ -64,6 +64,7 @@ function ConverterModal(props: IConverItemProps) {
       <Block>
         <BlockTitle>Amount:</BlockTitle>
         <AmountInput
+          data-testid="currency-amount-input"
           type="number"
           value={amountInputValue}
           onChange={(e) => onAmountInputChange(e)}
@@ -71,7 +72,9 @@ function ConverterModal(props: IConverItemProps) {
       </Block>
       <Block>
         <BlockTitle>Result:</BlockTitle>
-        <BlockText>{resultValue || 'loading...'}</BlockText>
+        <BlockText data-testid="currency-modal-result">
+          {resultValue || 'loading...'}
+        </BlockText>
       </Block>
     </>
   );

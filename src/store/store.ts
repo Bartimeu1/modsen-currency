@@ -34,6 +34,20 @@ export const store = configureStore({
   },
 });
 
+interface CypressWithStore extends Cypress.Cypress {
+  store?: typeof store;
+}
+
+declare global {
+  interface Window {
+    Cypress?: CypressWithStore;
+  }
+}
+
+if (typeof window !== 'undefined' && window.Cypress) {
+  window.Cypress.store = store;
+}
+
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;

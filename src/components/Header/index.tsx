@@ -34,6 +34,7 @@ function Header() {
         <Navbar onClick={() => setIsBurgerActive(false)} />
         <ToggleButton
           type="checkbox"
+          data-testid="toggle-theme-button"
           $isLightTheme={currentTheme === 'light'}
           onClick={() => {
             dispatch(toggleTheme());

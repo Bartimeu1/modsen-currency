@@ -31,7 +31,7 @@ function CustomSelect(props: IConvertetSelectProps) {
   };
 
   return (
-    <StyledSelect onClick={handleSelectInputClick}>
+    <StyledSelect onClick={handleSelectInputClick} data-testid="select">
       <SelectLabel $isSelectOpened={isSelectOpened}>
         <LabelValue>
           <ItemText>{currenciesList[targetCurrencyCode].title}</ItemText>
@@ -40,12 +40,13 @@ function CustomSelect(props: IConvertetSelectProps) {
         <ChevronIcon />
       </SelectLabel>
       {isSelectOpened && (
-        <Dropdown>
+        <Dropdown data-testid="select-dropdown">
           {Object.keys(
             removeCurrencyFromList(currenciesList, targetCurrencyCode),
           ).map((code) => (
             <DropdownItem
               key={code}
+              data-testid="select-dropdown-item"
               onClick={() => {
                 setTargetCurrencyCode(code);
               }}>

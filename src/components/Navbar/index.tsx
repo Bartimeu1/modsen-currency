@@ -14,10 +14,11 @@ function Navbar({ onClick }: INavbarProps) {
   const { pathname } = location;
 
   return (
-    <StyledNavbar>
+    <StyledNavbar data-testid="navigation-bar">
       {navbarLinks.map((link) => (
         <NavbarLink
           key={link.id}
+          data-testid={`navigation-link-${link.title}`}
           to={link.href}
           onClick={onClick}
           state={{ isCurrent: pathname === link.href }}>

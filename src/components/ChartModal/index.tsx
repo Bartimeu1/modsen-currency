@@ -81,7 +81,11 @@ class ChartModal extends Component<IChartModalProps, IChartModalState> {
           </Block>
         ))}
         <Buttons>
-          <SubmitButton onClick={this.onChangeClick}>Change</SubmitButton>
+          <SubmitButton
+            onClick={this.onChangeClick}
+            data-testid="chart-change-value">
+            Change
+          </SubmitButton>
           <SubmitButton onClick={this.onDeleteClick}>Delete</SubmitButton>
         </Buttons>
       </>

@@ -24,7 +24,7 @@ function ConverterList({ currencies }: IConverterListProps) {
   };
 
   return (
-    <StyledConverterList>
+    <StyledConverterList data-testid="converter-list">
       {Object.keys(currencies).map((currency) => (
         <ConverterItem
           key={currenciesList[currency].title}

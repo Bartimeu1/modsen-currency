@@ -73,20 +73,26 @@ class Chart extends Component<IChartProps, IChartState> {
     const { isModalVisible } = this.state;
 
     return (
-      <StyledChart>
-        <Controller>
+      <StyledChart data-testid="chart-wrapper">
+        <Controller data-testid="chart-controller">
           <CustomSelect
             targetCurrencyCode={currentCurrency}
             setTargetCurrencyCode={setCurrentCurrency}
             currenciesList={currenciesList}
           />
-          <ControllerButton onClick={this.onGenerateValuesClick}>
+          <ControllerButton
+            onClick={this.onGenerateValuesClick}
+            data-testid="chart-button-generate">
             Generate values
           </ControllerButton>
-          <ControllerButton onClick={this.onResetValuesClick}>
+          <ControllerButton
+            onClick={this.onResetValuesClick}
+            data-testid="chart-button-reset">
             Reset values
           </ControllerButton>
-          <ControllerButton onClick={this.onChangeValueClick}>
+          <ControllerButton
+            onClick={this.onChangeValueClick}
+            data-testid="chart-button-change">
             Change value
           </ControllerButton>
         </Controller>
@@ -94,6 +100,7 @@ class Chart extends Component<IChartProps, IChartState> {
           <ApexChart
             type="candlestick"
             options={chartOptions}
+            data-testid="chart"
             series={[
               {
                 data: chartData[currentCurrency].data,
@@ -102,7 +109,7 @@ class Chart extends Component<IChartProps, IChartState> {
             height={500}
           />
         ) : (
-          <NoResults>
+          <NoResults data-testid="empty-chart-image">
             <NoResultsText>Chart is empty</NoResultsText>
             <NoResultsImage src={noResultsImage} alt="noResults" />
           </NoResults>

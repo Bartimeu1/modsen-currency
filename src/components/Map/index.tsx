@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import CustomSelect from '@components/CustomSelect';
@@ -19,14 +19,14 @@ import { setCurrentCurrency } from '@store/features/maps/mapsSlice';
 import { RootState } from '@store/store';
 import { filterPlacesByCurrency } from '@utils/helpers';
 
-import { MapTitle, MapWrapper,StyledMap } from './styled';
+import { MapTitle, MapWrapper, StyledMap } from './styled';
 
 interface IMapState {
   selectedPlace: IMapsItem | null;
   mapLoaded: boolean;
 }
 
-class Map extends Component<MapProps, IMapState> {
+class Map extends PureComponent<MapProps, IMapState> {
   constructor(props: MapProps) {
     super(props);
 

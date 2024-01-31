@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import ConverterItem from '@components/ConventerItem';
 import { currenciesList } from '@constants/currency';
@@ -15,13 +15,13 @@ interface IConverterListProps {
 function ConverterList({ currencies }: IConverterListProps) {
   const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
-  const handleConverterItemClick = (currency: string) => {
+  const handleConverterItemClick = useCallback((currency: string) => {
     setSelectedCurrency(currency);
-  };
+  }, []);
 
-  const handleCloseModalClick = () => {
+  const handleCloseModalClick = useCallback(() => {
     setSelectedCurrency(null);
-  };
+  }, []);
 
   return (
     <StyledConverterList data-testid="converter-list">

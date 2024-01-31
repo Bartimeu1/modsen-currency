@@ -62,4 +62,4 @@ function CustomSelect(props: IConvertetSelectProps) {
   );
 }
 
-export default CustomSelect;
+export default React.memo(CustomSelect);

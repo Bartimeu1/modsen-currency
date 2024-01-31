@@ -23,4 +23,4 @@ function ConverterItem({ title, image, rate, onClick }: IConverterItemProps) {
   );
 }
 
-export default ConverterItem;
+export default React.memo(ConverterItem);

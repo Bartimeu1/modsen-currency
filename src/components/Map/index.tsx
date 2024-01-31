@@ -19,7 +19,7 @@ import { setCurrentCurrency } from '@store/features/maps/mapsSlice';
 import { RootState } from '@store/store';
 import { filterPlacesByCurrency } from '@utils/helpers';
 
-import { MapTitle, MapWrapper,StyledMap } from './styled';
+import { MapTitle, MapWrapper, StyledMap } from './styled';
 
 interface IMapState {
   selectedPlace: IMapsItem | null;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ApexChart from 'react-apexcharts';
 import { connect } from 'react-redux';
 
@@ -37,7 +37,7 @@ interface IChartState {
   isModalVisible: boolean;
 }
 
-class Chart extends Component<IChartProps, IChartState> {
+class Chart extends PureComponent<IChartProps, IChartState> {
   constructor(props: IChartProps) {
     super(props);
 

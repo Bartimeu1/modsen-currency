@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import CustomSelect from '@components/CustomSelect';
@@ -26,7 +26,7 @@ interface IMapState {
   mapLoaded: boolean;
 }
 
-class Map extends Component<MapProps, IMapState> {
+class Map extends PureComponent<MapProps, IMapState> {
   constructor(props: MapProps) {
     super(props);
 

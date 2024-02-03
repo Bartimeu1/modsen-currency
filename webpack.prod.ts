@@ -1,4 +1,5 @@
 import CompressionPlugin from 'compression-webpack-plugin';
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
@@ -17,6 +18,23 @@ const prodConfig: Configuration = {
     minimizer: [new TerserPlugin()],
   },
   plugins: [new CompressionPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: ImageMinimizerPlugin.loader,
+        enforce: 'pre',
+        options: {
+          minimizer: {
+            implementation: ImageMinimizerPlugin.imageminMinify,
+            options: {
+              plugins: ['imagemin-jpegtran', 'imagemin-optipng'],
+            },
+          },
+        },
+      },
+    ],
+  },
 };
 
 export default merge(commonConfig, prodConfig);

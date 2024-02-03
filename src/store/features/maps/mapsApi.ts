@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import config from '@root/config';
+import { mapsUrl } from '@root/config';
 import { IMapsItem } from '@root/types/maps';
 
 export const mapsApi = createApi({
   reducerPath: 'mapsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: config.mapsUrl,
+    baseUrl: mapsUrl,
   }),
   endpoints: (builder) => ({
     getBanksLocation: builder.query<IMapsItem[], object>({

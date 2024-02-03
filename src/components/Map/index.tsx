@@ -7,7 +7,7 @@ import { MapInfoWindow } from '@components/MapInfoWindow';
 import { currenciesList } from '@constants/currency';
 import { mapTitleText } from '@constants/text';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import config from '@root/config';
+import { mapsApiKey } from '@root/config';
 import {
   defaultMapCenter,
   defaultMapZoom,
@@ -77,7 +77,7 @@ class MapComponent extends PureComponent<MapProps, IMapState> {
         />
         {placesData && (
           <MapWrapper>
-            <LoadScript googleMapsApiKey={config.mapsApiKey}>
+            <LoadScript googleMapsApiKey={mapsApiKey}>
               <GoogleMap
                 center={defaultMapCenter}
                 zoom={defaultMapZoom}

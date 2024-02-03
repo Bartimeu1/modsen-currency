@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import config from '@root/config';
+import { currencyUrl, currencyApiKey } from '@root/config';
 import { ICurrencyResponse } from '@root/types/api';
 
 export const currencyApi = createApi({
   reducerPath: 'currencyApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: config.currencyUrl,
+    baseUrl: currencyUrl,
     prepareHeaders: (headers) => {
-      headers.set('apikey', config.currencyApiKey);
+      headers.set('apikey', currencyApiKey);
     },
   }),
   endpoints: (builder) => ({

@@ -1,4 +1,5 @@
 import Dotenv from 'dotenv-webpack';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { Configuration } from 'webpack';
@@ -9,6 +10,7 @@ const commonConfig: Configuration = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new FaviconsWebpackPlugin('./src/assets/images/favicon.ico'),
     new Dotenv({
       path: path.resolve(process.cwd(), '.env'),
       systemvars: true,

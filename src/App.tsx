@@ -8,9 +8,9 @@ import GlobalStyle from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import BankCardPage from './pages/BankCard';
-import HomePage from './pages/Home';
-import TimelinePage from './pages/Timeline';
+import { BankCardPage } from './pages/BankCard';
+import { HomePage } from './pages/Home';
+import { TimelinePage } from './pages/Timeline';
 import { NotFoundPage } from './pages/NotFound';
 
 export function App() {

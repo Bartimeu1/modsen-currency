@@ -6,7 +6,7 @@ import { UpdateInfo } from '@components/UpdateInfo';
 import { baseCurrency, requestedCurrencies } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 
-function HomePage() {
+export function HomePage() {
   const { data: currencyResponse, isLoading } = useGetCurrencyRatesQuery({
     currencies: requestedCurrencies,
     base_currency: baseCurrency,
@@ -25,5 +25,3 @@ function HomePage() {
     )
   );
 }
-
-export default HomePage;

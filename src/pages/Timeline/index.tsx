@@ -18,7 +18,10 @@ interface ITimelinePageState {
   isChartFilled: boolean;
 }
 
-class TimelinePage extends Component<ITimelinePageProps, ITimelinePageState> {
+class TimelinePageComponent extends Component<
+  ITimelinePageProps,
+  ITimelinePageState
+> {
   constructor(props: ITimelinePageProps) {
     super(props);
 
@@ -73,4 +76,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps)(TimelinePage);
+export const TimelinePage = connect(mapStateToProps)(TimelinePageComponent);

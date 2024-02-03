@@ -9,7 +9,7 @@ interface ITimelinePageProps {
   lastUpdateAt: number;
 }
 
-class BankCardPage extends Component<ITimelinePageProps> {
+class BankCardPageComponent extends Component<ITimelinePageProps> {
   constructor(props: { lastUpdateAt: number }) {
     super(props);
   }
@@ -32,4 +32,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps)(BankCardPage);
+export const BankCardPage = connect(mapStateToProps)(BankCardPageComponent);

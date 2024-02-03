@@ -14,9 +14,7 @@ interface IConverItemProps {
   selectedCurrency: string;
 }
 
-export function ConverterModal(props: IConverItemProps) {
-  const { selectedCurrency } = props;
-
+export function ConverterModal({ selectedCurrency }: IConverItemProps) {
   const [targetCurrencyCode, setTargetCurrencyCode] = useState(
     selectedCurrency === 'USD' ? 'EUR' : 'USD',
   );

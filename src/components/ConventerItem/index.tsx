@@ -11,12 +11,9 @@ interface IConverterItemProps {
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function ConverterItemComponent({
-  title,
-  image,
-  rate,
-  onClick,
-}: IConverterItemProps) {
+function ConverterItemComponent(props: IConverterItemProps) {
+  const { title, image, rate, onClick } = props;
+
   return (
     <StyledConverterItem onClick={onClick} data-testid="converter-item">
       <IconImage src={image} />

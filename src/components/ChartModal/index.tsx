@@ -30,7 +30,10 @@ interface IChartModalState {
   closeValue: string;
 }
 
-class ChartModal extends Component<IChartModalProps, IChartModalState> {
+class ChartModalComponent extends Component<
+  IChartModalProps,
+  IChartModalState
+> {
   constructor(props: IChartModalProps) {
     super(props);
 
@@ -102,4 +105,7 @@ const mapDispatchToProps = {
   deleteDataByDay,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChartModal);
+export const ChartModal = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ChartModalComponent);

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Chart from '@components/Chart';
+import { Chart } from '@components/Chart';
 import Observable from '@components/Observable';
-import Toast from '@components/Toast';
-import UpdateInfo from '@components/UpdateInfo';
+import { Toast } from '@components/Toast';
+import { UpdateInfo } from '@components/UpdateInfo';
 import { chartBuildText } from '@constants/text';
 import { IChartDataList } from '@root/types/chart';
 import { RootState } from '@store/store';

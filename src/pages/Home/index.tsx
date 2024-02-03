@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ConverterList from '@components/ConverterList';
-import Loader from '@components/Loader';
-import UpdateInfo from '@components/UpdateInfo';
+import { ConverterList } from '@components/ConverterList';
+import { Loader } from '@components/Loader';
+import { UpdateInfo } from '@components/UpdateInfo';
 import { baseCurrency, requestedCurrencies } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 

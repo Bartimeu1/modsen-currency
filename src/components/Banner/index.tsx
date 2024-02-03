@@ -12,7 +12,7 @@ import {
   StyledBanner,
 } from './styled';
 
-function Banner() {
+export function Banner() {
   const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   return (
@@ -25,5 +25,3 @@ function Banner() {
     </StyledBanner>
   );
 }
-
-export default Banner;

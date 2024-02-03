@@ -21,7 +21,7 @@ interface IConvertetSelectProps {
   setTargetCurrencyCode: (code: string) => void;
 }
 
-function CustomSelect(props: IConvertetSelectProps) {
+function CustomSelectComponent(props: IConvertetSelectProps) {
   const { targetCurrencyCode, currenciesList, setTargetCurrencyCode } = props;
 
   const [isSelectOpened, setIsSelectOpened] = useState(false);
@@ -62,4 +62,4 @@ function CustomSelect(props: IConvertetSelectProps) {
   );
 }
 
-export default React.memo(CustomSelect);
+export const CustomSelect = React.memo(CustomSelectComponent);

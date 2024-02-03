@@ -5,7 +5,7 @@ import loaderIcon from '@assets/images/loader.png';
 
 import { LoaderImage,StyledLoader } from './styled';
 
-function Loader() {
+export function Loader() {
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
 
@@ -21,5 +21,3 @@ function Loader() {
     document.body,
   );
 }
-
-export default Loader;

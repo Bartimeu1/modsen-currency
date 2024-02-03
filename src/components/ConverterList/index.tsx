@@ -1,18 +1,18 @@
-import React, { useCallback,useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import ConverterItem from '@components/ConventerItem';
 import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
-import ConverterModal from '../ConverterModal';
-import ModalPortal from '../ModalPortal';
+import { ConverterModal } from '../ConverterModal';
+import { ModalPortal } from '../ModalPortal';
 import { StyledConverterList } from './styled';
 
 interface IConverterListProps {
   currencies: { [currencyCode: string]: ICurrencyItem };
 }
 
-function ConverterList({ currencies }: IConverterListProps) {
+export function ConverterList({ currencies }: IConverterListProps) {
   const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
   const handleConverterItemClick = useCallback((currency: string) => {
@@ -45,5 +45,3 @@ function ConverterList({ currencies }: IConverterListProps) {
     </StyledConverterList>
   );
 }
-
-export default ConverterList;

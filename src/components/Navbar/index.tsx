@@ -9,7 +9,7 @@ interface INavbarProps {
   onClick: () => void;
 }
 
-function Navbar({ onClick }: INavbarProps) {
+export function Navbar({ onClick }: INavbarProps) {
   const location = useLocation();
   const { pathname } = location;
 
@@ -28,5 +28,3 @@ function Navbar({ onClick }: INavbarProps) {
     </StyledNavbar>
   );
 }
-
-export default Navbar;

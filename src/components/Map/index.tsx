@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
-import CustomSelect from '@components/CustomSelect';
-import Loader from '@components/Loader';
-import MapInfoWindow from '@components/MapInfoWindow';
+import { CustomSelect } from '@components/CustomSelect';
+import { Loader } from '@components/Loader';
+import { MapInfoWindow } from '@components/MapInfoWindow';
 import { currenciesList } from '@constants/currency';
 import { mapTitleText } from '@constants/text';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
@@ -26,7 +26,7 @@ interface IMapState {
   mapLoaded: boolean;
 }
 
-class Map extends PureComponent<MapProps, IMapState> {
+class MapComponent extends PureComponent<MapProps, IMapState> {
   constructor(props: MapProps) {
     super(props);
 
@@ -124,4 +124,4 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 type MapProps = ConnectedProps<typeof connector>;
 
-export default connector(Map);
+export const Map = connector(MapComponent);

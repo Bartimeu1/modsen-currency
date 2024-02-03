@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import logoIcon from '@assets/images/navLogo.png';
-import Navbar from '@components/Navbar';
+import { Navbar } from '@components/Navbar';
 import { useAppDispatch, useAppSelector } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
 
@@ -14,7 +14,7 @@ import {
   ToggleButton,
 } from './styled';
 
-function Header() {
+export function Header() {
   const dispatch = useAppDispatch();
   const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
@@ -44,5 +44,3 @@ function Header() {
     </StyledHeader>
   );
 }
-
-export default Header;

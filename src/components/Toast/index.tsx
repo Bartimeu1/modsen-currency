@@ -9,7 +9,7 @@ interface IToastProps {
   closeToast: () => void;
 }
 
-function Toast(props: IToastProps) {
+export function Toast(props: IToastProps) {
   const { message, closeToast, isVisible } = props;
 
   useEffect(() => {
@@ -30,5 +30,3 @@ function Toast(props: IToastProps) {
     )
   );
 }
-
-export default Toast;

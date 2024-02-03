@@ -13,9 +13,9 @@ interface IMapInfoWindowProps {
   onCloseClick: () => void;
 }
 
-import { Image, Text,Title, Wrapper } from './styled';
+import { Image, Text, Title, Wrapper } from './styled';
 
-class MapInfoWindow extends Component<IMapInfoWindowProps> {
+export class MapInfoWindow extends Component<IMapInfoWindowProps> {
   constructor(props: IMapInfoWindowProps) {
     super(props);
   }
@@ -38,5 +38,3 @@ class MapInfoWindow extends Component<IMapInfoWindowProps> {
     );
   }
 }
-
-export default MapInfoWindow;

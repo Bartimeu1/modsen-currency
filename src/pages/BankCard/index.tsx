@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Map from '@components/Map';
-import UpdateInfo from '@components/UpdateInfo';
+import { Map } from '@components/Map';
+import { UpdateInfo } from '@components/UpdateInfo';
 import { RootState } from '@store/store';
 
 interface ITimelinePageProps {

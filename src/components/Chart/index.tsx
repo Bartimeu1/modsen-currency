@@ -3,8 +3,8 @@ import ApexChart from 'react-apexcharts';
 import { connect } from 'react-redux';
 
 import noResultsImage from '@assets/images/noResults.png';
-import CustomSelect from '@components/CustomSelect';
-import ModalPortal from '@components/ModalPortal';
+import { CustomSelect } from '@components/CustomSelect';
+import { ModalPortal } from '@components/ModalPortal';
 import { chartOptions } from '@constants/chart';
 import { currenciesList } from '@root/constants/currency';
 import { IChartDataList } from '@root/types/chart';
@@ -15,7 +15,7 @@ import {
 } from '@store/features/chart/chartSlice';
 import { RootState } from '@store/store';
 
-import ChartModal from '../ChartModal';
+import { ChartModal } from '../ChartModal';
 import {
   Controller,
   ControllerButton,
@@ -37,7 +37,7 @@ interface IChartState {
   isModalVisible: boolean;
 }
 
-class Chart extends PureComponent<IChartProps, IChartState> {
+class ChartComponent extends PureComponent<IChartProps, IChartState> {
   constructor(props: IChartProps) {
     super(props);
 
@@ -137,4 +137,7 @@ const mapDispatchToProps = {
   setCurrentCurrency,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chart);
+export const Chart = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ChartComponent);

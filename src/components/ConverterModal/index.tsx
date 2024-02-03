@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import CustomSelect from '@components/CustomSelect';
+import { CustomSelect } from '@components/CustomSelect';
 import { currenciesList } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
 import {
@@ -14,7 +14,7 @@ interface IConverItemProps {
   selectedCurrency: string;
 }
 
-function ConverterModal(props: IConverItemProps) {
+export function ConverterModal(props: IConverItemProps) {
   const { selectedCurrency } = props;
 
   const [targetCurrencyCode, setTargetCurrencyCode] = useState(
@@ -79,5 +79,3 @@ function ConverterModal(props: IConverItemProps) {
     </>
   );
 }
-
-export default ConverterModal;

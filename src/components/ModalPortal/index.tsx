@@ -9,7 +9,7 @@ interface IModalPortalProps {
   closeModalClick: () => void;
 }
 
-function ModalPortal({ children, ...props }: IModalPortalProps) {
+export function ModalPortal({ children, ...props }: IModalPortalProps) {
   const { isModalVisible, closeModalClick } = props;
 
   useEffect(() => {
@@ -43,5 +43,3 @@ function ModalPortal({ children, ...props }: IModalPortalProps) {
     document.body,
   );
 }
-
-export default ModalPortal;

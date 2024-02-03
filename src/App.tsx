@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import ErrorBoundary from '@components/ErrorBoundary';
+import { ErrorBoundary } from '@components/ErrorBoundary';
 import Layout from '@components/Layout';
 import theme from '@constants/theme';
 import GlobalStyle from '@root/GlobalStyle';
@@ -12,7 +12,7 @@ import BankCardPage from './pages/BankCard';
 import HomePage from './pages/Home';
 import TimelinePage from './pages/Timeline';
 
-function App() {
+export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
 
   return (
@@ -32,5 +32,3 @@ function App() {
     </ErrorBoundary>
   );
 }
-
-export default App;

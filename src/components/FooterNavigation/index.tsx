@@ -12,7 +12,7 @@ import {
   StyledFooterNavigation,
 } from './styled';
 
-function FooterNavigation() {
+export function FooterNavigation() {
   const [visibleDropdowns, setVisibleDropdowns] = useState<{
     [key: number]: boolean;
   }>({});
@@ -47,5 +47,3 @@ function FooterNavigation() {
     </StyledFooterNavigation>
   );
 }
-
-export default FooterNavigation;

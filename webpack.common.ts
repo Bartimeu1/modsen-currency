@@ -38,7 +38,7 @@ const commonConfig: Configuration = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg)$/i,
+        test: /\.(png|svg|webp)$/i,
         type: 'asset/resource',
       },
       {

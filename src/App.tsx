@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import BankCardPage from './pages/BankCard';
 import HomePage from './pages/Home';
 import TimelinePage from './pages/Timeline';
+import { NotFoundPage } from './pages/NotFound';
 
 export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
@@ -25,6 +26,7 @@ export function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/timeline" element={<TimelinePage />} />
               <Route path="/bank-card" element={<BankCardPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </HashRouter>

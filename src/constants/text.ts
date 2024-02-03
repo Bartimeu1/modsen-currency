@@ -13,3 +13,5 @@ export const mapTitleText = 'Search currency in the bank';
 export const chartBuildText = 'chart successfully built';
 
 export const errorBoundaryText = 'Something went wrong!';
+
+export const notFoundText = 'Sorry, this content does not exist';

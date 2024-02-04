@@ -29,7 +29,7 @@ export const SelectLabel = styled.div<ISelectLabel>`
     transition: 0.3s all;
   }
   & path {
-    fill: ${(props) => props.theme.color.text};
+    fill: ${({theme}) => theme.color.text};
   }
   ${({ $isSelectOpened }) =>
     $isSelectOpened &&

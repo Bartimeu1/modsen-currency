@@ -132,7 +132,7 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
   transition: 0.3s;
   &::before,
   &::after {
-    background: ${(props) => props.theme.color.text};
+    background: ${({ theme }) => theme.color.text};
     position: absolute;
     left: 0;
     content: '';
@@ -172,7 +172,7 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
 `;
 
 export const BurgerRow = styled.span`
-  background: ${(props) => props.theme.color.text};
+  background: ${({ theme }) => theme.color.text};
   position: absolute;
   width: 100%;
   height: 1.5px;

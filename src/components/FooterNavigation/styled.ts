@@ -124,7 +124,7 @@ export const BlockLabel = styled.div<IBlockLabel>`
         $isDropdownVisible ? 'rotate(180deg)' : 'none'};
     }
     & path {
-      fill: ${(props) => props.theme.color.text};
+      fill: ${({theme}) => theme.color.text};
     }
   }
 `;

@@ -42,7 +42,7 @@ export const CloseButton = styled.button`
   border: none;
   &::before,
   &::after {
-    background: ${(props) => props.theme.color.text};
+    background: ${({theme}) => theme.color.text};
     position: absolute;
     left: 0;
     content: '';

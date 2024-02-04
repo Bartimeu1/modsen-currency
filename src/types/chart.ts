@@ -44,3 +44,11 @@ export interface IChartOptions {
   };
   responsive: IChartResponsive[];
 }
+
+export enum ChartFieldStateEnum {
+  DayField = 'dayField',
+  OpenField = 'openField',
+  HighField = 'highField',
+  LowField = 'lowField',
+  CloseField = 'closeField',
+}

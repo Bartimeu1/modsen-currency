@@ -13,57 +13,6 @@ export const Title = styled.h5`
   }
 `;
 
-export const Block = styled.div`
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 500px) {
-    margin-bottom: 20px;
-
-    div,
-    input {
-      width: 100%;
-    }
-  }
-`;
-
-export const BlockTitle = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  font-size: ${({ theme }) => theme.fontSize.xs2};
-  align-self: flex-start;
-  margin-bottom: 20px;
-
-  @media (max-width: 500px) {
-    margin-bottom: 15px;
-    font-size: 16px;
-  }
-`;
-
-export const BlockInput = styled.input`
-  background: ${({ theme }) => theme.color.inputBg};
-  color: ${({ theme }) => theme.color.text};
-  border: 0;
-  border-radius: ${({ theme }) => theme.borderRadius.small};
-  width: 300px;
-  padding: 15px 19px;
-  font-family: 'Poppins', sans-serif;
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    padding: 19px 15px;
-    width: 250px;
-  }
-`;
-
 export const Buttons = styled.div`
   display: flex;
   align-items: center;

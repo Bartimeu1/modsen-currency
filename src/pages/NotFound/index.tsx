@@ -3,7 +3,7 @@ import React from 'react';
 import notFoundImage from '@assets/images/notFound.webp';
 import { notFoundText } from '@constants/text';
 
-import { StyledNotFound, Image, Text } from './styled';
+import { Image, StyledNotFound, Text } from './styled';
 
 export const NotFoundPage = () => {
   return (

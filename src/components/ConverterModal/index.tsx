@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo,useState } from 'react';
 
 import { CustomSelect } from '@components/CustomSelect';
+import { InputField } from '@components/InputField';
 import { currenciesList } from '@constants/currency';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
+import { validateNumericInput } from '@utils/helpers';
 import {
   calculateConverterResult,
   removeCurrencyFromList,
 } from '@utils/helpers';
 
 import {
-  AmountInput,
   Block,
   BlockText,
   BlockTitle,
-  Title,
   Result,
   ResultCurrencyImage,
+  Title,
 } from './styled';
 
 interface IConverItemProps {
@@ -27,26 +28,44 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
     selectedCurrency === 'USD' ? 'EUR' : 'USD',
   );
   const [amountInputValue, setAmountInputValue] = useState('1');
+  const [inputValidationText, setInputValidationText] = useState('');
 
-  const { data: currencyResponse, refetch } = useGetCurrencyRatesQuery({
+  const {
+    data: currencyResponse,
+    isLoading: requestLoading,
+    isError: requestError,
+    refetch,
+  } = useGetCurrencyRatesQuery({
     currencies: targetCurrencyCode,
     base_currency: selectedCurrency,
   });
 
   useEffect(() => {
     refetch();
-  }, [selectedCurrency, targetCurrencyCode, amountInputValue, refetch]);
+  }, [selectedCurrency, targetCurrencyCode, refetch]);
 
   const onAmountInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmountInputValue(e.target.value);
+    const inputValue = e.target.value;
+
+    setInputValidationText(validateNumericInput(inputValue, '1', '10000'));
+    setAmountInputValue(() => inputValue);
   };
 
-  const resultValue =
-    currencyResponse &&
-    calculateConverterResult(
-      currencyResponse?.data[targetCurrencyCode]?.value,
-      +amountInputValue,
-    );
+  const calculateResult = () => {
+    if (currencyResponse && !inputValidationText) {
+      return calculateConverterResult(
+        currencyResponse?.data[targetCurrencyCode]?.value,
+        Number(amountInputValue),
+      );
+    }
+    return null;
+  };
+
+  const resultValue = useMemo(
+    () => calculateResult(),
+    [currencyResponse, amountInputValue, inputValidationText],
+  );
+  const isResultValid = !requestError && resultValue;
 
   return (
     <>
@@ -67,25 +86,28 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
           )}
         />
       </Block>
-      <Block>
-        <BlockTitle>Amount:</BlockTitle>
-        <AmountInput
-          data-testid="currency-amount-input"
-          type="number"
-          value={amountInputValue}
-          onChange={(e) => onAmountInputChange(e)}
-        />
-      </Block>
+      <InputField
+        title="Amount:"
+        inputType="number"
+        minValue="1"
+        maxValue="10000"
+        errorText={inputValidationText}
+        inputValue={amountInputValue}
+        onInputChange={onAmountInputChange}
+      />
       <Block>
         <BlockTitle>Result:</BlockTitle>
         <Result>
           <BlockText data-testid="currency-modal-result">
-            {resultValue || 'loading...'}
+            {requestLoading && 'loading...'}
+            {isResultValid ? resultValue : '-'}
           </BlockText>
-          <ResultCurrencyImage
-            src={currenciesList[targetCurrencyCode].image}
-            alt="resultCurrency"
-          />
+          {resultValue && (
+            <ResultCurrencyImage
+              src={currenciesList[targetCurrencyCode].image}
+              alt="resultCurrency"
+            />
+          )}
         </Result>
       </Block>
     </>

@@ -10,8 +10,8 @@ import { ThemeProvider } from 'styled-components';
 
 import { BankCardPage } from './pages/BankCard';
 import { HomePage } from './pages/Home';
-import { TimelinePage } from './pages/Timeline';
 import { NotFoundPage } from './pages/NotFound';
+import { TimelinePage } from './pages/Timeline';
 
 export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);

@@ -1,4 +1,8 @@
-import { IChartDataList, IChartOptions } from '@root/types/chart';
+import {
+  ChartFieldStateEnum,
+  IChartDataList,
+  IChartOptions,
+} from '@root/types/chart';
 
 export const chartOptions: IChartOptions = {
   chart: {
@@ -48,34 +52,46 @@ export const chartDataCurrenciesList: IChartDataList = {
   TRY: { data: [], lastUpdateAt: 0 },
 };
 
-export const chartModalBlocks: {
+export const chartModalFields: {
   id: number;
   title: string;
-  stateName: string;
+  minValue: string;
+  maxValue: string;
+  stateName: ChartFieldStateEnum;
 }[] = [
   {
     id: 1,
     title: 'Day',
-    stateName: 'day',
+    minValue: '1',
+    maxValue: '30',
+    stateName: ChartFieldStateEnum.DayField,
   },
   {
     id: 2,
     title: 'Open value',
-    stateName: 'openValue',
+    minValue: '1',
+    maxValue: '9000',
+    stateName: ChartFieldStateEnum.OpenField,
   },
   {
     id: 3,
     title: 'High value',
-    stateName: 'highValue',
+    minValue: '1',
+    maxValue: '9000',
+    stateName: ChartFieldStateEnum.HighField,
   },
   {
     id: 4,
     title: 'Low value',
-    stateName: 'lowValue',
+    minValue: '1',
+    maxValue: '9000',
+    stateName: ChartFieldStateEnum.LowField,
   },
   {
     id: 5,
     title: 'Close value',
-    stateName: 'closeValue',
+    minValue: '1',
+    maxValue: '9000',
+    stateName: ChartFieldStateEnum.CloseField,
   },
 ];

@@ -29,6 +29,7 @@ export const Block = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
   &:last-child {
     margin-bottom: 0;
   }
@@ -61,26 +62,6 @@ export const BlockText = styled.p`
 
   @media (max-width: 500px) {
     font-size: 16px;
-  }
-`;
-
-export const AmountInput = styled.input`
-  background: ${({ theme }) => theme.color.inputBg};
-  color: ${({ theme }) => theme.color.text};
-  border: 0;
-  border-radius: ${({ theme }) => theme.borderRadius.small};
-  width: 300px;
-  padding: 19px 20px;
-  font-family: 'Poppins', sans-serif;
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    padding: 19px 15px;
-    width: 250px;
   }
 `;
 

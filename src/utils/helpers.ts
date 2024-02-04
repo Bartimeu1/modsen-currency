@@ -25,7 +25,7 @@ export const convertAndFormatCurrencyData = (rate: number) => {
     convertedValue = +convertedValue.toFixed(2);
   }
 
-  return convertedValue.toString().replace('.', ',');
+  return convertedValue.toString();
 };
 
 export const removeCurrencyFromList = (
@@ -42,7 +42,7 @@ export const calculateConverterResult = (
   currancyRate: number,
   amout: number,
 ) => {
-  return currancyRate * amout;
+  return (currancyRate * amout).toFixed(3);
 };
 
 export const generateChartDataObjects = (): IChartData => {
@@ -74,4 +74,16 @@ export const filterPlacesByCurrency = (
   currency: string,
 ) => {
   return placesList.filter((place) => place.currencies.includes(currency));
+};
+
+export const validateNumericInput = (
+  inputValue: string,
+  minValue: string,
+  maxValue: string,
+) => {
+  const numericValue = Number(inputValue);
+
+  return numericValue <= Number(maxValue) && numericValue >= Number(minValue)
+    ? ''
+    : `The value must be between ${minValue} and ${maxValue}`;
 };

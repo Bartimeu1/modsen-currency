@@ -45,7 +45,12 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
         this.state.closeField.value,
       ],
     });
-    this.props.closeModalClick();
+    const nextDayValue = +this.state.dayField.value + 1;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      dayField: { value: nextDayValue.toString(), validationText: '' },
+    }));
   };
 
   onDeleteClick = () => {

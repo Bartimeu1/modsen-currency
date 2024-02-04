@@ -20,12 +20,8 @@ export function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              {pageRoutes.map((route) => (
-                <Route
-                  key={route.id}
-                  path={route.path}
-                  element={route.element}
-                />
+              {pageRoutes.map(({ id, path, element }) => (
+                <Route key={id} path={path} element={element} />
               ))}
             </Route>
           </Routes>

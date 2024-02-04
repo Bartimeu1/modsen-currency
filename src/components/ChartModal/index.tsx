@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { InputField } from '@components/InputField';
-import { chartModalFields } from '@constants/chart';
 import { ChartFieldStateEnum } from '@root/types/chart';
 import {
   deleteDataByDay,
@@ -10,6 +9,7 @@ import {
 } from '@store/features/chart/chartSlice';
 import { validateNumericInput } from '@utils/helpers';
 
+import { chartModalFields } from './config';
 import { Buttons, SubmitButton, Title } from './styled';
 
 interface IChartModalProps {
@@ -87,20 +87,22 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
     return (
       <>
         <Title>Change chart value</Title>
-        {chartModalFields.map((field, index) => (
-          <InputField
-            key={field.id}
-            inputType="number"
-            title={field.title}
-            minValue={field.minValue}
-            maxValue={field.maxValue}
-            inputValue={this.state[field.stateName].value}
-            errorText={this.state[field.stateName].validationText}
-            onInputChange={(e) =>
-              this.onInputValueChange(e, field.stateName, index)
-            }
-          />
-        ))}
+        {chartModalFields.map(
+          ({ id, title, minValue, maxValue, stateName }, index) => (
+            <InputField
+              key={id}
+              inputType="number"
+              title={title}
+              minValue={minValue}
+              maxValue={maxValue}
+              inputValue={this.state[stateName].value}
+              errorText={this.state[stateName].validationText}
+              onInputChange={(e) =>
+                this.onInputValueChange(e, stateName, index)
+              }
+            />
+          ),
+        )}
         <Buttons>
           <SubmitButton
             onClick={this.onChangeClick}

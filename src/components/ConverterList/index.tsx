@@ -25,15 +25,19 @@ export function ConverterList({ currencies }: IConverterListProps) {
 
   return (
     <StyledConverterList data-testid="converter-list">
-      {Object.keys(currencies).map((currency) => (
-        <ConverterItem
-          key={currenciesList[currency].title}
-          rate={currencies[currency].value}
-          image={currenciesList[currency].image}
-          title={currenciesList[currency].title}
-          onClick={() => handleConverterItemClick(currency)}
-        />
-      ))}
+      {Object.keys(currencies).map((currency) => {
+        const { title, image } = currenciesList[currency];
+        const { value } = currencies[currency];
+        return (
+          <ConverterItem
+            key={title}
+            rate={value}
+            image={image}
+            title={title}
+            onClick={() => handleConverterItemClick(currency)}
+          />
+        );
+      })}
 
       <ModalPortal
         closeModalClick={handleCloseModalClick}

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 
-import { navbarLinks } from '@root/constants/common';
-
+import { navbarLinks } from './config';
 import { NavbarLink, StyledNavbar } from './styled';
 
 interface INavbarProps {
@@ -15,14 +14,14 @@ export function Navbar({ onClick }: INavbarProps) {
 
   return (
     <StyledNavbar data-testid="navigation-bar">
-      {navbarLinks.map((link) => (
+      {navbarLinks.map(({ id, title, href }) => (
         <NavbarLink
-          key={link.id}
-          data-testid={`navigation-link-${link.title}`}
-          to={link.href}
+          key={id}
+          data-testid={`navigation-link-${title}`}
+          to={href}
           onClick={onClick}
-          state={{ isCurrent: pathname === link.href }}>
-          {link.title}
+          state={{ isCurrent: pathname === href }}>
+          {title}
         </NavbarLink>
       ))}
     </StyledNavbar>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
-import { footerNavBlocks } from '@constants/common';
 
+import { footerNavBlocks } from './config';
 import {
   Block,
   BlockContent,
@@ -26,24 +26,27 @@ export function FooterNavigation() {
 
   return (
     <StyledFooterNavigation>
-      {footerNavBlocks.map((block) => (
-        <Block key={block.id}>
-          <BlockLabel
-            $isDropdownVisible={visibleDropdowns[block.id]}
-            onClick={() => onLabelClick(block.id)}>
-            <LabelTitle>{block.name}</LabelTitle>
-            <ChevronIcon />
-          </BlockLabel>
-          <BlockContent $isVisible={visibleDropdowns[block.id]}>
-            {block &&
-              block.links.map((link) => (
-                <NavigationLink to={link.href} key={link.id}>
-                  {link.title}
-                </NavigationLink>
-              ))}
-          </BlockContent>
-        </Block>
-      ))}
+      {footerNavBlocks.map((block) => {
+        const { id, name, links } = block;
+        return (
+          <Block key={id}>
+            <BlockLabel
+              $isDropdownVisible={visibleDropdowns[id]}
+              onClick={() => onLabelClick(id)}>
+              <LabelTitle>{name}</LabelTitle>
+              <ChevronIcon />
+            </BlockLabel>
+            <BlockContent $isVisible={visibleDropdowns[id]}>
+              {block &&
+                links.map(({ id, href, title }) => (
+                  <NavigationLink to={href} key={id}>
+                    {title}
+                  </NavigationLink>
+                ))}
+            </BlockContent>
+          </Block>
+        );
+      })}
     </StyledFooterNavigation>
   );
 }

@@ -20,9 +20,9 @@ export const convertAndFormatCurrencyData = (rate: number) => {
       .split('')
       .findIndex((number) => number !== '0');
 
-    convertedValue = +convertedValue.toFixed(firstNaturalNumIndex + 2);
+    convertedValue = Number(convertedValue.toFixed(firstNaturalNumIndex + 2));
   } else {
-    convertedValue = +convertedValue.toFixed(2);
+    convertedValue = Number(convertedValue.toFixed(2));
   }
 
   return convertedValue.toString();

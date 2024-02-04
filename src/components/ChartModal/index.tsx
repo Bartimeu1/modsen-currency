@@ -37,7 +37,7 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
 
   onChangeClick = () => {
     this.props.modifyChartData({
-      x: +this.state.dayField.value,
+      x: Number(this.state.dayField.value),
       y: [
         this.state.openField.value,
         this.state.highField.value,
@@ -45,7 +45,7 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
         this.state.closeField.value,
       ],
     });
-    const nextDayValue = +this.state.dayField.value + 1;
+    const nextDayValue = Number(this.state.dayField.value) + 1;
 
     this.setState((prevState) => ({
       ...prevState,
@@ -54,7 +54,7 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
   };
 
   onDeleteClick = () => {
-    this.props.deleteDataByDay(+this.state.dayField.value);
+    this.props.deleteDataByDay(Number(this.state.dayField.value));
     this.props.closeModalClick();
   };
 

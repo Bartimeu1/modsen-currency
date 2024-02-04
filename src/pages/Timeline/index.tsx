@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Chart } from '@components/Chart';
-import Observable from '@components/Observable';
 import { Toast } from '@components/Toast';
 import { UpdateInfo } from '@components/UpdateInfo';
 import { chartBuildText } from '@constants/text';
 import { IChartDataList } from '@root/types/chart';
+import { Observable } from '@services/Observable';
 import { RootState } from '@store/store';
 
 interface ITimelinePageProps {

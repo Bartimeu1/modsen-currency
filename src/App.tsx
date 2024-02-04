@@ -8,10 +8,7 @@ import GlobalStyle from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import { BankCardPage } from './pages/BankCard';
-import { HomePage } from './pages/Home';
-import { NotFoundPage } from './pages/NotFound';
-import { TimelinePage } from './pages/Timeline';
+import { pageRoutes } from './constants/routes';
 
 export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
@@ -23,10 +20,13 @@ export function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/timeline" element={<TimelinePage />} />
-              <Route path="/bank-card" element={<BankCardPage />} />
-              <Route path="*" element={<NotFoundPage />} />
+              {pageRoutes.map((route) => (
+                <Route
+                  key={route.id}
+                  path={route.path}
+                  element={route.element}
+                />
+              ))}
             </Route>
           </Routes>
         </HashRouter>

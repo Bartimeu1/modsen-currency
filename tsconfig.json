@@ -16,8 +16,10 @@
     "paths": {
       "@root/*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
       "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@assets/*": ["src/assets/*"],
     }

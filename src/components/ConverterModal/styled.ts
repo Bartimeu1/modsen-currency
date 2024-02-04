@@ -83,3 +83,17 @@ export const AmountInput = styled.input`
     width: 250px;
   }
 `;
+
+export const Result = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & p {
+    margin-right: 10px;
+  }
+`;
+
+export const ResultCurrencyImage = styled.img`
+  width: 20px;
+`;

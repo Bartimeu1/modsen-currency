@@ -8,7 +8,15 @@ import {
   removeCurrencyFromList,
 } from '@utils/helpers';
 
-import { AmountInput, Block, BlockText, BlockTitle, Title } from './styled';
+import {
+  AmountInput,
+  Block,
+  BlockText,
+  BlockTitle,
+  Title,
+  Result,
+  ResultCurrencyImage,
+} from './styled';
 
 interface IConverItemProps {
   selectedCurrency: string;
@@ -70,9 +78,15 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
       </Block>
       <Block>
         <BlockTitle>Result:</BlockTitle>
-        <BlockText data-testid="currency-modal-result">
-          {resultValue || 'loading...'}
-        </BlockText>
+        <Result>
+          <BlockText data-testid="currency-modal-result">
+            {resultValue || 'loading...'}
+          </BlockText>
+          <ResultCurrencyImage
+            src={currenciesList[targetCurrencyCode].image}
+            alt="resultCurrency"
+          />
+        </Result>
       </Block>
     </>
   );

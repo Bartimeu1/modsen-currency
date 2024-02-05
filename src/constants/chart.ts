@@ -1,7 +1,6 @@
-import {
-  IChartDataList,
-  IChartOptions,
-} from '@root/types/chart';
+import { IChartDataList, IChartOptions } from '@root/types/chart';
+
+export const baseChartValue = 5000;
 
 export const chartOptions: IChartOptions = {
   chart: {

@@ -1,4 +1,4 @@
-const lightTheme = {
+const lightThemeColors = {
   background: '#f5f5f5',
   border: '#030304',
   text: '#000',
@@ -10,7 +10,7 @@ const lightTheme = {
   title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
 } as const;
 
-const darkTheme = {
+const darkThemeColors = {
   background: '#030304',
   border: '#474747',
   text: '#fff',
@@ -61,13 +61,16 @@ const layoutValues = {
 
 const theme = {
   dark: {
-    color: darkTheme,
+    color: darkThemeColors,
     ...layoutValues,
   },
   light: {
-    color: lightTheme,
+    color: lightThemeColors,
     ...layoutValues,
   },
 } as const;
 
 export default theme;
+
+export const LIGHT_THEME = 'light';
+export const DARK_THEME = 'dark';

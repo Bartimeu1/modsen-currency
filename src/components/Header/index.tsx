@@ -4,6 +4,7 @@ import logoIcon from '@assets/images/navLogo.png';
 import { Navbar } from '@components/Navbar';
 import { useAppDispatch, useAppSelector } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
+import { LIGHT_THEME } from '@constants/theme';
 
 import {
   BurgerMenu,
@@ -35,7 +36,7 @@ export function Header() {
         <ToggleButton
           type="checkbox"
           data-testid="toggle-theme-button"
-          $isLightTheme={currentTheme === 'light'}
+          $isLightTheme={currentTheme === LIGHT_THEME}
           onClick={() => {
             dispatch(toggleTheme());
           }}

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+
+import { useOnClickOutside } from '@utils/hooks';
 
 import { CloseButton, ModalContent, StyledModal } from './styled';
 
@@ -11,6 +13,8 @@ interface IModalPortalProps {
 
 export function ModalPortal({ children, ...props }: IModalPortalProps) {
   const { isModalVisible, closeModalClick } = props;
+
+  const modalRef = useRef(null);
 
   useEffect(() => {
     if (isModalVisible) {
@@ -24,14 +28,16 @@ export function ModalPortal({ children, ...props }: IModalPortalProps) {
     };
   }, [isModalVisible]);
 
-  const onModalContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const onModalClickOutside = () => {
+    closeModalClick();
   };
+
+  useOnClickOutside(modalRef, onModalClickOutside);
 
   return createPortal(
     isModalVisible && (
-      <StyledModal onClick={closeModalClick} data-testid="modal">
-        <ModalContent onClick={onModalContentClick}>
+      <StyledModal data-testid="modal">
+        <ModalContent ref={modalRef}>
           {children}
           <CloseButton
             onClick={closeModalClick}

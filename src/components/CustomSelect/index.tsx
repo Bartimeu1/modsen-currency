@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
+import { useOnClickOutside } from '@utils/hooks';
 import { ICurrenciesList } from '@root/types/api';
 import { removeCurrencyFromList } from '@utils/helpers';
 
@@ -25,13 +26,23 @@ function CustomSelectComponent(props: IConvertetSelectProps) {
   const { targetCurrencyCode, currenciesList, setTargetCurrencyCode } = props;
 
   const [isSelectOpened, setIsSelectOpened] = useState(false);
+  const selectRef = useRef(null);
 
   const handleSelectInputClick = () => {
     setIsSelectOpened((prevState) => !prevState);
   };
 
+  const onSelectClickOutside = () => {
+    setIsSelectOpened(false);
+  };
+
+  useOnClickOutside(selectRef, onSelectClickOutside);
+
   return (
-    <StyledSelect onClick={handleSelectInputClick} data-testid="select">
+    <StyledSelect
+      onClick={handleSelectInputClick}
+      ref={selectRef}
+      data-testid="select">
       <SelectLabel $isSelectOpened={isSelectOpened}>
         <LabelValue>
           <ItemText>{currenciesList[targetCurrencyCode].title}</ItemText>

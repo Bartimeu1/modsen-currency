@@ -1,16 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-interface IToggleButton {
-  $isLightTheme: boolean;
-}
-
-interface IContent {
-  $isBurgerActive: boolean;
-}
-
-interface IBurgerMenu {
-  $isBurgerActive: boolean;
-}
+import { IContent, IToggleButton, IBurgerMenu } from './types';
 
 const fadeIn = keyframes`
   from {

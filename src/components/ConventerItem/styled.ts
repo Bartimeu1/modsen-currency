@@ -1,24 +1,27 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledConverterItem = styled.div`
+  ${FlexMixin({ align: 'center' })}
   border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   background: ${({ theme }) => theme.color.convertItem};
   padding: 30px 0 30px 32px;
-  display: flex;
-  align-items: center;
   width: 520px;
   margin-bottom: 56px;
   cursor: pointer;
+
   &:last-child: {
     margin-bottom: 0;
   }
-  
+
   @media (max-width: 1100px) {
     width: 48%;
     padding: 25px 0 25px 27px;
     margin-bottom: 45px;
   }
+
   @media (max-width: 840px) {
     width: 90%;
     padding: 16px 0 16px 12px;
@@ -33,6 +36,7 @@ export const IconImage = styled.img`
     width: 70px;
     margin-right: 25px;
   }
+
   @media (max-width: 840px) {
     width: 45px;
     margin-right: 11px;
@@ -40,8 +44,7 @@ export const IconImage = styled.img`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 `;
 
 export const Title = styled.h4`
@@ -52,6 +55,7 @@ export const Title = styled.h4`
   @media (max-width: 1100px) {
     font-size: 25px;
   }
+
   @media (max-width: 840px) {
     font-size: 15px;
   }
@@ -65,6 +69,7 @@ export const Rate = styled.p`
   @media (max-width: 1100px) {
     font-size: 27px;
   }
+  
   @media (max-width: 840px) {
     font-size: 13px;
   }

@@ -1,32 +1,32 @@
-import bannerBg from '@assets/images/bannerBg.png';
 import styled from 'styled-components';
+
+import { FlexMixin } from '@root/GlobalStyle';
 
 interface IStyledBanner {
   $isDarkTheme: boolean;
 }
 
 export const StyledBanner = styled.section<IStyledBanner>`
+  ${FlexMixin()}
   padding: 45px 0 60px 0;
   margin-top: 31px;
   max-width: 100%;
-  display: flex;
-  justify-content: start;
-  position: relative;
 
   &::before {
     position: absolute;
     content: '';
     background: ${({ $isDarkTheme }) =>
       $isDarkTheme
-        ? `url(${bannerBg})`
+        ? `linear-gradient( 241deg, rgba(22, 39, 31, 0.79) 61%, rgba(18, 18, 18, 1) 77% )`
         : `radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)`};
     background-repeat: no-repeat;
     background-size: cover;
     left: 50%;
-    top: 0;
+    top: 100px;
     transform: translateX(-50%);
     height: 100%;
-    width: 100vw;
+    max-height: 430px;
+    width: 100%;
     z-index: -1;
   }
 
@@ -37,13 +37,27 @@ export const StyledBanner = styled.section<IStyledBanner>`
   @media (max-width: 740px) {
     padding: 26px 0 20px 0;
     margin-top: 20px;
+
+    &::before {
+      max-height: 240px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    &::before {
+      top: 50px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    &::before {
+      max-height: 200px;
+    }
   }
 `;
 
 export const BannerContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: end;
+  ${FlexMixin({ direction: 'column', align: 'end' })}
   max-width: 750px;
   z-index: 2;
 
@@ -66,10 +80,12 @@ export const BannerTitle = styled.h1`
     padding-right: 0;
     text-align: center;
   }
+
   @media (max-width: 740px) {
     font-size: 43px;
     max-width: 400px;
   }
+
   @media (max-width: 420px) {
     font-size: 31px;
   }
@@ -87,11 +103,13 @@ export const BannerSubtitle = styled.p`
   @media (max-width: 1100px) {
     font-size: 20px;
   }
+
   @media (max-width: 740px) {
     line-height: 27px;
     font-size: 15px;
     max-width: 250px;
   }
+
   @media (max-width: 420px) {
     font-size: 12px;
   }

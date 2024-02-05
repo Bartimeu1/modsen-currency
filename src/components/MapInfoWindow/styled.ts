@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const Wrapper = styled.div`
+  ${FlexMixin({ direction: 'column' })}
   border-radius: ${({ theme }) => theme.borderRadius.small};
   padding: ${({ theme }) => theme.spaces.xs2};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
 `;
 
 export const Image = styled.img`

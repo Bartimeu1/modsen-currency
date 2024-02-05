@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledChart = styled.div`
   z-index: 0;
   margin-top: 63px;
@@ -10,10 +12,8 @@ export const StyledChart = styled.div`
 `;
 
 export const Controller = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'space-around' })}
   margin-bottom: ${({ theme }) => theme.spaces.sm};
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 
   @media (max-width: 920px) {
     flex-direction: column;
@@ -34,10 +34,8 @@ export const ControllerButton = styled.button`
 `;
 
 export const NoResults = styled.div`
+  ${FlexMixin({ align: 'center', direction: 'column' })}
   margin: 60px auto 0 auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 `;
 
 export const NoResultsImage = styled.img`

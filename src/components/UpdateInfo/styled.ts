@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 const blinkAnimation = keyframes`
   25% { 
     opacity: 1;
@@ -13,13 +15,14 @@ const blinkAnimation = keyframes`
 `;
 
 export const StyledUpdateInfo = styled.div`
-  display: flex;
+  ${FlexMixin()}
   margin: 57px auto 0 auto;
   align-items: center;
 
   @media (max-width: 740px) {
     margin: 40px auto 0 auto;
   }
+  
   @media (max-width: 640px) {
     margin: 30px auto 0 auto;
   }
@@ -39,9 +42,11 @@ export const UpdateText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.light};
   color: ${({ theme }) => theme.color.text};
   opacity: 0.85;
+
   @media (max-width: 740px) {
     font-size: 26px;
   }
+  
   @media (max-width: 640px) {
     font-size: 12px;
   }

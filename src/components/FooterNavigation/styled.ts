@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 interface IBlockContent {
   $isVisible: boolean;
 }
@@ -11,8 +13,7 @@ interface IBlockLabel {
 }
 
 export const StyledFooterNavigation = styled.nav`
-  display: flex;
-  justify-content: space-between;
+  ${FlexMixin({ justify: 'space-between' })}
   width: 100%;
   max-width: 600px;
 
@@ -26,13 +27,13 @@ export const StyledFooterNavigation = styled.nav`
 `;
 
 export const Block = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 
   @media (max-width: 920px) {
     position: relative;
     padding-bottom: 20px;
     margin-bottom: 20px;
+
     &::after {
       background: ${({ theme }) => theme.color.text};
       content: '';
@@ -42,6 +43,7 @@ export const Block = styled.div`
       bottom: 0;
       left: 0;
     }
+    
     &:last-child {
       margin-bottom: 0;
     }
@@ -57,10 +59,12 @@ export const LabelTitle = styled.h3`
   @media (max-width: 1150px) {
     font-size: 25px;
   }
+
   @media (max-width: 920px) {
     cursor: pointer;
     margin-bottom: 0;
   }
+
   @media (max-width: 640px) {
     font-size: 16px;
   }
@@ -85,17 +89,18 @@ export const NavigationLink = styled(Link)`
   @media (max-width: 1150px) {
     font-size: 21px;
   }
+
   @media (max-width: 920px) {
     font-size: 19px;
   }
+
   @media (max-width: 640px) {
     font-size: 14px;
   }
 `;
 
 export const BlockContent = styled.div<IBlockContent>`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 
   @media (max-width: 920px) {
     display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
@@ -106,9 +111,7 @@ export const BlockContent = styled.div<IBlockContent>`
 `;
 
 export const BlockLabel = styled.div<IBlockLabel>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
   transition: 0.3s all;
 
   & svg {
@@ -124,7 +127,7 @@ export const BlockLabel = styled.div<IBlockLabel>`
         $isDropdownVisible ? 'rotate(180deg)' : 'none'};
     }
     & path {
-      fill: ${({theme}) => theme.color.text};
+      fill: ${({ theme }) => theme.color.text};
     }
   }
 `;

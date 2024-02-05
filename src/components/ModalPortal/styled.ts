@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledModal = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'center' })}
   backdrop-filter: blur(10px);
   position: fixed;
   z-index: 13;
@@ -8,9 +11,6 @@ export const StyledModal = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: 0.5s all;
 `;
 
@@ -22,6 +22,7 @@ export const ModalContent = styled.div`
   padding: 30px 60px;
   position: relative;
   overflow-y: auto;
+  
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
     display: none;
@@ -40,9 +41,10 @@ export const CloseButton = styled.button`
   width: 20px;
   height: 20px;
   border: none;
+
   &::before,
   &::after {
-    background: ${({theme}) => theme.color.text};
+    background: ${({ theme }) => theme.color.text};
     position: absolute;
     left: 0;
     content: '';
@@ -50,13 +52,15 @@ export const CloseButton = styled.button`
     height: 2px;
     bottom: 50%;
   }
+
   &::before {
     transform: rotate(45deg);
   }
+
   &::after {
     transform: rotate(-45deg);
   }
-  
+
   @media (max-width: 670px) {
     right: 10px;
   }

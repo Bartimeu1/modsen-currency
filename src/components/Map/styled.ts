@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledMap = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  ${FlexMixin({ align: 'center', direction: 'column' })}
   margin-top: 63px;
 
   @media (max-width: 740px) {
     margin-top: 30px;
   }
+
   @media (max-width: 450px) {
     margin-top: 15px;
   }
@@ -23,6 +24,7 @@ export const MapTitle = styled.h2`
   @media (max-width: 740px) {
     font-size: 25px;
   }
+
   @media (max-width: 450px) {
     font-size: 15px;
   }
@@ -36,6 +38,7 @@ export const MapWrapper = styled.div`
   @media (max-width: 740px) {
     margin-top: 40px;
   }
+  
   @media (max-width: 450px) {
     margin-top: 20px;
   }

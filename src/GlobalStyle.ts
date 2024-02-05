@@ -1,6 +1,13 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+interface IFlexMixin {
+  align?: string;
+  justify?: string;
+  direction?: string;
+  wrap?: string;
+}
+
+export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
@@ -57,4 +64,15 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export default GlobalStyle;
+export const FlexMixin = ({
+  align = 'stretch',
+  justify = 'flex-start',
+  direction = 'row',
+  wrap = 'nowrap',
+}: IFlexMixin = {}) => css`
+  display: flex;
+  align-items: ${align};
+  justify-content: ${justify};
+  flex-direction: ${direction};
+  flex-wrap: ${wrap};
+`;

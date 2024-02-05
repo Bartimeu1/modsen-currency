@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 const disappearAnimation = keyframes`
   from {
     opacity: 1;
@@ -11,6 +13,7 @@ const disappearAnimation = keyframes`
 `;
 
 export const StyledToast = styled.div`
+  ${FlexMixin({ align: 'center' })}
   border-radius: ${({ theme }) => theme.borderRadius.small};
   background-color: #34a853;
   position: fixed;
@@ -18,8 +21,6 @@ export const StyledToast = styled.div`
   left: 10px;
   padding: 10px 20px;
   min-width: 200px;
-  display: flex;
-  align-items: center;
   animation: ${disappearAnimation} 3s ease-in forwards;
 `;
 

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 interface ISelectLabel {
   $isSelectOpened: boolean;
 }
@@ -12,7 +14,6 @@ export const StyledSelect = styled.div`
   width: 300px;
   z-index: 10;
 
-
   @media (max-width: 900px) {
     padding: 19px 15px;
     width: 250px;
@@ -20,17 +21,18 @@ export const StyledSelect = styled.div`
 `;
 
 export const SelectLabel = styled.div<ISelectLabel>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
   cursor: pointer;
   transition: 0.3s all;
+
   & svg {
     transition: 0.3s all;
   }
+
   & path {
-    fill: ${({theme}) => theme.color.text};
+    fill: ${({ theme }) => theme.color.text};
   }
+
   ${({ $isSelectOpened }) =>
     $isSelectOpened &&
     `
@@ -41,8 +43,7 @@ export const SelectLabel = styled.div<ISelectLabel>`
 `;
 
 export const LabelValue = styled.div`
-  display: flex;
-  align-items: center;
+  ${FlexMixin({ align: 'center' })}
 `;
 
 export const ItemText = styled.p`
@@ -59,6 +60,7 @@ export const ItemImage = styled.img`
 `;
 
 export const Dropdown = styled.div`
+  ${FlexMixin({ direction: 'column', align: 'center' })}
   background: ${({ theme }) => theme.color.inputBg};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   padding: 10px 10px 10px 20px;
@@ -66,20 +68,18 @@ export const Dropdown = styled.div`
   width: 100%;
   top: 103%;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const DropdownItem = styled.div`
+  ${FlexMixin({ align: 'center' })}
   margin-bottom: 10px;
   width: 100%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &:hover {
     opacity: 0.5;
   }

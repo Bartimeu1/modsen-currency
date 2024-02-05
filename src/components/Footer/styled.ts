@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledFooter = styled.footer`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${FlexMixin({ direction: 'column', justify: 'center' })}
   padding-bottom: 30px;
   margin-top: 95px;
 
@@ -18,9 +18,8 @@ export const StyledFooter = styled.footer`
 `;
 
 export const Content = styled.div`
+  ${FlexMixin({ justify: 'space-between' })}
   margin-bottom: ${({ theme }) => theme.spaces.lg};
-  display: flex;
-  justify-content: space-between;
 
   @media (max-width: 920px) {
     flex-direction: column;
@@ -45,13 +44,11 @@ export const Info = styled.p`
 `;
 
 export const ContentText = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 `;
 
 export const Logo = styled.div`
-  display: flex;
-  align-items: center;
+  ${FlexMixin({ align: 'center' })}
   margin-bottom: 35px;
 
   @media (max-width: 920px) {
@@ -61,6 +58,7 @@ export const Logo = styled.div`
 
 export const LogoImage = styled.img`
   margin-right: 17px;
+
   @media (max-width: 430px) {
     width: 35px;
     margin-right: 13px;
@@ -83,6 +81,7 @@ export const LogoTitle = styled.h3`
   @media (max-width: 1150px) {
     font-size: 23px;
   }
+
   @media (max-width: 430px) {
     font-size: 18px;
   }
@@ -98,6 +97,7 @@ export const Label = styled.p`
   @media (max-width: 920px) {
     font-size: 16px;
   }
+  
   @media (max-width: 365px) {
     font-size: 14px;
   }

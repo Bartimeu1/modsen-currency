@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import Layout from '@components/Layout';
 import theme from '@constants/theme';
-import GlobalStyle from '@root/GlobalStyle';
+import { GlobalStyle } from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 

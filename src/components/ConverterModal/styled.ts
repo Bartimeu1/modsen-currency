@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const Content = styled.div`
   border: 1px solid ${({ theme }) => theme.color.border};
   background: ${({ theme }) => theme.color.background};
@@ -25,10 +27,8 @@ export const Title = styled.h5`
 `;
 
 export const Block = styled.div`
+  ${FlexMixin({ align: 'center', direction: 'column' })}
   margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   position: relative;
   &:last-child {
     margin-bottom: 0;
@@ -66,9 +66,7 @@ export const BlockText = styled.p`
 `;
 
 export const Result = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${FlexMixin({ align: 'center', justify: 'center' })}
 
   & p {
     margin-right: 10px;

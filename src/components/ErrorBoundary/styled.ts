@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const Boundary = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'center', direction: 'column' })}
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 `;
 
 export const BoundaryImage = styled.img`

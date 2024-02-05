@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const Title = styled.h5`
   color: ${({ theme }) => theme.color.text};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
@@ -14,9 +16,7 @@ export const Title = styled.h5`
 `;
 
 export const Buttons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
 `;
 
 export const SubmitButton = styled.button`

@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledNavbar = styled.nav`
-  display: flex;
-  align-items: center;
+  ${FlexMixin({ align: 'center' })}
   margin: 0 -56px;
 
   @media (max-width: 900px) {
@@ -30,6 +31,7 @@ export const NavbarLink = styled(Link)`
   text-decoration: none;
   transition: 0.5s;
   position: relative;
+
   &::after {
     content: '';
     background: ${({ state, theme }) =>
@@ -42,6 +44,7 @@ export const NavbarLink = styled(Link)`
     left: 0;
     transition: 0.5s;
   }
+  
   &:hover {
     &::after {
       opacity: 1;

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledInputField = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
   margin-bottom: 30px;
 `;
 
@@ -28,6 +29,7 @@ export const Input = styled.input`
   width: 300px;
   padding: 19px 20px;
   font-family: 'Poppins', sans-serif;
+  
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

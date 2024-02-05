@@ -2,6 +2,8 @@ import styled, { keyframes } from 'styled-components';
 
 import { IContent, IToggleButton, IBurgerMenu } from './types';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -22,9 +24,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const Content = styled.div<IContent>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
 
   @media (max-width: 450px) {
     display: none;
@@ -147,10 +147,12 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
       transform: rotate(-45deg);
       top: 5px;
     }
+
     &::after {
       transform: rotate(45deg);
       bottom: 5px;
     }
+    
     & span {
       display: none;
     }

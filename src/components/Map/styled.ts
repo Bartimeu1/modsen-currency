@@ -6,11 +6,11 @@ export const StyledMap = styled.div`
   ${FlexMixin({ align: 'center', direction: 'column' })}
   margin-top: 63px;
 
-  @media (max-width: 740px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
     margin-top: 30px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     margin-top: 15px;
   }
 `;
@@ -21,12 +21,12 @@ export const MapTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xl4};
   margin-bottom: 24px;
 
-  @media (max-width: 740px) {
-    font-size: 25px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
 
-  @media (max-width: 450px) {
-    font-size: 15px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
@@ -35,11 +35,11 @@ export const MapWrapper = styled.div`
   width: 96%;
   height: 500px;
 
-  @media (max-width: 740px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
     margin-top: 40px;
   }
-  
-  @media (max-width: 450px) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     margin-top: 20px;
   }
 `;

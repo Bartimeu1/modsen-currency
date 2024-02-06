@@ -7,11 +7,8 @@ export const StyledFooter = styled.footer`
   padding-bottom: 30px;
   margin-top: 95px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     align-items: center;
-  }
-
-  @media (max-width: 920px) {
     padding-bottom: 15px;
     margin-top: 50px;
   }
@@ -21,7 +18,7 @@ export const Content = styled.div`
   ${FlexMixin({ justify: 'space-between' })}
   margin-bottom: ${({ theme }) => theme.spaces.lg};
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     flex-direction: column;
   }
 `;
@@ -33,12 +30,12 @@ export const Info = styled.p`
   max-width: 490px;
   line-height: 150%;
 
-  @media (max-width: 1150px) {
-    font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs2};
     max-width: 400px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     display: none;
   }
 `;
@@ -51,7 +48,7 @@ export const Logo = styled.div`
   ${FlexMixin({ align: 'center' })}
   margin-bottom: 35px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin-bottom: 50px;
   }
 `;
@@ -59,7 +56,7 @@ export const Logo = styled.div`
 export const LogoImage = styled.img`
   margin-right: 17px;
 
-  @media (max-width: 430px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}) {
     width: 35px;
     margin-right: 13px;
   }
@@ -78,27 +75,27 @@ export const LogoTitle = styled.h3`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  @media (max-width: 1150px) {
-    font-size: 23px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs1};
   }
 
-  @media (max-width: 430px) {
-    font-size: 18px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}) {
+    font-size: ${({ theme }) => theme.fontSize.xs3s};
   }
 `;
 
 export const Label = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xs1};
-  font-family: 'Inter', sans-serif;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
   color: #898989;
   text-align: center;
 
-  @media (max-width: 920px) {
-    font-size: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
-  
-  @media (max-width: 365px) {
-    font-size: 14px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;

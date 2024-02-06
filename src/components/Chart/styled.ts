@@ -6,7 +6,7 @@ export const StyledChart = styled.div`
   z-index: 0;
   margin-top: 63px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin-top: 30px;
   }
 `;
@@ -15,7 +15,7 @@ export const Controller = styled.div`
   ${FlexMixin({ align: 'center', justify: 'space-around' })}
   margin-bottom: ${({ theme }) => theme.spaces.sm};
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     flex-direction: column;
   }
 `;
@@ -27,9 +27,9 @@ export const ControllerButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.xs2};
   padding: 15px 14px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSize.xs3};
   }
 `;
 
@@ -41,7 +41,7 @@ export const NoResults = styled.div`
 export const NoResultsImage = styled.img`
   width: 250px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     width: 230px;
   }
 `;

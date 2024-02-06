@@ -14,7 +14,7 @@ export const StyledSelect = styled.div`
   width: 300px;
   z-index: 10;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     padding: 19px 15px;
     width: 250px;
   }
@@ -49,8 +49,8 @@ export const LabelValue = styled.div`
 export const ItemText = styled.p`
   margin-right: 10px;
 
-  @media (max-width: 500px) {
-    font-size: 13px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs5};
     margin-right: 5px;
   }
 `;

@@ -15,7 +15,7 @@ export const Text = styled.p`
   color: ${({ theme }) => theme.color.text};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
-  @media (max-width: 500px) {
-    font-size: ${({ theme }) => theme.fontSize.xs3};
+  @media (max-width: ${({ theme }) => theme.fontSize.tabletS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;

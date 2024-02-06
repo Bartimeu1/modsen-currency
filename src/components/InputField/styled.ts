@@ -15,7 +15,7 @@ export const FieldTitle = styled.h5`
 
   @media (max-width: 500px) {
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
@@ -28,28 +28,26 @@ export const Input = styled.input`
   border-radius: ${({ theme }) => theme.borderRadius.small};
   width: 300px;
   padding: 19px 20px;
-  font-family: 'Poppins', sans-serif;
-  
+  font-family: ${({ theme }) => theme.fontFamily.main};
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     padding: 19px 15px;
     width: 250px;
   }
 
-  @media (max-width: 500px) {
-    margin-bottom: 20px;
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
     width: 100%;
   }
 `;
 
 export const ValidationText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xs3};
+  font-size: ${({ theme }) => theme.fontSize.xs5};
   color: red;
   margin-top: 5px;
   text-align: left;

@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 
   *, *:before, *:after {
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.text};
-    font-family: 'Poppins', sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily.main};
     width: 100%;
     position: relative;
     overflow-x: hidden;
@@ -50,7 +50,7 @@ export const GlobalStyle = createGlobalStyle`
   button {
     background-color: inherit;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily.main};
   }
 `;
 

@@ -15,6 +15,6 @@ export const BoundaryImage = styled.img`
 `;
 
 export const BoundaryText = styled.p`
-  font-family: 'Arial';
-  font-size: 30px;
+font-family: ${({ theme }) => theme.fontFamily.boundary};
+  font-size: ${({ theme }) => theme.fontSize.lg};
 `;

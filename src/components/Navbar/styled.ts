@@ -44,7 +44,7 @@ export const NavbarLink = styled(Link)`
     left: 0;
     transition: 0.5s;
   }
-  
+
   &:hover {
     &::after {
       opacity: 1;
@@ -53,17 +53,17 @@ export const NavbarLink = styled(Link)`
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin: 0 25px;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     margin: 0 11px;
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 
-  @media (max-width: 450px) {
-    font-size: 23px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs1};
     margin: 10px 0;
   }
 `;

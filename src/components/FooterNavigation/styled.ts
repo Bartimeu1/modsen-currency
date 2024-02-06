@@ -17,11 +17,11 @@ export const StyledFooterNavigation = styled.nav`
   width: 100%;
   max-width: 600px;
 
-  @media (max-width: 1150px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
     max-width: 450px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     flex-direction: column;
   }
 `;
@@ -29,7 +29,7 @@ export const StyledFooterNavigation = styled.nav`
 export const Block = styled.div`
   ${FlexMixin({ direction: 'column' })}
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     position: relative;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -43,7 +43,7 @@ export const Block = styled.div`
       bottom: 0;
       left: 0;
     }
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -52,21 +52,21 @@ export const Block = styled.div`
 
 export const LabelTitle = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-family: 'Inter', sans-serif;
-  font-size: 28px;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
+  font-size: ${({ theme }) => theme.fontSize.md};
   margin-bottom: 40px;
 
-  @media (max-width: 1150px) {
-    font-size: 25px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     cursor: pointer;
     margin-bottom: 0;
   }
 
-  @media (max-width: 640px) {
-    font-size: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
@@ -87,15 +87,15 @@ export const NavigationLink = styled(Link)`
   }
 
   @media (max-width: 1150px) {
-    font-size: 21px;
+    font-size: ${({ theme }) => theme.fontSize.xs2};
   }
 
   @media (max-width: 920px) {
-    font-size: 19px;
+    font-size: ${({ theme }) => theme.fontSize.xs3};
   }
 
   @media (max-width: 640px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;
 

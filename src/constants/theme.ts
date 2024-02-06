@@ -23,8 +23,15 @@ const darkThemeColors = {
 } as const;
 
 const layoutValues = {
+  fontFamily: {
+    main: 'Poppins, sans-serif',
+    secondary: 'Inter, sans-serif',
+  },
   fontSize: {
-    xs3: '12px',
+    xs6: '12px',
+    xs5: '14px',
+    xs4: '16px',
+    xs3: '18px',
     xs2: '20px',
     xs1: '24px',
     sm: '25px',
@@ -34,7 +41,8 @@ const layoutValues = {
     xl2: '33px',
     xl3: '35px',
     xl4: '38px',
-    xl5: '90px',
+    xl5: '43px',
+    xl6: '76px',
   },
   fontWeight: {
     light: 300,
@@ -56,6 +64,17 @@ const layoutValues = {
     sm: '24px',
     md: '31px',
     lg: '56px',
+  },
+  breakpoints: {
+    mobileS: '355px',
+    mobileM: '420px',
+    mobileL: '450px',
+    tabletS: '500px',
+    tabletL: '670px',
+    laptopS: '740px',
+    laptopM: '840px',
+    desktopM: '920px',
+    desktopXL: '1150px',
   },
 } as const;
 

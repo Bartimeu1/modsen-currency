@@ -1,3 +1,5 @@
+import { ThemeTypes } from '@root/types/theme';
+
 const commonColors = {
   white: '#fff',
   grey: '#898989',
@@ -7,6 +9,7 @@ const commonColors = {
   mapMarkerTitle: '#333',
   toastBg: '#34a853',
   error: '#ff0000',
+  loaderBg: 'rgba(255, 255, 255, 0.1)',
 };
 
 const lightThemeColors = {
@@ -19,7 +22,7 @@ const lightThemeColors = {
   rateText: '#000',
   bannerBg:
     'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)',
-} as const;
+};
 
 const darkThemeColors = {
   background: '#030304',
@@ -31,7 +34,7 @@ const darkThemeColors = {
   rateText: '#a7b2c3',
   bannerBg:
     'linear-gradient( 241deg, rgba(22, 39, 31, 0.79) 61%, rgba(18, 18, 18, 1) 77% )',
-} as const;
+};
 
 const layoutValues = {
   fontFamily: {
@@ -87,9 +90,9 @@ const layoutValues = {
     desktopM: '920px',
     desktopXL: '1150px',
   },
-} as const;
+};
 
-const theme = {
+const theme: ThemeTypes = {
   dark: {
     color: { ...commonColors, ...darkThemeColors },
     ...layoutValues,
@@ -98,7 +101,7 @@ const theme = {
     color: { ...commonColors, ...lightThemeColors },
     ...layoutValues,
   },
-} as const;
+};
 
 export default theme;
 

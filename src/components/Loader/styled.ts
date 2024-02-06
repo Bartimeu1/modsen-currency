@@ -1,7 +1,11 @@
 import { rotate } from '@constants/animtaions';
 import styled from 'styled-components';
 
+import { FlexMixin } from '@root/GlobalStyle';
+
 export const StyledLoader = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'center' })}
+  background: ${({ theme }) => theme.color.loaderBg};
   z-index: 40;
   position: fixed;
   backdrop-filter: blur(10px);
@@ -9,9 +13,6 @@ export const StyledLoader = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const LoaderImage = styled.img`

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
 import { StyledToast, ToastText } from './styled';
+
+import { PortalWrapper } from '@components/PortalWrapper';
 
 interface IToastProps {
   message: string;
@@ -21,12 +22,12 @@ export function Toast(props: IToastProps) {
   }, [isVisible, closeToast]);
 
   return (
-    isVisible &&
-    createPortal(
-      <StyledToast>
-        <ToastText>{message}</ToastText>
-      </StyledToast>,
-      document.body,
+    isVisible && (
+      <PortalWrapper>
+        <StyledToast>
+          <ToastText>{message}</ToastText>
+        </StyledToast>
+      </PortalWrapper>
     )
   );
 }

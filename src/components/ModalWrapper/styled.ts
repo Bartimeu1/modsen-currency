@@ -21,7 +21,7 @@ export const ModalContent = styled.div`
   padding: 30px 60px;
   position: relative;
   overflow-y: auto;
-  
+
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
     display: none;

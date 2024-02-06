@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
-
 import { useOnClickOutside } from '@utils/hooks';
+
+import { PortalWrapper } from '@components/PortalWrapper';
 
 import { CloseButton, ModalContent, StyledModal } from './styled';
 
-interface IModalPortalProps {
+interface IModalWrapperProps {
   children: React.ReactNode;
   closeModalClick: () => void;
 }
 
-export function ModalPortal({ children, ...props }: IModalPortalProps) {
-  const { closeModalClick } = props;
+export function ModalWrapper(props: IModalWrapperProps) {
+  const { closeModalClick, children } = props;
 
   const modalRef = useRef(null);
 
@@ -29,16 +29,17 @@ export function ModalPortal({ children, ...props }: IModalPortalProps) {
 
   useOnClickOutside(modalRef, onModalClickOutside);
 
-  return createPortal(
-    <StyledModal data-testid="modal">
-      <ModalContent ref={modalRef}>
-        {children}
-        <CloseButton
-          onClick={closeModalClick}
-          data-testid="modal-close-button"
-        />
-      </ModalContent>
-    </StyledModal>,
-    document.body,
+  return (
+    <PortalWrapper>
+      <StyledModal data-testid="modal">
+        <ModalContent ref={modalRef}>
+          {children}
+          <CloseButton
+            onClick={closeModalClick}
+            data-testid="modal-close-button"
+          />
+        </ModalContent>
+      </StyledModal>
+    </PortalWrapper>
   );
 }

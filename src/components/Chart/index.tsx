@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import noResultsImage from '@assets/images/noResults.png';
 import { CustomSelect } from '@components/CustomSelect';
-import { ModalPortal } from '@components/ModalPortal';
+import { ModalWrapper } from '@components/ModalWrapper';
 import { chartOptions } from '@constants/chart';
 import { currenciesList } from '@root/constants/currency';
 import { IChartDataList } from '@root/types/chart';
@@ -54,6 +54,10 @@ class ChartComponent extends PureComponent<IChartProps, IChartState> {
     this.props.resetData();
   };
 
+  onSelectChange = (code: string) => () => {
+    this.props.setCurrentCurrency(code);
+  };
+
   onChangeValueClick = () => {
     this.setState((prevState) => {
       return {
@@ -69,7 +73,7 @@ class ChartComponent extends PureComponent<IChartProps, IChartState> {
   };
 
   render() {
-    const { setCurrentCurrency, currentCurrency, chartData } = this.props;
+    const { currentCurrency, chartData } = this.props;
     const { isModalVisible } = this.state;
 
     return (
@@ -77,7 +81,7 @@ class ChartComponent extends PureComponent<IChartProps, IChartState> {
         <Controller data-testid="chart-controller">
           <CustomSelect
             targetCurrencyCode={currentCurrency}
-            setTargetCurrencyCode={setCurrentCurrency}
+            setTargetCurrencyCode={this.onSelectChange}
             currenciesList={currenciesList}
           />
           <ControllerButton
@@ -115,10 +119,9 @@ class ChartComponent extends PureComponent<IChartProps, IChartState> {
           </NoResults>
         )}
         {isModalVisible && (
-          <ModalPortal
-            closeModalClick={this.handleCloseModalClick}>
+          <ModalWrapper closeModalClick={this.handleCloseModalClick}>
             <ChartModal closeModalClick={this.handleCloseModalClick} />
-          </ModalPortal>
+          </ModalWrapper>
         )}
       </StyledChart>
     );

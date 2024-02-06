@@ -4,8 +4,8 @@ import { ConverterItem } from '@components/ConventerItem';
 import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
-import { ConverterModal } from '../ConverterModal';
-import { ModalPortal } from '../ModalPortal';
+import { ConverterModal } from '@components/ConverterModal';
+import { ModalWrapper } from '@components/ModalWrapper';
 import { StyledConverterList } from './styled';
 
 interface IConverterListProps {
@@ -43,9 +43,9 @@ export function ConverterList({ currencies }: IConverterListProps) {
         );
       })}
       {selectedCurrency && (
-        <ModalPortal closeModalClick={handleCloseModalClick}>
+        <ModalWrapper closeModalClick={handleCloseModalClick}>
           <ConverterModal selectedCurrency={selectedCurrency} />
-        </ModalPortal>
+        </ModalWrapper>
       )}
     </StyledConverterList>
   );

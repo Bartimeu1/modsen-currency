@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
 import loaderIcon from '@assets/images/loader.png';
 
-import { LoaderImage,StyledLoader } from './styled';
+import { PortalWrapper } from '@components/PortalWrapper';
+
+import { LoaderImage, StyledLoader } from './styled';
 
 export function Loader() {
   useEffect(() => {
@@ -14,10 +15,11 @@ export function Loader() {
     };
   }, []);
 
-  return createPortal(
-    <StyledLoader>
-      <LoaderImage src={loaderIcon} alt="loader" />
-    </StyledLoader>,
-    document.body,
+  return (
+    <PortalWrapper>
+      <StyledLoader>
+        <LoaderImage src={loaderIcon} alt="loader" />
+      </StyledLoader>
+    </PortalWrapper>
   );
 }

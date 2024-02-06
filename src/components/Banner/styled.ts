@@ -1,12 +1,7 @@
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
-import { FlexMixin } from '@root/GlobalStyle';
-
-interface IStyledBanner {
-  $isDarkTheme: boolean;
-}
-
-export const StyledBanner = styled.section<IStyledBanner>`
+export const StyledBanner = styled.section`
   ${FlexMixin()}
   padding: 45px 0 60px 0;
   margin-top: 31px;
@@ -15,10 +10,7 @@ export const StyledBanner = styled.section<IStyledBanner>`
   &::before {
     position: absolute;
     content: '';
-    background: ${({ $isDarkTheme }) =>
-      $isDarkTheme
-        ? `linear-gradient( 241deg, rgba(22, 39, 31, 0.79) 61%, rgba(18, 18, 18, 1) 77% )`
-        : `radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)`};
+    background: ${({ theme }) => theme.color.bannerBg};
     background-repeat: no-repeat;
     background-size: cover;
     left: 50%;
@@ -69,7 +61,7 @@ export const BannerContent = styled.div`
 
 export const BannerTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  background: ${({ theme }) => theme.color.title};
+  background: ${({ theme }) => theme.color.mainTitle};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: right;
@@ -95,7 +87,7 @@ export const BannerSubtitle = styled.p`
   color: ${({ theme }) => theme.color.text};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   font-size: ${({ theme }) => theme.fontSize.sm};
-  opacity: 0.85;
+  opacity: 85%;
   max-width: 397px;
   line-height: 46.772px;
   text-align: center;

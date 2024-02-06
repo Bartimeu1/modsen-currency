@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.color.background};
-    color: ${({ theme }) => theme.color.text};
+    color: ${({ theme }) => theme.color.primary};
     font-family: ${({ theme }) => theme.fontFamily.main};
     width: 100%;
     position: relative;

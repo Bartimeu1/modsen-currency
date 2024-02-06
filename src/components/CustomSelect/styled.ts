@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 interface ISelectLabel {
   $isSelectOpened: boolean;
@@ -30,7 +29,7 @@ export const SelectLabel = styled.div<ISelectLabel>`
   }
 
   & path {
-    fill: ${({ theme }) => theme.color.text};
+    fill: ${({ theme }) => theme.color.primary};
   }
 
   ${({ $isSelectOpened }) =>
@@ -81,6 +80,6 @@ export const DropdownItem = styled.div`
   }
 
   &:hover {
-    opacity: 0.5;
+    opacity: 50%;
   }
 `;

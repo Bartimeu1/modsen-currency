@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledModal = styled.div`
   ${FlexMixin({ align: 'center', justify: 'center' })}
@@ -44,7 +43,7 @@ export const CloseButton = styled.button`
 
   &::before,
   &::after {
-    background: ${({ theme }) => theme.color.text};
+    background: ${({ theme }) => theme.color.primary};
     position: absolute;
     left: 0;
     content: '';

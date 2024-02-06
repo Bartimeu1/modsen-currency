@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledInputField = styled.div`
   ${FlexMixin({ direction: 'column' })}
@@ -23,7 +22,7 @@ export const InputWrapper = styled.div``;
 
 export const Input = styled.input`
   background: ${({ theme }) => theme.color.inputBg};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   border: 0;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   width: 300px;
@@ -48,7 +47,7 @@ export const Input = styled.input`
 
 export const ValidationText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs5};
-  color: red;
+  color: ${({ theme }) => theme.color.error};
   margin-top: 5px;
   text-align: left;
 `;

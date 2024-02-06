@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef,useState } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
-import { useOnClickOutside } from '@utils/hooks';
 import { ICurrenciesList } from '@root/types/api';
 import { removeCurrencyFromList } from '@utils/helpers';
+import { useOnClickOutside } from '@utils/hooks';
 
 import {
   Dropdown,

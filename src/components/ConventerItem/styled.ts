@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledConverterItem = styled.div`
   ${FlexMixin({ align: 'center' })}
@@ -17,13 +16,14 @@ export const StyledConverterItem = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
-    width: 48%;
+    width: 100%;
+    max-width: 48%;
     padding: 25px 0 25px 27px;
     margin-bottom: 45px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopM}) {
-    width: 90%;
+    max-width: 90%;
     padding: 16px 0 16px 12px;
     margin-bottom: 17px;
   }
@@ -50,7 +50,7 @@ export const Content = styled.div`
 export const Title = styled.h4`
   color: ${({ theme }) => theme.color.text};
   font-size: ${({ theme }) => theme.fontSize.xl3};
-  opacity: 0.85;
+  opacity: 85%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
     font-size: ${({ theme }) => theme.fontSize.sm};

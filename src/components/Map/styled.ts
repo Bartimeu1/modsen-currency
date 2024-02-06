@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledMap = styled.div`
   ${FlexMixin({ align: 'center', direction: 'column' })}
@@ -16,7 +15,7 @@ export const StyledMap = styled.div`
 `;
 
 export const MapTitle = styled.h2`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xl4};
   margin-bottom: 24px;
@@ -32,7 +31,8 @@ export const MapTitle = styled.h2`
 
 export const MapWrapper = styled.div`
   margin-top: 80px;
-  width: 96%;
+  width: 100%;
+  max-width: 96%;
   height: 500px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {

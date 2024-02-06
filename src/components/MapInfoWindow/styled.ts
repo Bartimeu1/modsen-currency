@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   ${FlexMixin({ direction: 'column' })}
@@ -19,11 +18,11 @@ export const Image = styled.img`
 export const Title = styled.h4`
   margin-bottom: ${({ theme }) => theme.spaces.xs2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: #333;
+  color: ${({ theme }) => theme.color.mapMarkerTitle};
 `;
 
 export const Text = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: #333;
+  color: ${({ theme }) => theme.color.mapMarkerTitle};
   margin: 5px 0;
 `;

@@ -12,7 +12,7 @@ export const Image = styled.img`
 
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.fontSize.sm};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
   @media (max-width: ${({ theme }) => theme.fontSize.tabletS}) {

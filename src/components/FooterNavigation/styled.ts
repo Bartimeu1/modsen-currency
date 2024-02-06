@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 interface IBlockContent {
   $isVisible: boolean;
@@ -35,7 +34,7 @@ export const Block = styled.div`
     margin-bottom: 20px;
 
     &::after {
-      background: ${({ theme }) => theme.color.text};
+      background: ${({ theme }) => theme.color.primary};
       content: '';
       position: absolute;
       width: 100%;
@@ -73,7 +72,7 @@ export const LabelTitle = styled.h3`
 export const NavigationLink = styled(Link)`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xs1};
-  color: #898989;
+  color: ${({ theme }) => theme.color.grey};
   text-decoration: none;
   margin-bottom: 16px;
   transition: 0.3s;
@@ -127,7 +126,7 @@ export const BlockLabel = styled.div<IBlockLabel>`
         $isDropdownVisible ? 'rotate(180deg)' : 'none'};
     }
     & path {
-      fill: ${({ theme }) => theme.color.text};
+      fill: ${({ theme }) => theme.color.primary};
     }
   }
 `;

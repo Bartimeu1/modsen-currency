@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledConverterList = styled.div`
   ${FlexMixin({ justify: 'space-between', wrap: 'wrap' })}

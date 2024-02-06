@@ -1,9 +1,8 @@
+import { fadeIn } from '@constants/animtaions';
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
-import { IContent, IToggleButton, IBurgerMenu } from './types';
-
-import { FlexMixin } from '@root/GlobalStyle';
-import { fadeIn } from '@constants/animtaions';
+import { IBurgerMenu,IContent, IToggleButton } from './types';
 
 export const StyledHeader = styled.header`
   padding-top: ${({ theme }) => theme.spaces.md};
@@ -112,7 +111,7 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
   transition: 0.3s;
   &::before,
   &::after {
-    background: ${({ theme }) => theme.color.text};
+    background: ${({ theme }) => theme.color.primary};
     position: absolute;
     left: 0;
     content: '';
@@ -154,7 +153,7 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
 `;
 
 export const BurgerRow = styled.span`
-  background: ${({ theme }) => theme.color.text};
+  background: ${({ theme }) => theme.color.primary};
   position: absolute;
   width: 100%;
   height: 1.5px;

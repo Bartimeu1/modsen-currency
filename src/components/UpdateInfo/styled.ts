@@ -1,8 +1,6 @@
-import styled from 'styled-components';
-
-import { FlexMixin } from '@root/GlobalStyle';
-
 import { blink } from '@constants/animtaions';
+import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledUpdateInfo = styled.div`
   ${FlexMixin()}
@@ -30,8 +28,8 @@ export const UpdateImage = styled.img`
 export const UpdateText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xl2};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  color: ${({ theme }) => theme.color.text};
-  opacity: 0.85;
+  color: ${({ theme }) => theme.color.primary};
+  opacity: 85%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
     font-size: ${({ theme }) => theme.fontSize.md};

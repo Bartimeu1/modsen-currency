@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import logoIcon from '@assets/images/navLogo.png';
 import { Navbar } from '@components/Navbar';
+import { LIGHT_THEME } from '@constants/theme';
 import { useAppDispatch, useAppSelector } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
-import { LIGHT_THEME } from '@constants/theme';
 
 import {
   BurgerMenu,

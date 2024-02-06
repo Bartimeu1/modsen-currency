@@ -1,13 +1,11 @@
-import styled from 'styled-components';
-
 import { disappear } from '@constants/animtaions';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledToast = styled.div`
   ${FlexMixin({ align: 'center' })}
   border-radius: ${({ theme }) => theme.borderRadius.small};
-  background-color: #34a853;
+  background-color: ${({ theme }) => theme.color.toastBg};
   position: fixed;
   bottom: 20px;
   left: 10px;
@@ -17,5 +15,5 @@ export const StyledToast = styled.div`
 `;
 
 export const ToastText = styled.p`
-  color: #fff;
+  color: ${({ theme }) => theme.color.white};
 `;

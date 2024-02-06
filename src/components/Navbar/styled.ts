@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledNavbar = styled.nav`
   ${FlexMixin({ align: 'center' })}
@@ -24,7 +23,7 @@ export const StyledNavbar = styled.nav`
 
 export const NavbarLink = styled(Link)`
   color: ${({ state, theme }) =>
-    state.isCurrent ? theme.color.target : theme.color.text};
+    state.isCurrent ? theme.color.target : theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   font-size: ${({ theme }) => theme.fontSize.xs2};
   margin: 0 ${({ theme }) => theme.spaces.lg};
@@ -35,7 +34,7 @@ export const NavbarLink = styled(Link)`
   &::after {
     content: '';
     background: ${({ state, theme }) =>
-      state.isCurrent ? theme.color.target : theme.color.text};
+      state.isCurrent ? theme.color.target : theme.color.primary};
     width: 100%;
     height: 1px;
     position: absolute;

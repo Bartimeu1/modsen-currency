@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { rotate } from '@constants/animtaions';
+import styled from 'styled-components';
 
 export const StyledLoader = styled.div`
   z-index: 40;

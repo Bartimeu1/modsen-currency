@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledChart = styled.div`
   z-index: 0;
@@ -23,7 +22,7 @@ export const Controller = styled.div`
 export const ControllerButton = styled.button`
   border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-size: ${({ theme }) => theme.fontSize.xs2};
   padding: 15px 14px;
 
@@ -47,7 +46,7 @@ export const NoResultsImage = styled.img`
 `;
 
 export const NoResultsText = styled.p`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-size: ${({ theme }) => theme.fontSize.md};
   margin-bottom: 30px;
 `;

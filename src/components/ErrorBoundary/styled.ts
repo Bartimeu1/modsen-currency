@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const Boundary = styled.div`
   ${FlexMixin({ align: 'center', justify: 'center', direction: 'column' })}

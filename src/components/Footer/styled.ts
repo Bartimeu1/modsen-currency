@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
   ${FlexMixin({ direction: 'column', justify: 'center' })}
@@ -26,7 +25,7 @@ export const Content = styled.div`
 export const Info = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs1};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   max-width: 490px;
   line-height: 150%;
 
@@ -65,12 +64,7 @@ export const LogoImage = styled.img`
 export const LogoTitle = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize.md};
-  background: linear-gradient(
-    90deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
-  );
+  background: color: ${({ theme }) => theme.color.mainTitle};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,7 +82,7 @@ export const Label = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xs1};
   font-family: ${({ theme }) => theme.fontFamily.secondary};
-  color: #898989;
+  color: ${({ theme }) => theme.color.grey};
   text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {

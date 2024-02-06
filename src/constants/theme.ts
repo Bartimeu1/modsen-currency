@@ -1,25 +1,36 @@
+const commonColors = {
+  white: '#fff',
+  grey: '#898989',
+  mainTitle:
+    'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
+  target: '#00CE2C',
+  mapMarkerTitle: '#333',
+  toastBg: '#34a853',
+  error: '#ff0000',
+};
+
 const lightThemeColors = {
   background: '#f5f5f5',
+  primary: '#000',
   border: '#030304',
-  text: '#000',
   toggleButton: '#000',
   inputBg: '#fff',
-  target: '#00CE2C',
   convertItem: '#F0F0F0',
   rateText: '#000',
-  title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
+  bannerBg:
+    'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)',
 } as const;
 
 const darkThemeColors = {
   background: '#030304',
+  primary: '#fff',
   border: '#474747',
-  text: '#fff',
   toggleButton: '#fff',
   inputBg: '#1B2028',
-  target: '#00CE2C',
   convertItem: '#202025',
   rateText: '#a7b2c3',
-  title: 'linear-gradient(90deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%)',
+  bannerBg:
+    'linear-gradient( 241deg, rgba(22, 39, 31, 0.79) 61%, rgba(18, 18, 18, 1) 77% )',
 } as const;
 
 const layoutValues = {
@@ -80,11 +91,11 @@ const layoutValues = {
 
 const theme = {
   dark: {
-    color: darkThemeColors,
+    color: { ...commonColors, ...darkThemeColors },
     ...layoutValues,
   },
   light: {
-    color: lightThemeColors,
+    color: { ...commonColors, ...lightThemeColors },
     ...layoutValues,
   },
 } as const;

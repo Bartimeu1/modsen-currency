@@ -1,10 +1,9 @@
+import { baseChartValue } from '@constants/chart';
+import { baseCurrencyValue } from '@constants/currency';
+import { timeZoneOffset } from '@constants/formatting';
 import { ICurrenciesList } from '@root/types/api';
 import { IChartData } from '@root/types/chart';
 import { IMapsItem } from '@root/types/maps';
-
-import { timeZoneOffset } from '@constants/formatting';
-import { baseCurrencyValue } from '@constants/currency';
-import { baseChartValue } from '@constants/chart';
 
 export const convertDateFormat = (dateString: string | number) => {
   const date = new Date(dateString);

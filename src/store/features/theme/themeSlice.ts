@@ -1,7 +1,6 @@
+import { DARK_THEME, LIGHT_THEME } from '@constants/theme';
 import { createSlice } from '@reduxjs/toolkit';
 import { IThemeSliceState } from '@root/types/theme';
-
-import { DARK_THEME, LIGHT_THEME } from '@constants/theme';
 
 const initialState: IThemeSliceState = {
   currentTheme: 'dark',

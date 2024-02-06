@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const Content = styled.div`
   border: 1px solid ${({ theme }) => theme.color.border};
@@ -14,7 +13,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h5`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize.xs1};
   text-align: center;

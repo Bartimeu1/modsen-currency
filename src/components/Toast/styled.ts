@@ -1,16 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+import { disappear } from '@constants/animtaions';
 
 import { FlexMixin } from '@root/GlobalStyle';
-
-const disappearAnimation = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-`;
 
 export const StyledToast = styled.div`
   ${FlexMixin({ align: 'center' })}
@@ -21,7 +13,7 @@ export const StyledToast = styled.div`
   left: 10px;
   padding: 10px 20px;
   min-width: 200px;
-  animation: ${disappearAnimation} 3s ease-in forwards;
+  animation: ${disappear} 3s ease-in forwards;
 `;
 
 export const ToastText = styled.p`

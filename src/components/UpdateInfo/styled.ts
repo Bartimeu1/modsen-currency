@@ -1,18 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { FlexMixin } from '@root/GlobalStyle';
 
-const blinkAnimation = keyframes`
-  25% { 
-    opacity: 1;
-  }
-  50% {
-    opacity: 0
-  }
-  100% {
-    opacity 1;
-  }
-`;
+import { blink } from '@constants/animtaions';
 
 export const StyledUpdateInfo = styled.div`
   ${FlexMixin()}
@@ -30,7 +20,7 @@ export const StyledUpdateInfo = styled.div`
 
 export const UpdateImage = styled.img`
   margin-right: 18px;
-  animation: ${blinkAnimation} 2s linear infinite;
+  animation: ${blink} 2s linear infinite;
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
     width: 25px;
     margin-right: 10px;

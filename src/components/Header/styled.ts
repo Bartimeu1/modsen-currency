@@ -1,19 +1,9 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { IContent, IToggleButton, IBurgerMenu } from './types';
 
 import { FlexMixin } from '@root/GlobalStyle';
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import { fadeIn } from '@constants/animtaions';
 
 export const StyledHeader = styled.header`
   padding-top: ${({ theme }) => theme.spaces.md};

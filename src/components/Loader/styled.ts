@@ -1,9 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const rotateAnimation = keyframes`
-  0% {transform: rotate(0deg);}
-	100% {transform: rotate(360deg);}
-`;
+import { rotate } from '@constants/animtaions';
 
 export const StyledLoader = styled.div`
   z-index: 40;
@@ -19,5 +16,5 @@ export const StyledLoader = styled.div`
 `;
 
 export const LoaderImage = styled.img`
-  animation: ${rotateAnimation} 1s infinite linear;
+  animation: ${rotate} 1s infinite linear;
 `;

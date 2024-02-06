@@ -82,7 +82,6 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
       (field) => field.validationText !== '',
     );
     const isDayValidationFailed = this.state.dayField.validationText !== '';
-    console.log(isDayValidationFailed);
 
     return (
       <>

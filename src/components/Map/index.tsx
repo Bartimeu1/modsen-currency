@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import { CustomSelect } from '@components/CustomSelect';
@@ -26,7 +26,7 @@ interface IMapState {
   mapLoaded: boolean;
 }
 
-class MapComponent extends PureComponent<MapProps, IMapState> {
+class MapComponent extends Component<MapProps, IMapState> {
   constructor(props: MapProps) {
     super(props);
 
@@ -61,9 +61,13 @@ class MapComponent extends PureComponent<MapProps, IMapState> {
     this.setState({ selectedPlace: null });
   };
 
+  onSelectValueChange = (selectedValue: string) => () => {
+    setCurrentCurrency(selectedValue);
+  };
+
   render() {
     const { selectedPlace, mapLoaded } = this.state;
-    const { setCurrentCurrency, currentCurrency } = this.props;
+    const { currentCurrency } = this.props;
     const { data: placesData } = this.props.places;
 
     return (
@@ -72,7 +76,7 @@ class MapComponent extends PureComponent<MapProps, IMapState> {
         <MapTitle>{mapTitleText}</MapTitle>
         <CustomSelect
           currenciesList={currenciesList}
-          setTargetCurrencyCode={setCurrentCurrency}
+          setTargetCurrencyCode={this.onSelectValueChange}
           targetCurrencyCode={currentCurrency}
         />
         {placesData && (

@@ -114,11 +114,12 @@ class ChartComponent extends PureComponent<IChartProps, IChartState> {
             <NoResultsImage src={noResultsImage} alt="noResults" />
           </NoResults>
         )}
-        <ModalPortal
-          isModalVisible={isModalVisible}
-          closeModalClick={this.handleCloseModalClick}>
-          <ChartModal closeModalClick={this.handleCloseModalClick} />
-        </ModalPortal>
+        {isModalVisible && (
+          <ModalPortal
+            closeModalClick={this.handleCloseModalClick}>
+            <ChartModal closeModalClick={this.handleCloseModalClick} />
+          </ModalPortal>
+        )}
       </StyledChart>
     );
   }

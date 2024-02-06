@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 import { ICurrenciesList } from '@root/types/api';
@@ -19,10 +19,12 @@ interface IConvertetSelectProps {
   selectedCurrency?: string;
   targetCurrencyCode: string;
   currenciesList: ICurrenciesList;
-  setTargetCurrencyCode: (code: string) => void;
+  setTargetCurrencyCode: (code: string) => () => void;
 }
 
-function CustomSelectComponent(props: IConvertetSelectProps) {
+export const CustomSelect = memo(function CustomSelect(
+  props: IConvertetSelectProps,
+) {
   const { targetCurrencyCode, currenciesList, setTargetCurrencyCode } = props;
 
   const [isSelectOpened, setIsSelectOpened] = useState(false);
@@ -58,9 +60,7 @@ function CustomSelectComponent(props: IConvertetSelectProps) {
             <DropdownItem
               key={code}
               data-testid="select-dropdown-item"
-              onClick={() => {
-                setTargetCurrencyCode(code);
-              }}>
+              onClick={setTargetCurrencyCode(code)}>
               <DropdownItem>
                 <ItemText>{currenciesList[code].title}</ItemText>
                 <ItemImage src={currenciesList[code].image} />
@@ -71,6 +71,4 @@ function CustomSelectComponent(props: IConvertetSelectProps) {
       )}
     </StyledSelect>
   );
-}
-
-export const CustomSelect = React.memo(CustomSelectComponent);
+});

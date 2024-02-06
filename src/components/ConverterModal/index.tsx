@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo,useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { CustomSelect } from '@components/CustomSelect';
 import { InputField } from '@components/InputField';
@@ -61,10 +61,23 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
     return null;
   };
 
+  const onSelectValueChange = useCallback(
+    (selectedValue: string) => () => {
+      setTargetCurrencyCode(selectedValue);
+    },
+    [],
+  );
+
   const resultValue = useMemo(
     () => calculateResult(),
     [currencyResponse, amountInputValue, inputValidationText],
   );
+
+  const selectCurrenciesList = useMemo(
+    () => removeCurrencyFromList(currenciesList, selectedCurrency),
+    [selectedCurrency],
+  );
+
   const isResultValid = !requestError && resultValue;
 
   return (
@@ -79,11 +92,8 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
         <CustomSelect
           selectedCurrency={selectedCurrency}
           targetCurrencyCode={targetCurrencyCode}
-          setTargetCurrencyCode={setTargetCurrencyCode}
-          currenciesList={removeCurrencyFromList(
-            currenciesList,
-            selectedCurrency,
-          )}
+          setTargetCurrencyCode={onSelectValueChange}
+          currenciesList={selectCurrenciesList}
         />
       </Block>
       <InputField

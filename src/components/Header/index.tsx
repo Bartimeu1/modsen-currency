@@ -32,7 +32,7 @@ export function Header() {
       </BurgerMenu>
       <Content $isBurgerActive={isBurgerActive}>
         <LogoImage src={logoIcon} alt="logo" />
-        <Navbar onClick={() => setIsBurgerActive(false)} />
+        <Navbar onLinkClick={() => setIsBurgerActive(false)} />
         <ToggleButton
           type="checkbox"
           data-testid="toggle-theme-button"

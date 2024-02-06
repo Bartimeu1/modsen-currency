@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import ConverterItem from '@components/ConventerItem';
+import { ConverterItem } from '@components/ConventerItem';
 import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
@@ -15,13 +15,16 @@ interface IConverterListProps {
 export function ConverterList({ currencies }: IConverterListProps) {
   const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
-  const handleConverterItemClick = useCallback((currency: string) => {
-    setSelectedCurrency(currency);
-  }, []);
+  const handleConverterItemClick = useCallback(
+    (currency: string) => () => {
+      setSelectedCurrency(currency);
+    },
+    [],
+  );
 
-  const handleCloseModalClick = useCallback(() => {
+  const handleCloseModalClick = () => {
     setSelectedCurrency(null);
-  }, []);
+  };
 
   return (
     <StyledConverterList data-testid="converter-list">
@@ -34,18 +37,16 @@ export function ConverterList({ currencies }: IConverterListProps) {
             rate={value}
             image={image}
             title={title}
-            onClick={() => handleConverterItemClick(currency)}
+            currencyCode={currency}
+            onClick={handleConverterItemClick}
           />
         );
       })}
-
-      <ModalPortal
-        closeModalClick={handleCloseModalClick}
-        isModalVisible={!!selectedCurrency}>
-        {selectedCurrency && (
+      {selectedCurrency && (
+        <ModalPortal closeModalClick={handleCloseModalClick}>
           <ConverterModal selectedCurrency={selectedCurrency} />
-        )}
-      </ModalPortal>
+        </ModalPortal>
+      )}
     </StyledConverterList>
   );
 }

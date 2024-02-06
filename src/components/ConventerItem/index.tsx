@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { convertAndFormatCurrencyData } from '@utils/helpers';
 
 import { Content, IconImage, Rate, StyledConverterItem, Title } from './styled';
 
 interface IConverterItemProps {
+  currencyCode: string;
   title: string;
   image: string;
   rate: number;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
+  onClick: any;
 }
 
-function ConverterItemComponent(props: IConverterItemProps) {
-  const { title, image, rate, onClick } = props;
+export const ConverterItem = memo(function ConverterItem(
+  props: IConverterItemProps,
+) {
+  const { title, image, rate, onClick, currencyCode } = props;
 
   return (
-    <StyledConverterItem onClick={onClick} data-testid="converter-item">
+    <StyledConverterItem
+      onClick={onClick(currencyCode)}
+      data-testid="converter-item">
       <IconImage src={image} />
       <Content>
         <Title>{title}</Title>
@@ -23,8 +28,4 @@ function ConverterItemComponent(props: IConverterItemProps) {
       </Content>
     </StyledConverterItem>
   );
-}
-
-const ConverterItem = React.memo(ConverterItemComponent);
-
-export default ConverterItem;
+});

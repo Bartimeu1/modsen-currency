@@ -5,10 +5,10 @@ import { navbarLinks } from './config';
 import { NavbarLink, StyledNavbar } from './styled';
 
 interface INavbarProps {
-  onClick: () => void;
+  onLinkClick: () => void;
 }
 
-export function Navbar({ onClick }: INavbarProps) {
+export const Navbar = function Navbar({ onLinkClick }: INavbarProps) {
   const location = useLocation();
   const { pathname } = location;
 
@@ -19,11 +19,11 @@ export function Navbar({ onClick }: INavbarProps) {
           key={id}
           data-testid={`navigation-link-${title}`}
           to={href}
-          onClick={onClick}
+          onClick={() => onLinkClick}
           state={{ isCurrent: pathname === href }}>
           {title}
         </NavbarLink>
       ))}
     </StyledNavbar>
   );
-}
+};

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
 interface IBlockContent {
@@ -11,30 +12,29 @@ interface IBlockLabel {
 }
 
 export const StyledFooterNavigation = styled.nav`
-  display: flex;
-  justify-content: space-between;
+  ${FlexMixin({ justify: 'space-between' })}
   width: 100%;
   max-width: 600px;
 
-  @media (max-width: 1150px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
     max-width: 450px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     flex-direction: column;
   }
 `;
 
 export const Block = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     position: relative;
     padding-bottom: 20px;
     margin-bottom: 20px;
+
     &::after {
-      background: ${({ theme }) => theme.color.text};
+      background: ${({ theme }) => theme.color.primary};
       content: '';
       position: absolute;
       width: 100%;
@@ -42,6 +42,7 @@ export const Block = styled.div`
       bottom: 0;
       left: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -50,26 +51,28 @@ export const Block = styled.div`
 
 export const LabelTitle = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-family: 'Inter', sans-serif;
-  font-size: 28px;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
+  font-size: ${({ theme }) => theme.fontSize.md};
   margin-bottom: 40px;
 
-  @media (max-width: 1150px) {
-    font-size: 25px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
-  @media (max-width: 920px) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     cursor: pointer;
     margin-bottom: 0;
   }
-  @media (max-width: 640px) {
-    font-size: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
 export const NavigationLink = styled(Link)`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xs1};
-  color: #898989;
+  color: ${({ theme }) => theme.color.grey};
   text-decoration: none;
   margin-bottom: 16px;
   transition: 0.3s;
@@ -83,19 +86,20 @@ export const NavigationLink = styled(Link)`
   }
 
   @media (max-width: 1150px) {
-    font-size: 21px;
+    font-size: ${({ theme }) => theme.fontSize.xs2};
   }
+
   @media (max-width: 920px) {
-    font-size: 19px;
+    font-size: ${({ theme }) => theme.fontSize.xs3};
   }
+
   @media (max-width: 640px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;
 
 export const BlockContent = styled.div<IBlockContent>`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 
   @media (max-width: 920px) {
     display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
@@ -106,9 +110,7 @@ export const BlockContent = styled.div<IBlockContent>`
 `;
 
 export const BlockLabel = styled.div<IBlockLabel>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
   transition: 0.3s all;
 
   & svg {
@@ -124,7 +126,7 @@ export const BlockLabel = styled.div<IBlockLabel>`
         $isDropdownVisible ? 'rotate(180deg)' : 'none'};
     }
     & path {
-      fill: ${(props) => props.theme.color.text};
+      fill: ${({ theme }) => theme.color.primary};
     }
   }
 `;

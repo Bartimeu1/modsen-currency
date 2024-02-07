@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import logoIcon from '@assets/images/navLogo.png';
-import Navbar from '@components/Navbar';
+import { Navbar } from '@components/Navbar';
+import { LIGHT_THEME } from '@constants/theme';
 import { useAppDispatch, useAppSelector } from '@root/utils/hooks';
 import { toggleTheme } from '@store/features/theme/themeSlice';
 
@@ -14,7 +15,7 @@ import {
   ToggleButton,
 } from './styled';
 
-function Header() {
+export function Header() {
   const dispatch = useAppDispatch();
   const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
@@ -25,17 +26,17 @@ function Header() {
   };
 
   return (
-    <StyledHeader>
+    <StyledHeader data-testid="header">
       <BurgerMenu $isBurgerActive={isBurgerActive} onClick={onBurgerClick}>
         <BurgerRow />
       </BurgerMenu>
       <Content $isBurgerActive={isBurgerActive}>
         <LogoImage src={logoIcon} alt="logo" />
-        <Navbar onClick={() => setIsBurgerActive(false)} />
+        <Navbar onLinkClick={() => setIsBurgerActive(false)} />
         <ToggleButton
           type="checkbox"
           data-testid="toggle-theme-button"
-          $isLightTheme={currentTheme === 'light'}
+          $isLightTheme={currentTheme === LIGHT_THEME}
           onClick={() => {
             dispatch(toggleTheme());
           }}
@@ -44,5 +45,3 @@ function Header() {
     </StyledHeader>
   );
 }
-
-export default Header;

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Map from '@components/Map';
-import UpdateInfo from '@components/UpdateInfo';
+import { Map } from '@components/Map';
+import { UpdateInfo } from '@components/UpdateInfo';
 import { RootState } from '@store/store';
 
 interface ITimelinePageProps {
   lastUpdateAt: number;
 }
 
-class BankCardPage extends Component<ITimelinePageProps> {
+class BankCardPageComponent extends Component<ITimelinePageProps> {
   constructor(props: { lastUpdateAt: number }) {
     super(props);
   }
@@ -32,4 +32,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps)(BankCardPage);
+export const BankCardPage = connect(mapStateToProps)(BankCardPageComponent);

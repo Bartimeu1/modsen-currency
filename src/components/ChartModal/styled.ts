@@ -1,88 +1,36 @@
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
 export const Title = styled.h5`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize.xs1};
   text-align: center;
   margin-bottom: 30px;
 
-  @media (max-width: 500px) {
-    font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs2};
     margin-bottom: 20px;
-  }
-`;
-
-export const Block = styled.div`
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 500px) {
-    margin-bottom: 20px;
-
-    div,
-    input {
-      width: 100%;
-    }
-  }
-`;
-
-export const BlockTitle = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  font-size: ${({ theme }) => theme.fontSize.xs2};
-  align-self: flex-start;
-  margin-bottom: 20px;
-
-  @media (max-width: 500px) {
-    margin-bottom: 15px;
-    font-size: 16px;
-  }
-`;
-
-export const BlockInput = styled.input`
-  background: ${({ theme }) => theme.color.inputBg};
-  color: ${({ theme }) => theme.color.text};
-  border: 0;
-  border-radius: ${({ theme }) => theme.borderRadius.small};
-  width: 300px;
-  padding: 15px 19px;
-  font-family: 'Poppins', sans-serif;
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    padding: 19px 15px;
-    width: 250px;
   }
 `;
 
 export const Buttons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
 `;
 
 export const SubmitButton = styled.button`
   border: 1px solid ${({ theme }) => theme.color.border};
   background: ${({ theme }) => theme.color.background};
   border-radius: ${({ theme }) => theme.borderRadius.small};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   padding: 10px 20px;
   margin: 0 auto;
   display: block;
   transition: 0.3s;
 
   &:hover {
-    border: 1px solid ${({ theme }) => theme.color.text};
-    background: ${({ theme }) => theme.color.text};
+    border: 1px solid ${({ theme }) => theme.color.primary};
+    background: ${({ theme }) => theme.color.primary};
     color: ${({ theme }) => theme.color.background};
     transition: 0.3s;
   }

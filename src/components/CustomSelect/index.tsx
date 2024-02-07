@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { memo,useRef, useState } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 import { ICurrenciesList } from '@root/types/api';
 import { removeCurrencyFromList } from '@utils/helpers';
+import { useOnClickOutside } from '@utils/hooks';
 
 import {
   Dropdown,
@@ -18,20 +19,32 @@ interface IConvertetSelectProps {
   selectedCurrency?: string;
   targetCurrencyCode: string;
   currenciesList: ICurrenciesList;
-  setTargetCurrencyCode: (code: string) => void;
+  setTargetCurrencyCode: (code: string) => () => void;
 }
 
-function CustomSelect(props: IConvertetSelectProps) {
+export const CustomSelect = memo(function CustomSelect(
+  props: IConvertetSelectProps,
+) {
   const { targetCurrencyCode, currenciesList, setTargetCurrencyCode } = props;
 
   const [isSelectOpened, setIsSelectOpened] = useState(false);
+  const selectRef = useRef(null);
 
   const handleSelectInputClick = () => {
     setIsSelectOpened((prevState) => !prevState);
   };
 
+  const onSelectClickOutside = () => {
+    setIsSelectOpened(false);
+  };
+
+  useOnClickOutside(selectRef, onSelectClickOutside);
+
   return (
-    <StyledSelect onClick={handleSelectInputClick} data-testid="select">
+    <StyledSelect
+      onClick={handleSelectInputClick}
+      ref={selectRef}
+      data-testid="select">
       <SelectLabel $isSelectOpened={isSelectOpened}>
         <LabelValue>
           <ItemText>{currenciesList[targetCurrencyCode].title}</ItemText>
@@ -47,9 +60,7 @@ function CustomSelect(props: IConvertetSelectProps) {
             <DropdownItem
               key={code}
               data-testid="select-dropdown-item"
-              onClick={() => {
-                setTargetCurrencyCode(code);
-              }}>
+              onClick={setTargetCurrencyCode(code)}>
               <DropdownItem>
                 <ItemText>{currenciesList[code].title}</ItemText>
                 <ItemImage src={currenciesList[code].image} />
@@ -60,6 +71,4 @@ function CustomSelect(props: IConvertetSelectProps) {
       )}
     </StyledSelect>
   );
-}
-
-export default React.memo(CustomSelect);
+});

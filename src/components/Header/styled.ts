@@ -1,42 +1,21 @@
-import styled, { keyframes } from 'styled-components';
+import { fadeIn } from '@constants/animtaions';
+import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
-interface IToggleButton {
-  $isLightTheme: boolean;
-}
-
-interface IContent {
-  $isBurgerActive: boolean;
-}
-
-interface IBurgerMenu {
-  $isBurgerActive: boolean;
-}
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import { IBurgerMenu,IContent, IToggleButton } from './types';
 
 export const StyledHeader = styled.header`
   padding-top: ${({ theme }) => theme.spaces.md};
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     padding-top: 10px;
   }
 `;
 
 export const Content = styled.div<IContent>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${FlexMixin({ align: 'center', justify: 'space-between' })}
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     display: none;
     animation: ${fadeIn} 0.5s ease;
     align-items: center;
@@ -59,11 +38,11 @@ export const Content = styled.div<IContent>`
 `;
 
 export const LogoImage = styled.img`
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     width: 23px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     width: 40px;
     margin-bottom: 20px;
   }
@@ -100,7 +79,7 @@ export const ToggleButton = styled.input<IToggleButton>`
       $isLightTheme && `transform: translateX(calc(100% - 4px));`}
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     width: 27px;
     height: 17px;
 
@@ -110,7 +89,7 @@ export const ToggleButton = styled.input<IToggleButton>`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     margin-top: 20px;
     width: 50px;
     height: 28px;
@@ -132,7 +111,7 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
   transition: 0.3s;
   &::before,
   &::after {
-    background: ${(props) => props.theme.color.text};
+    background: ${({ theme }) => theme.color.primary};
     position: absolute;
     left: 0;
     content: '';
@@ -157,22 +136,24 @@ export const BurgerMenu = styled.div<IBurgerMenu>`
       transform: rotate(-45deg);
       top: 5px;
     }
+
     &::after {
       transform: rotate(45deg);
       bottom: 5px;
     }
+    
     & span {
       display: none;
     }
   `}
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     display: block;
   }
 `;
 
 export const BurgerRow = styled.span`
-  background: ${(props) => props.theme.color.text};
+  background: ${({ theme }) => theme.color.primary};
   position: absolute;
   width: 100%;
   height: 1.5px;

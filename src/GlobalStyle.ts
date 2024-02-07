@@ -1,10 +1,17 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+interface IFlexMixin {
+  align?: string;
+  justify?: string;
+  direction?: string;
+  wrap?: string;
+}
+
+export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 
   *, *:before, *:after {
@@ -28,8 +35,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.color.background};
-    color: ${({ theme }) => theme.color.text};
-    font-family: 'Poppins', sans-serif;
+    color: ${({ theme }) => theme.color.primary};
+    font-family: ${({ theme }) => theme.fontFamily.main};
     width: 100%;
     position: relative;
     overflow-x: hidden;
@@ -43,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     background-color: inherit;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily.main};
   }
 `;
 
@@ -57,4 +64,15 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export default GlobalStyle;
+export const FlexMixin = ({
+  align = 'stretch',
+  justify = 'flex-start',
+  direction = 'row',
+  wrap = 'nowrap',
+}: IFlexMixin = {}) => css`
+  display: flex;
+  align-items: ${align};
+  justify-content: ${justify};
+  flex-direction: ${direction};
+  flex-wrap: ${wrap};
+`;

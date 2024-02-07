@@ -1,18 +1,16 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import ErrorBoundary from '@components/ErrorBoundary';
+import { ErrorBoundary } from '@components/ErrorBoundary';
 import Layout from '@components/Layout';
 import theme from '@constants/theme';
-import GlobalStyle from '@root/GlobalStyle';
+import { GlobalStyle } from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import BankCardPage from './pages/BankCard';
-import HomePage from './pages/Home';
-import TimelinePage from './pages/Timeline';
+import { pageRoutes } from './constants/routes';
 
-function App() {
+export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
 
   return (
@@ -22,9 +20,9 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/timeline" element={<TimelinePage />} />
-              <Route path="/bank-card" element={<BankCardPage />} />
+              {pageRoutes.map(({ id, path, element }) => (
+                <Route key={id} path={path} element={element} />
+              ))}
             </Route>
           </Routes>
         </HashRouter>
@@ -32,5 +30,3 @@ function App() {
     </ErrorBoundary>
   );
 }
-
-export default App;

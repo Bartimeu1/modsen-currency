@@ -3,8 +3,8 @@ import ApexChart from 'react-apexcharts';
 import { connect } from 'react-redux';
 
 import noResultsImage from '@assets/images/noResults.png';
-import CustomSelect from '@components/CustomSelect';
-import ModalPortal from '@components/ModalPortal';
+import { CustomSelect } from '@components/CustomSelect';
+import { ModalWrapper } from '@components/ModalWrapper';
 import { chartOptions } from '@constants/chart';
 import { currenciesList } from '@root/constants/currency';
 import { IChartDataList } from '@root/types/chart';
@@ -15,7 +15,7 @@ import {
 } from '@store/features/chart/chartSlice';
 import { RootState } from '@store/store';
 
-import ChartModal from '../ChartModal';
+import { ChartModal } from '../ChartModal';
 import {
   Controller,
   ControllerButton,
@@ -37,7 +37,7 @@ interface IChartState {
   isModalVisible: boolean;
 }
 
-class Chart extends PureComponent<IChartProps, IChartState> {
+class ChartComponent extends PureComponent<IChartProps, IChartState> {
   constructor(props: IChartProps) {
     super(props);
 
@@ -52,6 +52,10 @@ class Chart extends PureComponent<IChartProps, IChartState> {
 
   onResetValuesClick = () => {
     this.props.resetData();
+  };
+
+  onSelectChange = (code: string) => () => {
+    this.props.setCurrentCurrency(code);
   };
 
   onChangeValueClick = () => {
@@ -69,7 +73,7 @@ class Chart extends PureComponent<IChartProps, IChartState> {
   };
 
   render() {
-    const { setCurrentCurrency, currentCurrency, chartData } = this.props;
+    const { currentCurrency, chartData } = this.props;
     const { isModalVisible } = this.state;
 
     return (
@@ -77,7 +81,7 @@ class Chart extends PureComponent<IChartProps, IChartState> {
         <Controller data-testid="chart-controller">
           <CustomSelect
             targetCurrencyCode={currentCurrency}
-            setTargetCurrencyCode={setCurrentCurrency}
+            setTargetCurrencyCode={this.onSelectChange}
             currenciesList={currenciesList}
           />
           <ControllerButton
@@ -114,11 +118,11 @@ class Chart extends PureComponent<IChartProps, IChartState> {
             <NoResultsImage src={noResultsImage} alt="noResults" />
           </NoResults>
         )}
-        <ModalPortal
-          isModalVisible={isModalVisible}
-          closeModalClick={this.handleCloseModalClick}>
-          <ChartModal closeModalClick={this.handleCloseModalClick} />
-        </ModalPortal>
+        {isModalVisible && (
+          <ModalWrapper closeModalClick={this.handleCloseModalClick}>
+            <ChartModal closeModalClick={this.handleCloseModalClick} />
+          </ModalWrapper>
+        )}
       </StyledChart>
     );
   }
@@ -137,4 +141,7 @@ const mapDispatchToProps = {
   setCurrentCurrency,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chart);
+export const Chart = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ChartComponent);

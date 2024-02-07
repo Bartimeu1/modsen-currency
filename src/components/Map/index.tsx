@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
-import CustomSelect from '@components/CustomSelect';
-import Loader from '@components/Loader';
-import MapInfoWindow from '@components/MapInfoWindow';
+import { CustomSelect } from '@components/CustomSelect';
+import { Loader } from '@components/Loader';
+import { MapInfoWindow } from '@components/MapInfoWindow';
 import { currenciesList } from '@constants/currency';
 import { mapTitleText } from '@constants/text';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import config from '@root/config';
+import { mapsApiKey } from '@root/config';
 import {
   defaultMapCenter,
   defaultMapZoom,
@@ -26,7 +26,7 @@ interface IMapState {
   mapLoaded: boolean;
 }
 
-class Map extends PureComponent<MapProps, IMapState> {
+class MapComponent extends Component<MapProps, IMapState> {
   constructor(props: MapProps) {
     super(props);
 
@@ -61,9 +61,13 @@ class Map extends PureComponent<MapProps, IMapState> {
     this.setState({ selectedPlace: null });
   };
 
+  onSelectValueChange = (selectedValue: string) => () => {
+    this.props.setCurrentCurrency(selectedValue);
+  };
+
   render() {
     const { selectedPlace, mapLoaded } = this.state;
-    const { setCurrentCurrency, currentCurrency } = this.props;
+    const { currentCurrency } = this.props;
     const { data: placesData } = this.props.places;
 
     return (
@@ -72,12 +76,12 @@ class Map extends PureComponent<MapProps, IMapState> {
         <MapTitle>{mapTitleText}</MapTitle>
         <CustomSelect
           currenciesList={currenciesList}
-          setTargetCurrencyCode={setCurrentCurrency}
+          setTargetCurrencyCode={this.onSelectValueChange}
           targetCurrencyCode={currentCurrency}
         />
         {placesData && (
           <MapWrapper>
-            <LoadScript googleMapsApiKey={config.mapsApiKey}>
+            <LoadScript googleMapsApiKey={mapsApiKey}>
               <GoogleMap
                 center={defaultMapCenter}
                 zoom={defaultMapZoom}
@@ -124,4 +128,4 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 type MapProps = ConnectedProps<typeof connector>;
 
-export default connector(Map);
+export const Map = connector(MapComponent);

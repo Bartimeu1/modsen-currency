@@ -1,33 +1,30 @@
 {
   "compilerOptions": {
+    "strict": true,
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": true,
     "noImplicitReturns": true,
-    "alwaysStrict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
     "jsx": "react",
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": true,
     "isolatedModules": true,
     "baseUrl": "./",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "paths": {
       "@root/*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
       "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@assets/*": ["src/assets/*"],
     }
   },
-  "include": ["src/**/**/*", "cypress"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/**/*"],
+  "exclude": ["node_modules", "cypress", "cypress.config.ts"]
 }

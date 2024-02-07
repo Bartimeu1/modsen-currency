@@ -1,49 +1,52 @@
-import React, { useCallback,useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
-import ConverterItem from '@components/ConventerItem';
+import { ConverterItem } from '@components/ConventerItem';
+import { ConverterModal } from '@components/ConverterModal';
+import { ModalWrapper } from '@components/ModalWrapper';
 import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
-import ConverterModal from '../ConverterModal';
-import ModalPortal from '../ModalPortal';
 import { StyledConverterList } from './styled';
 
 interface IConverterListProps {
   currencies: { [currencyCode: string]: ICurrencyItem };
 }
 
-function ConverterList({ currencies }: IConverterListProps) {
+export function ConverterList({ currencies }: IConverterListProps) {
   const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
-  const handleConverterItemClick = useCallback((currency: string) => {
-    setSelectedCurrency(currency);
-  }, []);
+  const handleConverterItemClick = useCallback(
+    (currency: string) => () => {
+      setSelectedCurrency(currency);
+    },
+    [],
+  );
 
-  const handleCloseModalClick = useCallback(() => {
+  const handleCloseModalClick = () => {
     setSelectedCurrency(null);
-  }, []);
+  };
 
   return (
     <StyledConverterList data-testid="converter-list">
-      {Object.keys(currencies).map((currency) => (
-        <ConverterItem
-          key={currenciesList[currency].title}
-          rate={currencies[currency].value}
-          image={currenciesList[currency].image}
-          title={currenciesList[currency].title}
-          onClick={() => handleConverterItemClick(currency)}
-        />
-      ))}
-
-      <ModalPortal
-        closeModalClick={handleCloseModalClick}
-        isModalVisible={!!selectedCurrency}>
-        {selectedCurrency && (
+      {Object.keys(currencies).map((currency) => {
+        const { title, image } = currenciesList[currency];
+        const { value } = currencies[currency];
+        return (
+          <ConverterItem
+            key={title}
+            rate={value}
+            image={image}
+            title={title}
+            currencyCode={currency}
+            onClick={handleConverterItemClick}
+          />
+        );
+      })}
+      {selectedCurrency && (
+        <ModalWrapper closeModalClick={handleCloseModalClick}>
           <ConverterModal selectedCurrency={selectedCurrency} />
-        )}
-      </ModalPortal>
+        </ModalWrapper>
+      )}
     </StyledConverterList>
   );
 }
-
-export default ConverterList;

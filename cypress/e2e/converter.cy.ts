@@ -17,7 +17,7 @@ describe('converter spec', () => {
   it('converter modal result should be calculated correctly', () => {
     cy.visit('/');
     cy.get('[data-testid="converter-item"]').first().click();
-    cy.get('[data-testid="currency-amount-input"]').should('have.value', '1');
+    cy.get('[data-testid="input-field"]').should('have.value', '1');
     cy.get('input[type="number"]')
       .clear()
       .type('10')

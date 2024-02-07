@@ -1,5 +1,7 @@
 import { IChartDataList, IChartOptions } from '@root/types/chart';
 
+export const baseChartValue = 5000;
+
 export const chartOptions: IChartOptions = {
   chart: {
     id: 'currency-chart',
@@ -47,35 +49,3 @@ export const chartDataCurrenciesList: IChartDataList = {
   BTC: { data: [], lastUpdateAt: 0 },
   TRY: { data: [], lastUpdateAt: 0 },
 };
-
-export const chartModalBlocks: {
-  id: number;
-  title: string;
-  stateName: string;
-}[] = [
-  {
-    id: 1,
-    title: 'Day',
-    stateName: 'day',
-  },
-  {
-    id: 2,
-    title: 'Open value',
-    stateName: 'openValue',
-  },
-  {
-    id: 3,
-    title: 'High value',
-    stateName: 'highValue',
-  },
-  {
-    id: 4,
-    title: 'Low value',
-    stateName: 'lowValue',
-  },
-  {
-    id: 5,
-    title: 'Close value',
-    stateName: 'closeValue',
-  },
-];

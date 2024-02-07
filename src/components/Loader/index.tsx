@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
 import loaderIcon from '@assets/images/loader.png';
+import { PortalWrapper } from '@components/PortalWrapper';
 
-import { LoaderImage,StyledLoader } from './styled';
+import { LoaderImage, StyledLoader } from './styled';
 
-function Loader() {
+export function Loader() {
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
 
@@ -14,12 +14,11 @@ function Loader() {
     };
   }, []);
 
-  return createPortal(
-    <StyledLoader>
-      <LoaderImage src={loaderIcon} alt="loader" />
-    </StyledLoader>,
-    document.body,
+  return (
+    <PortalWrapper>
+      <StyledLoader>
+        <LoaderImage src={loaderIcon} alt="loader" />
+      </StyledLoader>
+    </PortalWrapper>
   );
 }
-
-export default Loader;

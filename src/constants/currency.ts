@@ -9,6 +9,8 @@ import TRYimage from '@assets/images/TRY.png';
 import USDimage from '@assets/images/USD.png';
 import { ICurrenciesList } from '@root/types/api';
 
+export const baseCurrencyValue = 1;
+
 export const requestedCurrencies = 'EUR,CAD,ARS,JPY,AUD,CNY,TRY,BTC,USD';
 
 export const baseCurrency = 'BYN';

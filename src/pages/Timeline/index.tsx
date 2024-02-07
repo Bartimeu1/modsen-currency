@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Chart from '@components/Chart';
-import Observable from '@components/Observable';
-import Toast from '@components/Toast';
-import UpdateInfo from '@components/UpdateInfo';
+import { Chart } from '@components/Chart';
+import { Toast } from '@components/Toast';
+import { UpdateInfo } from '@components/UpdateInfo';
 import { chartBuildText } from '@constants/text';
 import { IChartDataList } from '@root/types/chart';
+import { Observable } from '@services/Observable';
 import { RootState } from '@store/store';
 
 interface ITimelinePageProps {
@@ -18,7 +18,10 @@ interface ITimelinePageState {
   isChartFilled: boolean;
 }
 
-class TimelinePage extends Component<ITimelinePageProps, ITimelinePageState> {
+class TimelinePageComponent extends Component<
+  ITimelinePageProps,
+  ITimelinePageState
+> {
   constructor(props: ITimelinePageProps) {
     super(props);
 
@@ -73,4 +76,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps)(TimelinePage);
+export const TimelinePage = connect(mapStateToProps)(TimelinePageComponent);

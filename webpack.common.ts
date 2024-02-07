@@ -1,4 +1,5 @@
 import Dotenv from 'dotenv-webpack';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { Configuration } from 'webpack';
@@ -9,6 +10,7 @@ const commonConfig: Configuration = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new FaviconsWebpackPlugin('./src/assets/images/favicon.ico'),
     new Dotenv({
       path: path.resolve(process.cwd(), '.env'),
       systemvars: true,
@@ -21,7 +23,9 @@ const commonConfig: Configuration = {
       '@components': path.resolve(__dirname, './src/components'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@constants': path.resolve(__dirname, './src/constants'),
+      '@pages': path.resolve(__dirname, './src/pages'),
       '@store': path.resolve(__dirname, './src/store'),
+      '@services': path.resolve(__dirname, './src/services'),
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
@@ -38,7 +42,7 @@ const commonConfig: Configuration = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg)$/i,
+        test: /\.(png|svg|webp)$/i,
         type: 'asset/resource',
       },
       {

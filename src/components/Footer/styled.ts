@@ -1,28 +1,23 @@
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${FlexMixin({ direction: 'column', justify: 'center' })}
   padding-bottom: 30px;
   margin-top: 95px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     align-items: center;
-  }
-
-  @media (max-width: 920px) {
     padding-bottom: 15px;
     margin-top: 50px;
   }
 `;
 
 export const Content = styled.div`
+  ${FlexMixin({ justify: 'space-between' })}
   margin-bottom: ${({ theme }) => theme.spaces.lg};
-  display: flex;
-  justify-content: space-between;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     flex-direction: column;
   }
 `;
@@ -30,38 +25,37 @@ export const Content = styled.div`
 export const Info = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs1};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   max-width: 490px;
   line-height: 150%;
 
-  @media (max-width: 1150px) {
-    font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs2};
     max-width: 400px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     display: none;
   }
 `;
 
 export const ContentText = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${FlexMixin({ direction: 'column' })}
 `;
 
 export const Logo = styled.div`
-  display: flex;
-  align-items: center;
+  ${FlexMixin({ align: 'center' })}
   margin-bottom: 35px;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin-bottom: 50px;
   }
 `;
 
 export const LogoImage = styled.img`
   margin-right: 17px;
-  @media (max-width: 430px) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}) {
     width: 35px;
     margin-right: 13px;
   }
@@ -70,35 +64,32 @@ export const LogoImage = styled.img`
 export const LogoTitle = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize.md};
-  background: linear-gradient(
-    90deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
-  );
+  background: color: ${({ theme }) => theme.color.mainTitle};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  @media (max-width: 1150px) {
-    font-size: 23px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
+    font-size: ${({ theme }) => theme.fontSize.xs1};
   }
-  @media (max-width: 430px) {
-    font-size: 18px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}) {
+    font-size: ${({ theme }) => theme.fontSize.xs3s};
   }
 `;
 
 export const Label = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: ${({ theme }) => theme.fontSize.xs1};
-  font-family: 'Inter', sans-serif;
-  color: #898989;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
+  color: ${({ theme }) => theme.color.grey};
   text-align: center;
 
-  @media (max-width: 920px) {
-    font-size: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
-  @media (max-width: 365px) {
-    font-size: 14px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;

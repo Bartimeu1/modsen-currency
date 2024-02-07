@@ -35,6 +35,7 @@
           ["@components", "./src/components"],
           ["@services", "./src/services"],
           ["@constants", "./src/constants"],
+          ["@pages", "./src/pages"],
           ["@middlewares", "./src/middlewares"],
           ["@utils", "./src/utils"]
         ]

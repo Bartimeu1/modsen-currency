@@ -1,10 +1,13 @@
+import { baseChartValue } from '@constants/chart';
+import { baseCurrencyValue } from '@constants/currency';
+import { timeZoneOffset } from '@constants/formatting';
 import { ICurrenciesList } from '@root/types/api';
 import { IChartData } from '@root/types/chart';
 import { IMapsItem } from '@root/types/maps';
 
 export const convertDateFormat = (dateString: string | number) => {
   const date = new Date(dateString);
-  date.setHours(date.getHours() + 3);
+  date.setHours(date.getHours() + timeZoneOffset);
   const hours = date.getUTCHours().toString();
   const minutes = date.getUTCMinutes().toString();
 
@@ -12,7 +15,7 @@ export const convertDateFormat = (dateString: string | number) => {
 };
 
 export const convertAndFormatCurrencyData = (rate: number) => {
-  let convertedValue = 1 / rate;
+  let convertedValue = baseCurrencyValue / rate;
   const parts = convertedValue.toString().split('.');
 
   if (convertedValue < 1) {
@@ -20,12 +23,12 @@ export const convertAndFormatCurrencyData = (rate: number) => {
       .split('')
       .findIndex((number) => number !== '0');
 
-    convertedValue = +convertedValue.toFixed(firstNaturalNumIndex + 2);
+    convertedValue = Number(convertedValue.toFixed(firstNaturalNumIndex + 2));
   } else {
-    convertedValue = +convertedValue.toFixed(2);
+    convertedValue = Number(convertedValue.toFixed(2));
   }
 
-  return convertedValue.toString().replace('.', ',');
+  return convertedValue.toString();
 };
 
 export const removeCurrencyFromList = (
@@ -39,10 +42,10 @@ export const removeCurrencyFromList = (
 };
 
 export const calculateConverterResult = (
-  currancyRate: number,
-  amout: number,
+  currencyRate: number,
+  amount: number,
 ) => {
-  return currancyRate * amout;
+  return (currencyRate * amount).toFixed(3);
 };
 
 export const generateChartDataObjects = (): IChartData => {
@@ -60,7 +63,7 @@ export const generateChartDataObjects = (): IChartData => {
 
 const generateRandomChartDataArray = () => {
   const array = [];
-  let currentValue = 5000;
+  let currentValue = baseChartValue;
   for (let i = 0; i < 4; i++) {
     const change = (Math.random() - 0.5) * 5;
     currentValue += change;
@@ -74,4 +77,16 @@ export const filterPlacesByCurrency = (
   currency: string,
 ) => {
   return placesList.filter((place) => place.currencies.includes(currency));
+};
+
+export const validateNumericInput = (
+  inputValue: string,
+  minValue: string,
+  maxValue: string,
+) => {
+  const numericValue = Number(inputValue);
+
+  return numericValue <= Number(maxValue) && numericValue >= Number(minValue)
+    ? ''
+    : `The value must be between ${minValue} and ${maxValue}`;
 };

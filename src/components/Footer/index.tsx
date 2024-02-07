@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logoImage from '@assets/images/navLogo.png';
-import FooterNavigation from '@components/FooterNavigation';
+import { FooterNavigation } from '@components/FooterNavigation';
 import {
   appTitleText,
   footerInfoText,
@@ -19,9 +19,9 @@ import {
   StyledFooter,
 } from './styled';
 
-function Footer() {
+export function Footer() {
   return (
-    <StyledFooter>
+    <StyledFooter data-testid="footer">
       <Content>
         <ContentText>
           <Logo>
@@ -36,5 +36,3 @@ function Footer() {
     </StyledFooter>
   );
 }
-
-export default Footer;

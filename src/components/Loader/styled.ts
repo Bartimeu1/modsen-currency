@@ -1,11 +1,10 @@
-import styled, { keyframes } from 'styled-components';
-
-const rotateAnimation = keyframes`
-  0% {transform: rotate(0deg);}
-	100% {transform: rotate(360deg);}
-`;
+import { rotate } from '@constants/animtaions';
+import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledLoader = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'center' })}
+  background: ${({ theme }) => theme.color.loaderBg};
   z-index: 40;
   position: fixed;
   backdrop-filter: blur(10px);
@@ -13,11 +12,8 @@ export const StyledLoader = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const LoaderImage = styled.img`
-  animation: ${rotateAnimation} 1s infinite linear;
+  animation: ${rotate} 1s infinite linear;
 `;

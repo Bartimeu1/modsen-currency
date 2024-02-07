@@ -2,7 +2,6 @@ import React from 'react';
 
 import logoIcon from '@assets/images/bannerLogo.png';
 import { appTitleText, bannerSubtitleText } from '@constants/text';
-import { useAppSelector } from '@root/utils/hooks';
 
 import {
   BannerContent,
@@ -12,11 +11,9 @@ import {
   StyledBanner,
 } from './styled';
 
-function Banner() {
-  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
-
+export function Banner() {
   return (
-    <StyledBanner $isDarkTheme={currentTheme === 'dark'}>
+    <StyledBanner data-testid="banner">
       <BannerContent>
         <BannerTitle>{appTitleText}</BannerTitle>
         <BannerSubtitle>{bannerSubtitleText}</BannerSubtitle>
@@ -25,5 +22,3 @@ function Banner() {
     </StyledBanner>
   );
 }
-
-export default Banner;

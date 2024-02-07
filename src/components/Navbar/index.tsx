@@ -1,32 +1,29 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 
-import { navbarLinks } from '@root/constants/common';
-
+import { navbarLinks } from './config';
 import { NavbarLink, StyledNavbar } from './styled';
 
 interface INavbarProps {
-  onClick: () => void;
+  onLinkClick: () => void;
 }
 
-function Navbar({ onClick }: INavbarProps) {
+export const Navbar = function Navbar({ onLinkClick }: INavbarProps) {
   const location = useLocation();
   const { pathname } = location;
 
   return (
     <StyledNavbar data-testid="navigation-bar">
-      {navbarLinks.map((link) => (
+      {navbarLinks.map(({ id, title, href }) => (
         <NavbarLink
-          key={link.id}
-          data-testid={`navigation-link-${link.title}`}
-          to={link.href}
-          onClick={onClick}
-          state={{ isCurrent: pathname === link.href }}>
-          {link.title}
+          key={id}
+          data-testid={`navigation-link-${title}`}
+          to={href}
+          onClick={() => onLinkClick}
+          state={{ isCurrent: pathname === href }}>
+          {title}
         </NavbarLink>
       ))}
     </StyledNavbar>
   );
-}
-
-export default Navbar;
+};

@@ -1,3 +1,4 @@
+import { FlexMixin } from '@root/GlobalStyle';
 import styled from 'styled-components';
 
 export const Content = styled.div`
@@ -12,28 +13,27 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h5`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.primary};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize.xs1};
   text-align: center;
   margin-bottom: 30px;
 
-  @media (max-width: 500px) {
-    font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs2};
     margin-bottom: 20px;
   }
 `;
 
 export const Block = styled.div`
+  ${FlexMixin({ align: 'center', direction: 'column' })}
   margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  position: relative;
   &:last-child {
     margin-bottom: 0;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
     margin-bottom: 20px;
 
     div,
@@ -49,37 +49,29 @@ export const BlockTitle = styled.p`
   align-self: flex-start;
   margin-bottom: 20px;
 
-  @media (max-width: 500px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
 export const BlockText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.fontSize.xs3};
 
-  @media (max-width: 500px) {
-    font-size: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
+    font-size: ${({ theme }) => theme.fontSize.xs4};
   }
 `;
 
-export const AmountInput = styled.input`
-  background: ${({ theme }) => theme.color.inputBg};
-  color: ${({ theme }) => theme.color.text};
-  border: 0;
-  border-radius: ${({ theme }) => theme.borderRadius.small};
-  width: 300px;
-  padding: 19px 20px;
-  font-family: 'Poppins', sans-serif;
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+export const Result = styled.div`
+  ${FlexMixin({ align: 'center', justify: 'center' })}
 
-  @media (max-width: 900px) {
-    padding: 19px 15px;
-    width: 250px;
+  & p {
+    margin-right: 10px;
   }
+`;
+
+export const ResultCurrencyImage = styled.img`
+  width: 20px;
 `;

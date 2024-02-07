@@ -4,7 +4,7 @@ type Observer = {
   notify: () => void;
 };
 
-class Observable {
+class ObservableClass {
   private observers: Observer[] = [];
   private isNotified: boolean = false;
 
@@ -40,4 +40,4 @@ class Observable {
   }
 }
 
-export default new Observable();
+export const Observable = new ObservableClass();

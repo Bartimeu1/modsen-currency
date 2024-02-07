@@ -62,7 +62,7 @@ class MapComponent extends Component<MapProps, IMapState> {
   };
 
   onSelectValueChange = (selectedValue: string) => () => {
-    setCurrentCurrency(selectedValue);
+    this.props.setCurrentCurrency(selectedValue);
   };
 
   render() {

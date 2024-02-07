@@ -26,7 +26,7 @@ export function Header() {
   };
 
   return (
-    <StyledHeader>
+    <StyledHeader data-testid="header">
       <BurgerMenu $isBurgerActive={isBurgerActive} onClick={onBurgerClick}>
         <BurgerRow />
       </BurgerMenu>

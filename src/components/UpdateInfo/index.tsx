@@ -11,7 +11,7 @@ interface IUpdateInfoProps {
 
 export const UpdateInfo = ({ time }: IUpdateInfoProps) => {
   return (
-    <StyledUpdateInfo>
+    <StyledUpdateInfo data-testid="update-info">
       <UpdateImage src={circleImg} alt="circle" />
       <UpdateText>Last updated at {convertDateFormat(time)}</UpdateText>
     </StyledUpdateInfo>

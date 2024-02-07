@@ -16,9 +16,14 @@ export function ModalWrapper(props: IModalWrapperProps) {
   const modalRef = useRef(null);
 
   useEffect(() => {
+    // const portalRoot = document.createElement('div');
+    // portalRoot.setAttribute('data-testid', 'portal');
+
+    // document.body.appendChild(portalRoot);
     document.body.style.overflowY = 'hidden';
 
     return () => {
+      // document.body.removeChild(portalRoot);
       document.body.style.overflowY = 'visible';
     };
   }, []);

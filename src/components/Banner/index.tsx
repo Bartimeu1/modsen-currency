@@ -13,7 +13,7 @@ import {
 
 export function Banner() {
   return (
-    <StyledBanner>
+    <StyledBanner data-testid="banner">
       <BannerContent>
         <BannerTitle>{appTitleText}</BannerTitle>
         <BannerSubtitle>{bannerSubtitleText}</BannerSubtitle>

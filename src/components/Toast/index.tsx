@@ -24,7 +24,7 @@ export function Toast(props: IToastProps) {
   return (
     isVisible && (
       <PortalWrapper>
-        <StyledToast>
+        <StyledToast data-testid="toast">
           <ToastText>{message}</ToastText>
         </StyledToast>
       </PortalWrapper>

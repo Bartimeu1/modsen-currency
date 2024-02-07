@@ -25,7 +25,7 @@ export function FooterNavigation() {
   };
 
   return (
-    <StyledFooterNavigation>
+    <StyledFooterNavigation data-testid="footer-navigation">
       {footerNavBlocks.map((block) => {
         const { id, name, links } = block;
         return (

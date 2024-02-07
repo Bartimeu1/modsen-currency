@@ -13,6 +13,7 @@
     "checkJs": true,
     "isolatedModules": true,
     "baseUrl": "./",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "paths": {
       "@root/*": ["src/*"],
       "@components/*": ["src/components/*"],
@@ -24,6 +25,6 @@
       "@assets/*": ["src/assets/*"],
     }
   },
-  "include": ["src/**/**/*", "cypress"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/**/*"],
+  "exclude": ["node_modules", "cypress"]
 }

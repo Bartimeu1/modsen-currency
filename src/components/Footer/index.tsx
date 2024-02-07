@@ -21,7 +21,7 @@ import {
 
 export function Footer() {
   return (
-    <StyledFooter>
+    <StyledFooter data-testid="footer">
       <Content>
         <ContentText>
           <Logo>

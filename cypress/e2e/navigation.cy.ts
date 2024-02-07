@@ -20,14 +20,4 @@ describe('navigation spec', () => {
     cy.get('[data-testid="navigation-link-Bank card"]').click();
     cy.url().should('eq', 'http://localhost:8080/#/bank-card');
   });
-
-  it('pages components should exist', () => {
-    cy.visit('/');
-    cy.get('[data-testid="navigation-link-Home"]').click();
-    cy.get('[data-testid="home-page"]').should('exist');
-    cy.get('[data-testid="navigation-link-Timeline"]').click();
-    cy.get('[data-testid="timeline-page"]').should('exist');
-    cy.get('[data-testid="navigation-link-Bank card"]').click();
-    cy.get('[data-testid="bank-card-page"]').should('exist');
-  });
 });

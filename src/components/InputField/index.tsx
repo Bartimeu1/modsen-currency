@@ -14,6 +14,7 @@ interface IInputFieldProps {
   inputType: string;
   minValue?: string;
   maxValue?: string;
+  testId?: string;
   errorText?: string;
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -34,6 +35,7 @@ export const InputField = (props: IInputFieldProps) => {
       <FieldTitle>{title}</FieldTitle>
       <InputWrapper>
         <Input
+          data-testid='input-field'
           onChange={onInputChange}
           value={inputValue}
           type={inputType}

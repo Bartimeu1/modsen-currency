@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { useOnClickOutside } from '@utils/hooks';
 
 import { PortalWrapper } from '@components/PortalWrapper';
+import { useOnClickOutside } from '@utils/hooks';
 
 import { CloseButton, ModalContent, StyledModal } from './styled';
 

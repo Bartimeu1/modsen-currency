@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 
 import { ConverterItem } from '@components/ConventerItem';
+import { ConverterModal } from '@components/ConverterModal';
+import { ModalWrapper } from '@components/ModalWrapper';
 import { currenciesList } from '@constants/currency';
 import { ICurrencyItem } from '@root/types/api';
 
-import { ConverterModal } from '@components/ConverterModal';
-import { ModalWrapper } from '@components/ModalWrapper';
 import { StyledConverterList } from './styled';
 
 interface IConverterListProps {

@@ -1,7 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { UpdateInfo } from '.';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
+import { render } from '@testing-library/react';
+
+import { UpdateInfo } from '.';
 
 describe('Update Info component', () => {
   const mockProps = {

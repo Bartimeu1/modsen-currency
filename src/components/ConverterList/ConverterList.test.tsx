@@ -1,8 +1,10 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import { ConverterList } from './index';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import { ConverterList } from './index';
 
 const mockCurrencies = {
   USD: { code: 'USD', value: 0 },

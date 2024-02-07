@@ -1,4 +1,4 @@
-import React, { useRef, useState, memo } from 'react';
+import React, { memo,useRef, useState } from 'react';
 
 import { ReactComponent as ChevronIcon } from '@assets/images/chevron.svg';
 import { ICurrenciesList } from '@root/types/api';

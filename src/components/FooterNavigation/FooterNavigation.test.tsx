@@ -1,7 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { FooterNavigation } from '.';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
+import { render } from '@testing-library/react';
+
+import { FooterNavigation } from '.';
 
 describe('Footer Navigation component', () => {
   test('renders correctly', () => {

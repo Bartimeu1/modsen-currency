@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import loaderIcon from '@assets/images/loader.png';
-
 import { PortalWrapper } from '@components/PortalWrapper';
 
 import { LoaderImage, StyledLoader } from './styled';

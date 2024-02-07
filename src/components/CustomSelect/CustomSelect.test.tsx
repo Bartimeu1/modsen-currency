@@ -1,7 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import { CustomSelect } from '.';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
+import { fireEvent,render } from '@testing-library/react';
+
+import { CustomSelect } from '.';
 
 describe('CustomSelect component', () => {
   const mockCurrenciesList = {

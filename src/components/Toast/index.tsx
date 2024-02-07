@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { StyledToast, ToastText } from './styled';
-
 import { PortalWrapper } from '@components/PortalWrapper';
+
+import { StyledToast, ToastText } from './styled';
 
 interface IToastProps {
   message: string;

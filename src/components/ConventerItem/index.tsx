@@ -9,7 +9,7 @@ interface IConverterItemProps {
   title: string;
   image: string;
   rate: number;
-  onClick: any;
+  onClick: (code: string) => () => void;
 }
 
 export const ConverterItem = memo(function ConverterItem(

@@ -1,8 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { ConverterItem } from './';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import { ConverterItem } from './';
 
 const mockProps = {
   currencyCode: 'USD',

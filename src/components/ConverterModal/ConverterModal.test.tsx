@@ -1,9 +1,11 @@
 import React from 'react';
-import { render, renderHook, waitFor } from '@testing-library/react';
-import { ConverterModal } from './';
+
 import { WithEnvironment } from '@root/services/WithEnvironment';
 import { useGetCurrencyRatesQuery } from '@store/features/currency/currencyApi';
+import { render, renderHook, waitFor } from '@testing-library/react';
 import fetchMock from 'jest-fetch-mock';
+
+import { ConverterModal } from './';
 
 const mockProps = {
   selectedCurrency: 'USD',

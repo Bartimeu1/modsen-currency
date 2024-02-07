@@ -1,7 +1,6 @@
 import { rotate } from '@constants/animtaions';
-import styled from 'styled-components';
-
 import { FlexMixin } from '@root/GlobalStyle';
+import styled from 'styled-components';
 
 export const StyledLoader = styled.div`
   ${FlexMixin({ align: 'center', justify: 'center' })}

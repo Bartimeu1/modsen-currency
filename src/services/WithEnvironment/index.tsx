@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
-import theme from '@constants/theme';
 import { HashRouter } from 'react-router-dom';
+
+import theme from '@constants/theme';
 import { store } from '@store/store';
+import { ThemeProvider } from 'styled-components';
 
 export function WithEnvironment(props: { children: ReactNode }) {
   return (

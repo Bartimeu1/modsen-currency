@@ -47,7 +47,7 @@ export function ConverterModal({ selectedCurrency }: IConverItemProps) {
   const onAmountInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
 
-    setInputValidationText(validateNumericInput(inputValue, '1', '10000'));
+    setInputValidationText(validateNumericInput(inputValue, '1', '100000'));
     setAmountInputValue(() => inputValue);
   };
 

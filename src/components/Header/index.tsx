@@ -21,25 +21,27 @@ export function Header() {
 
   const [isBurgerActive, setIsBurgerActive] = useState(false);
 
-  const onBurgerClick = () => {
+  const onBurgerClick = () => () => {
     setIsBurgerActive((prevState) => !prevState);
+  };
+
+  const onToggleButtonClick = () => () => {
+    dispatch(toggleTheme());
   };
 
   return (
     <StyledHeader data-testid="header">
-      <BurgerMenu $isBurgerActive={isBurgerActive} onClick={onBurgerClick}>
+      <BurgerMenu $isBurgerActive={isBurgerActive} onClick={onBurgerClick()}>
         <BurgerRow />
       </BurgerMenu>
       <Content $isBurgerActive={isBurgerActive}>
         <LogoImage src={logoIcon} alt="logo" />
-        <Navbar onLinkClick={() => setIsBurgerActive(false)} />
+        <Navbar onLinkClick={onBurgerClick} />
         <ToggleButton
           type="checkbox"
           data-testid="toggle-theme-button"
           $isLightTheme={currentTheme === LIGHT_THEME}
-          onClick={() => {
-            dispatch(toggleTheme());
-          }}
+          onClick={onToggleButtonClick()}
         />
       </Content>
     </StyledHeader>

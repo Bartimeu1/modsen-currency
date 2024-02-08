@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLockBodyScroll } from '@root/hooks';
 
 import loaderIcon from '@assets/images/loader.png';
 import { PortalWrapper } from '@components/PortalWrapper';
+import { useLockBodyScroll } from '@root/hooks';
 
 import { LoaderImage, StyledLoader } from './styled';
 

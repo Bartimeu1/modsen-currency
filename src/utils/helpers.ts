@@ -1,12 +1,12 @@
 import {
   baseChartValue,
-  maxChartDataValues,
   chartDataMultiplier,
   chartDataPoints,
   chartDataShift,
+  maxChartDataValues,
 } from '@constants/chart';
 import { baseCurrencyValue, displayThreshold } from '@constants/currency';
-import { timeZoneOffset, decimalPlaces } from '@constants/formatting';
+import { decimalPlaces,timeZoneOffset } from '@constants/formatting';
 import { ICurrenciesList } from '@root/types/api';
 import { IChartData } from '@root/types/chart';
 import { IMapsItem } from '@root/types/maps';

@@ -7,7 +7,7 @@ import { GlobalStyle } from '@root/GlobalStyle';
 import { useAppSelector } from '@root/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import { pageRoutes, layoutRoute } from './constants/routes';
+import { layoutRoute,pageRoutes } from './constants/routes';
 
 export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);

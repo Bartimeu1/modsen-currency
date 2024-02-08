@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 import { PortalWrapper } from '@components/PortalWrapper';
-import { useOnClickOutside, useLockBodyScroll } from '@root/hooks';
+import { useLockBodyScroll,useOnClickOutside } from '@root/hooks';
 
 import { CloseButton, ModalContent, StyledModal } from './styled';
 

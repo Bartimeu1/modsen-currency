@@ -45,6 +45,7 @@
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "eol-last": ["error", "always"],
     "simple-import-sort/imports": ["error", {
       "groups": [
         ["^react"],

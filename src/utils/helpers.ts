@@ -20,6 +20,10 @@ export const convertDateFormat = (dateString: string | number) => {
   return `${hours}:${minutes}`;
 };
 
+export const getCurrentYear = () => {
+  return new Date().getFullYear();
+};
+
 export const convertAndFormatCurrencyData = (rate: number) => {
   let convertedValue = baseCurrencyValue / rate;
   const parts = convertedValue.toString().split('.');

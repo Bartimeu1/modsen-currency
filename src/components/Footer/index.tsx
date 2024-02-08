@@ -2,11 +2,8 @@ import React from 'react';
 
 import logoImage from '@assets/images/navLogo.png';
 import { FooterNavigation } from '@components/FooterNavigation';
-import {
-  appTitleText,
-  footerInfoText,
-  footerLabelText,
-} from '@root/constants/text';
+import { appTitleText, footerInfoText } from '@root/constants/text';
+import { getCurrentYear } from '@utils/helpers';
 
 import {
   Content,
@@ -20,6 +17,8 @@ import {
 } from './styled';
 
 export function Footer() {
+  const currentYear = getCurrentYear();
+
   return (
     <StyledFooter data-testid="footer">
       <Content>
@@ -32,7 +31,7 @@ export function Footer() {
         </ContentText>
         <FooterNavigation />
       </Content>
-      <Label>{footerLabelText}</Label>
+      <Label>Startsup © 2023-{currentYear}, All Rights Reserved</Label>
     </StyledFooter>
   );
 }

@@ -18,13 +18,13 @@ export const baseCurrency = 'BYN';
 export const displayThreshold = 1;
 
 export const currenciesList: ICurrenciesList = {
-  USD: { title: 'Commercial Dollar', image: USDimage },
-  ARS: { title: 'Argentine Peso', image: ARSimage },
-  CAD: { title: 'Canadian Dollar', image: CADimage },
-  JPY: { title: 'Yen', image: JPYimage },
-  AUD: { title: 'Australian Dollar', image: AUDimage },
-  CNY: { title: 'Yuan', image: CNYimage },
-  EUR: { title: 'Euro', image: EURimage },
-  BTC: { title: 'Bitcoin', image: BTCimage },
-  TRY: { title: 'Lira', image: TRYimage },
+  USD: { title: 'Commercial Dollar', image: USDimage, alt: 'USD' },
+  ARS: { title: 'Argentine Peso', image: ARSimage, alt: 'ARG' },
+  CAD: { title: 'Canadian Dollar', image: CADimage, alt: 'CAD' },
+  JPY: { title: 'Yen', image: JPYimage, alt: 'JPY' },
+  AUD: { title: 'Australian Dollar', image: AUDimage, alt: 'AUD' },
+  CNY: { title: 'Yuan', image: CNYimage, alt: 'CNY' },
+  EUR: { title: 'Euro', image: EURimage, alt: 'EUR' },
+  BTC: { title: 'Bitcoin', image: BTCimage, alt: 'BTC' },
+  TRY: { title: 'Lira', image: TRYimage, alt: 'TRY' },
 };

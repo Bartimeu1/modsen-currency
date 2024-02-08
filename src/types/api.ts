@@ -13,5 +13,5 @@ export interface ICurrencyResponse {
 }
 
 export interface ICurrenciesList {
-  [key: string]: { title: string; image: string };
+  [key: string]: { title: string; image: string; alt: string };
 }

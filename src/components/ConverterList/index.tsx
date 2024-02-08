@@ -29,7 +29,7 @@ export function ConverterList({ currencies }: IConverterListProps) {
   return (
     <StyledConverterList data-testid="converter-list">
       {Object.keys(currencies).map((currency) => {
-        const { title, image } = currenciesList[currency];
+        const { title, image, alt } = currenciesList[currency];
         const { value } = currencies[currency];
         return (
           <ConverterItem
@@ -38,6 +38,7 @@ export function ConverterList({ currencies }: IConverterListProps) {
             image={image}
             title={title}
             currencyCode={currency}
+            alt={alt}
             onClick={handleConverterItemClick}
           />
         );

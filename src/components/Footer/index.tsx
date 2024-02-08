@@ -24,7 +24,7 @@ export function Footer() {
       <Content>
         <ContentText>
           <Logo>
-            <LogoImage src={logoImage} />
+            <LogoImage src={logoImage} alt="footerLogo" />
             <LogoTitle>{appTitleText}</LogoTitle>
           </Logo>
           <Info>{footerInfoText}</Info>

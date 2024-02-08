@@ -15,6 +15,8 @@ export const requestedCurrencies = 'EUR,CAD,ARS,JPY,AUD,CNY,TRY,BTC,USD';
 
 export const baseCurrency = 'BYN';
 
+export const displayThreshold = 1;
+
 export const currenciesList: ICurrenciesList = {
   USD: { title: 'Commercial Dollar', image: USDimage },
   ARS: { title: 'Argentine Peso', image: ARSimage },

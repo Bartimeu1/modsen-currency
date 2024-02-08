@@ -13,8 +13,8 @@ export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
 
   return (
-    <ErrorBoundary>
-      <ThemeProvider theme={theme[currentTheme]}>
+    <ThemeProvider theme={theme[currentTheme]}>
+      <ErrorBoundary>
         <GlobalStyle />
         <HashRouter>
           <Routes>
@@ -25,7 +25,7 @@ export function App() {
             </Route>
           </Routes>
         </HashRouter>
-      </ThemeProvider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }

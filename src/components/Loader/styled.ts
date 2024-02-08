@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const StyledLoader = styled.div`
   ${FlexMixin({ align: 'center', justify: 'center' })}
+  
   background: ${({ theme }) => theme.color.loaderBg};
   z-index: 40;
   position: fixed;

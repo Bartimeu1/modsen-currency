@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const StyledToast = styled.div`
   ${FlexMixin({ align: 'center' })}
+  
   border-radius: ${({ theme }) => theme.borderRadius.small};
   background-color: ${({ theme }) => theme.color.toastBg};
   position: fixed;

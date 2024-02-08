@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledBanner = styled.section`
   ${FlexMixin()}
+
   padding: 45px 0 60px 0;
   margin-top: 31px;
   max-width: 100%;
@@ -50,6 +51,7 @@ export const StyledBanner = styled.section`
 
 export const BannerContent = styled.div`
   ${FlexMixin({ direction: 'column', align: 'end' })}
+  
   max-width: 750px;
   z-index: 2;
 

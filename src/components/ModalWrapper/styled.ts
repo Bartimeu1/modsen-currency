@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledModal = styled.div`
   ${FlexMixin({ align: 'center', justify: 'center' })}
+  
   backdrop-filter: blur(10px);
   position: fixed;
   z-index: 13;
@@ -27,9 +28,8 @@ export const ModalContent = styled.div`
     display: none;
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     padding: 20px 40px;
-    max-width: 90%;
   }
 `;
 
@@ -60,7 +60,7 @@ export const CloseButton = styled.button`
     transform: rotate(-45deg);
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     right: 10px;
   }
 `;

@@ -13,6 +13,7 @@ interface IBlockLabel {
 
 export const StyledFooterNavigation = styled.nav`
   ${FlexMixin({ justify: 'space-between' })}
+  
   width: 100%;
   max-width: 600px;
 
@@ -85,15 +86,15 @@ export const NavigationLink = styled(Link)`
     transition: 0.3s;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
     font-size: ${({ theme }) => theme.fontSize.xs2};
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     font-size: ${({ theme }) => theme.fontSize.xs3};
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     font-size: ${({ theme }) => theme.fontSize.xs5};
   }
 `;
@@ -101,7 +102,7 @@ export const NavigationLink = styled(Link)`
 export const BlockContent = styled.div<IBlockContent>`
   ${FlexMixin({ direction: 'column' })}
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
     flex-direction: row;
     justify-content: space-around;
@@ -117,7 +118,7 @@ export const BlockLabel = styled.div<IBlockLabel>`
     display: none;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     cursor: pointer;
     & svg {
       display: block;

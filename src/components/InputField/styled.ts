@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledInputField = styled.div`
   ${FlexMixin({ direction: 'column' })}
+  
   margin-bottom: 30px;
 `;
 
@@ -12,7 +13,7 @@ export const FieldTitle = styled.h5`
   align-self: flex-start;
   margin-bottom: 20px;
 
-  @media (max-width: 500px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletS}) {
     margin-bottom: 15px;
     font-size: ${({ theme }) => theme.fontSize.xs4};
   }

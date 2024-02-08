@@ -5,17 +5,18 @@ import styled from 'styled-components';
 
 export const StyledNavbar = styled.nav`
   ${FlexMixin({ align: 'center' })}
+  
   margin: 0 -56px;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
     margin: 0 -25px;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     margin: 0 -11px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
     flex-direction: column;
     margin: -10px 0;
   }

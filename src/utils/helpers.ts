@@ -1,6 +1,12 @@
-import { baseChartValue } from '@constants/chart';
-import { baseCurrencyValue } from '@constants/currency';
-import { timeZoneOffset } from '@constants/formatting';
+import {
+  baseChartValue,
+  chartDataMultiplier,
+  chartDataPoints,
+  chartDataShift,
+  maxChartDataValues,
+} from '@constants/chart';
+import { baseCurrencyValue, displayThreshold } from '@constants/currency';
+import { decimalPlaces,timeZoneOffset } from '@constants/formatting';
 import { ICurrenciesList } from '@root/types/api';
 import { IChartData } from '@root/types/chart';
 import { IMapsItem } from '@root/types/maps';
@@ -14,18 +20,24 @@ export const convertDateFormat = (dateString: string | number) => {
   return `${hours}:${minutes}`;
 };
 
+export const getCurrentYear = () => {
+  return new Date().getFullYear();
+};
+
 export const convertAndFormatCurrencyData = (rate: number) => {
   let convertedValue = baseCurrencyValue / rate;
   const parts = convertedValue.toString().split('.');
 
-  if (convertedValue < 1) {
+  if (convertedValue < displayThreshold) {
     const firstNaturalNumIndex = parts[1]
       .split('')
       .findIndex((number) => number !== '0');
 
-    convertedValue = Number(convertedValue.toFixed(firstNaturalNumIndex + 2));
+    convertedValue = Number(
+      convertedValue.toFixed(firstNaturalNumIndex + decimalPlaces),
+    );
   } else {
-    convertedValue = Number(convertedValue.toFixed(2));
+    convertedValue = Number(convertedValue.toFixed(decimalPlaces));
   }
 
   return convertedValue.toString();
@@ -45,12 +57,12 @@ export const calculateConverterResult = (
   currencyRate: number,
   amount: number,
 ) => {
-  return (currencyRate * amount).toFixed(3);
+  return (currencyRate * amount).toFixed(decimalPlaces);
 };
 
 export const generateChartDataObjects = (): IChartData => {
   const objects = [];
-  for (let i = 1; i <= 30; i++) {
+  for (let i = 1; i <= maxChartDataValues; i++) {
     const obj = {
       x: i,
       y: generateRandomChartDataArray(),
@@ -64,10 +76,10 @@ export const generateChartDataObjects = (): IChartData => {
 const generateRandomChartDataArray = () => {
   const array = [];
   let currentValue = baseChartValue;
-  for (let i = 0; i < 4; i++) {
-    const change = (Math.random() - 0.5) * 5;
+  for (let i = 0; i < chartDataPoints; i++) {
+    const change = (Math.random() - chartDataShift) * chartDataMultiplier;
     currentValue += change;
-    array.push(currentValue.toFixed(2));
+    array.push(currentValue.toFixed(decimalPlaces));
   }
   return array;
 };

@@ -6,7 +6,7 @@ import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import { Container } from '@root/GlobalStyle';
 
-function Layout() {
+export function Layout() {
   return (
     <React.Fragment>
       <Container>
@@ -18,5 +18,3 @@ function Layout() {
     </React.Fragment>
   );
 }
-
-export default Layout;

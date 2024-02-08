@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledMap = styled.div`
   ${FlexMixin({ align: 'center', direction: 'column' })}
+  
   margin-top: 63px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {
@@ -32,7 +33,6 @@ export const MapTitle = styled.h2`
 export const MapWrapper = styled.div`
   margin-top: 80px;
   width: 100%;
-  max-width: 96%;
   height: 500px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopS}) {

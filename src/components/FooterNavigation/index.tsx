@@ -17,7 +17,7 @@ export function FooterNavigation() {
     [key: number]: boolean;
   }>({});
 
-  const onLabelClick = (id: number) => {
+  const onLabelClick = (id: number) => () => {
     setVisibleDropdowns((prevState) => ({
       ...prevState,
       [id]: !prevState[id],
@@ -32,7 +32,7 @@ export function FooterNavigation() {
           <Block key={id}>
             <BlockLabel
               $isDropdownVisible={visibleDropdowns[id]}
-              onClick={() => onLabelClick(id)}>
+              onClick={onLabelClick(id)}>
               <LabelTitle>{name}</LabelTitle>
               <ChevronIcon />
             </BlockLabel>

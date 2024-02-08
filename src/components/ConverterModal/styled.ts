@@ -27,6 +27,7 @@ export const Title = styled.h5`
 
 export const Block = styled.div`
   ${FlexMixin({ align: 'center', direction: 'column' })}
+  
   margin-bottom: 30px;
   position: relative;
   &:last-child {

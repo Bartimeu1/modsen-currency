@@ -21,6 +21,7 @@ export const StyledSelect = styled.div`
 
 export const SelectLabel = styled.div<ISelectLabel>`
   ${FlexMixin({ align: 'center', justify: 'space-between' })}
+
   cursor: pointer;
   transition: 0.3s all;
 
@@ -60,6 +61,7 @@ export const ItemImage = styled.img`
 
 export const Dropdown = styled.div`
   ${FlexMixin({ direction: 'column', align: 'center' })}
+
   background: ${({ theme }) => theme.color.inputBg};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   padding: 10px 10px 10px 20px;
@@ -71,6 +73,7 @@ export const Dropdown = styled.div`
 
 export const DropdownItem = styled.div`
   ${FlexMixin({ align: 'center' })}
+  
   margin-bottom: 10px;
   width: 100%;
   cursor: pointer;

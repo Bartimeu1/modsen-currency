@@ -9,7 +9,7 @@ const commonColors = {
   mapMarkerTitle: '#333',
   toastBg: '#34a853',
   error: '#ff0000',
-  loaderBg: 'rgba(255, 255, 255, 0.1)',
+  loaderBg: ' #FFFFFF1A',
 };
 
 const lightThemeColors = {
@@ -20,8 +20,7 @@ const lightThemeColors = {
   inputBg: '#fff',
   convertItem: '#F0F0F0',
   rateText: '#000',
-  bannerBg:
-    'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)',
+  bannerBg: 'radial-gradient(circle at -1% 57.5%, #13AA52 0%, #00662B 90%)',
 };
 
 const darkThemeColors = {
@@ -32,8 +31,7 @@ const darkThemeColors = {
   inputBg: '#1B2028',
   convertItem: '#202025',
   rateText: '#a7b2c3',
-  bannerBg:
-    'linear-gradient( 241deg, rgba(22, 39, 31, 0.79) 61%, rgba(18, 18, 18, 1) 77% )',
+  bannerBg: 'linear-gradient( 241deg, #16271FCA 61%, #121212 77% )',
 };
 
 const layoutValues = {

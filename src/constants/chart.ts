@@ -49,3 +49,8 @@ export const chartDataCurrenciesList: IChartDataList = {
   BTC: { data: [], lastUpdateAt: 0 },
   TRY: { data: [], lastUpdateAt: 0 },
 };
+
+export const maxChartDataValues = 30;
+export const chartDataPoints = 4;
+export const chartDataMultiplier = 5;
+export const chartDataShift = 0.5;

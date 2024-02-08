@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Layout } from '@components/Layout';
 import { BankCardPage } from '@pages/BankCard';
 import { HomePage } from '@pages/Home';
 import { NotFoundPage } from '@pages/NotFound';
@@ -11,3 +12,8 @@ export const pageRoutes = [
   { id: 3, path: '/bank-card', element: <BankCardPage /> },
   { id: 4, path: '*', element: <NotFoundPage /> },
 ];
+
+export const layoutRoute = {
+  path: '/',
+  element: <Layout />,
+};

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const StyledUpdateInfo = styled.div`
   ${FlexMixin()}
+  
   margin: 57px auto 0 auto;
   align-items: center;
 
@@ -11,7 +12,7 @@ export const StyledUpdateInfo = styled.div`
     margin: 40px auto 0 auto;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletL}) {
     margin: 30px auto 0 auto;
   }
 `;

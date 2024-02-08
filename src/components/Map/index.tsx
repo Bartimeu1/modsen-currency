@@ -53,7 +53,7 @@ class MapComponent extends Component<MapProps, IMapState> {
     this.setState({ mapLoaded: true });
   };
 
-  onMarkerClick = (place: IMapsItem) => {
+  onMarkerClick = (place: IMapsItem) => () => {
     this.setState({ selectedPlace: place });
   };
 
@@ -92,7 +92,7 @@ class MapComponent extends Component<MapProps, IMapState> {
                     <Marker
                       key={place.place_id}
                       position={place.geometry.location}
-                      onClick={() => this.onMarkerClick(place)}
+                      onClick={this.onMarkerClick(place)}
                     />
                   ),
                 )}

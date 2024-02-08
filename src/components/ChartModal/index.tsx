@@ -58,24 +58,28 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
     this.props.closeModalClick();
   };
 
-  onInputValueChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    stateName: string,
-    index: number,
-  ) => {
-    const inputValue = e.target.value;
-    this.setState((prevState) => ({
-      ...prevState,
-      [stateName]: {
-        value: inputValue,
-        validationText: validateNumericInput(
-          inputValue,
-          chartModalFields[index].minValue,
-          chartModalFields[index].maxValue,
-        ),
-      },
-    }));
-  };
+  onInputValueChange =
+    (stateName: string, fieldId: number) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const inputValue = e.target.value;
+      const targetField = chartModalFields.find(
+        (field) => field.id === fieldId,
+      );
+
+      if (targetField) {
+        this.setState((prevState) => ({
+          ...prevState,
+          [stateName]: {
+            value: inputValue,
+            validationText: validateNumericInput(
+              inputValue,
+              targetField.minValue,
+              targetField.maxValue,
+            ),
+          },
+        }));
+      }
+    };
 
   render() {
     const isValidationFailed = Object.values(this.state).some(
@@ -87,7 +91,7 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
       <>
         <Title>Change chart value</Title>
         {chartModalFields.map(
-          ({ id, title, minValue, maxValue, stateName }, index) => (
+          ({ id, title, minValue, maxValue, stateName }) => (
             <InputField
               key={id}
               inputType="number"
@@ -96,9 +100,7 @@ class ChartModalComponent extends Component<IChartModalProps, ChartModalState> {
               maxValue={maxValue}
               inputValue={this.state[stateName].value}
               errorText={this.state[stateName].validationText}
-              onInputChange={(e) =>
-                this.onInputValueChange(e, stateName, index)
-              }
+              onInputChange={this.onInputValueChange(stateName, id)}
             />
           ),
         )}

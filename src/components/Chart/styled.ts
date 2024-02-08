@@ -12,6 +12,7 @@ export const StyledChart = styled.div`
 
 export const Controller = styled.div`
   ${FlexMixin({ align: 'center', justify: 'space-around' })}
+
   margin-bottom: ${({ theme }) => theme.spaces.sm};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopM}) {
@@ -34,6 +35,7 @@ export const ControllerButton = styled.button`
 
 export const NoResults = styled.div`
   ${FlexMixin({ align: 'center', direction: 'column' })}
+  
   margin: 60px auto 0 auto;
 `;
 

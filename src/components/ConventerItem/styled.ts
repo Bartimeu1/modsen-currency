@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledConverterItem = styled.div`
   ${FlexMixin({ align: 'center' })}
+
   border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   background: ${({ theme }) => theme.color.convertItem};
@@ -17,13 +18,13 @@ export const StyledConverterItem = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopXL}) {
     width: 100%;
-    max-width: 48%;
+    flex: 0 0 48%;
     padding: 25px 0 25px 27px;
     margin-bottom: 45px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopM}) {
-    max-width: 90%;
+    flex: 0 0 90%;
     padding: 16px 0 16px 12px;
     margin-bottom: 17px;
   }

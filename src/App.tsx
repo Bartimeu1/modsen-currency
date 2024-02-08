@@ -2,13 +2,12 @@ import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { ErrorBoundary } from '@components/ErrorBoundary';
-import Layout from '@components/Layout';
 import theme from '@constants/theme';
 import { GlobalStyle } from '@root/GlobalStyle';
 import { useAppSelector } from '@utils/hooks';
 import { ThemeProvider } from 'styled-components';
 
-import { pageRoutes } from './constants/routes';
+import { pageRoutes, layoutRoute } from './constants/routes';
 
 export function App() {
   const currentTheme = useAppSelector(({ theme }) => theme.currentTheme);
@@ -19,7 +18,7 @@ export function App() {
         <GlobalStyle />
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path={layoutRoute.path} element={layoutRoute.element}>
               {pageRoutes.map(({ id, path, element }) => (
                 <Route key={id} path={path} element={element} />
               ))}

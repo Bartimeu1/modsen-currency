@@ -1,7 +1,4 @@
-import { RefObject,useEffect } from 'react';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-
-import { AppDispatch, RootState } from '@store/store';
+import { RefObject, useEffect } from 'react';
 
 export const useOnClickOutside = <T extends HTMLElement>(
   ref: RefObject<T>,
@@ -23,6 +20,3 @@ export const useOnClickOutside = <T extends HTMLElement>(
 
   return ref;
 };
-
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

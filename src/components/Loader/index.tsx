@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useLockBodyScroll } from '@root/hooks';
 
 import loaderIcon from '@assets/images/loader.png';
 import { PortalWrapper } from '@components/PortalWrapper';
@@ -6,13 +7,7 @@ import { PortalWrapper } from '@components/PortalWrapper';
 import { LoaderImage, StyledLoader } from './styled';
 
 export function Loader() {
-  useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-
-    return () => {
-      document.body.style.overflowY = 'visible';
-    };
-  }, []);
+  useLockBodyScroll();
 
   return (
     <PortalWrapper>

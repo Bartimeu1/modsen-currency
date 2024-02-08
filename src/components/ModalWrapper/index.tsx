@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import { PortalWrapper } from '@components/PortalWrapper';
-import { useOnClickOutside } from '@utils/hooks';
+import { useOnClickOutside, useLockBodyScroll } from '@root/hooks';
 
 import { CloseButton, ModalContent, StyledModal } from './styled';
 
@@ -15,23 +15,11 @@ export function ModalWrapper(props: IModalWrapperProps) {
 
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    // const portalRoot = document.createElement('div');
-    // portalRoot.setAttribute('data-testid', 'portal');
-
-    // document.body.appendChild(portalRoot);
-    document.body.style.overflowY = 'hidden';
-
-    return () => {
-      // document.body.removeChild(portalRoot);
-      document.body.style.overflowY = 'visible';
-    };
-  }, []);
-
   const onModalClickOutside = () => {
     closeModalClick();
   };
 
+  useLockBodyScroll();
   useOnClickOutside(modalRef, onModalClickOutside);
 
   return (
